@@ -1,0 +1,19 @@
+/*--------------------
+   Buttons
+---------------------*/
+.btn {
+    text-transform: capitalize;
+    position: relative;
+    z-index: 1;
+    
+
+    &:focus,
+    &.active,
+    &:active {
+        -moz-box-shadow: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        outline: none;
+    }
+}
+

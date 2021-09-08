@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+:root{
+  --color-white:#ffffff;
+  --color-black:#000000;
+  --color-light:#C9C6C6;
+  --color-dark:#242424;
+}
+body.light-theme{
+  --color-white:#000000;
+  --color-black:#ffffff;
+  --color-light:#242424;
+  --color-dark:#C9C6C6;
+}
+
