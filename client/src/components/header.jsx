@@ -8,7 +8,7 @@ Header.propTypes = {
 function Header(props) {
     return (
             <header className="header" id="header">
-                <div className="container d-flex align-items-center justify-content-between">
+                <div className="d-flex align-items-center justify-content-between">
                     <div className="header-logo d-flex align-items-center">
                         <div className="header-logo__img">
                             <img src={logodark} alt="qhjv portfolio"/>
