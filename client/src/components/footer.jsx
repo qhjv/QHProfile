@@ -7,7 +7,7 @@ Footer.propTypes = {
 function Footer(props) {
     return (
         <footer className="footer">
-                <div className="container d-flex align-items-end justify-content-between">
+                <div className="d-flex align-items-end justify-content-between">
                     <div className="footer-socials d-flex align-items-center flex-column">
                         <div className="footer-socials__facebook">
                             <a href="#top">

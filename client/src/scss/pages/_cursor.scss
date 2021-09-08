@@ -1,0 +1,46 @@
+/*==================== CURSOR ====================*/
+.hover-cursor{
+    transition : all 0.3s ease;
+    &:hover ~ .cursor{
+        transform: translate(-50%,-50%) scale(8);
+    }
+}
+.hover-text{
+}
+.cursor{
+    height: 50px;
+    width: 50px;
+    border: 2px solid $color-white;
+    border-radius: 50%;
+    position: absolute;
+    transform-origin: 100% 100%;
+    box-sizing: border-box;
+    transition: opacity 1s ease;
+    backdrop-filter: grayscale(1);
+    pointer-events: none;
+    z-index: 999;
+}
+.follower {
+    height: 8px;
+    width: 8px;
+    background: $color-white;
+    border-radius: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    transition: opacity .2s ease;
+    z-index: 999;
+}
+.cursorBlock {
+    opacity: 1;
+}
+  
+.cursorNone {
+    opacity: 0;
+}
+@media(max-width:900px) {
+    .hover-cursor{
+        width:100%;
+        padding:20px 0;
+        display:inline-block
+    }
+}

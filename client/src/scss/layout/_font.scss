@@ -1,7 +1,18 @@
 /*-------------------------
    Font Size & Font Weight
 --------------------------*/
-
+@font-face {
+    font-family: Ogg;
+    src: url("../../asset/fonts/Ogg-Regular.woff2") format("woff2"), url("../../asset/fonts/Ogg-Regular.woff2") format("woff");
+    font-weight: 400;
+    font-style: normal
+}
+@font-face {
+    font-family: "Cormorant Upright";
+    src: url("../../asset/fonts/CormorantUpright-Regular.ttf") format("woff2"), url("../../asset/fonts/CormorantUpright-Regular.ttf") format("woff");
+    font-weight: 400;
+    font-style: normal
+}
 /* Font Size */
 .font--80{
     font-size: 8rem;
