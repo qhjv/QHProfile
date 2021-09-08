@@ -3,5 +3,6 @@
 --------------------------*/
 
 /* Colors */
-$color-dark:#242424;
-$color-light:#C9C6C6;
+$color-dark:var(--color-dark);
+$color-light:var(--color-light);
+$color-white:var(--color-white);

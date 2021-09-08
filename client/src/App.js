@@ -1,10 +1,15 @@
 import './App.css';
-import './scss/style.scss'
+import Header from './components/header';
+import '../src/asset/css/style.css'
+import Footer from './components/footer';
+import Noise from './components/noise';
 
 function App() {
   return (
     <div className="App">
-      <div className="huy">Huy</div>
+        <Noise></Noise>
+        <Header></Header>
+        <Footer></Footer>
     </div>
   );
 }
