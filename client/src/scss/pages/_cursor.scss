@@ -7,36 +7,52 @@
 }
 .hover-text{
 }
-.cursor{
-    height: 50px;
-    width: 50px;
-    border: 2px solid $color-white;
-    border-radius: 50%;
-    position: absolute;
-    transform-origin: 100% 100%;
-    box-sizing: border-box;
-    transition: opacity 1s ease;
-    backdrop-filter: grayscale(1);
+.cursor,.follower{
+    will-change: transform;
+    position: fixed;
+    top: 0;
+    left: 0;
     pointer-events: none;
+    border-radius: 50%;
+    mix-blend-mode: difference;
+    -webkit-transform: scale(1);
+    transform: scale(1)
+}
+.cursor{
+    width: 8px;
+    height: 8px;
     z-index: 999;
+    background-color: $color-white;
+}
+.cursor.is-active{
+    -webkit-transform: scale(0);
+    transform: scale(0)
 }
 .follower {
-    height: 8px;
-    width: 8px;
-    background: $color-white;
-    border-radius: 50%;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    transition: opacity .2s ease;
-    z-index: 999;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border: 1px solid $color-white;
+    z-index: 998;
+    -webkit-transition: -webkit-transform .3s;
+    transition: -webkit-transform .3s;
+    transition: transform .3s;
+    transition: transform .3s, -webkit-transform .3s;
 }
-.cursorBlock {
-    opacity: 1;
+.follower.is-active{
+    background-color: $color-white;
+    -webkit-transform: scale(1.8);
+    transform: scale(1.8)
 }
-  
-.cursorNone {
-    opacity: 0;
-}
+
 @media(max-width:900px) {
     .hover-cursor{
         width:100%;
