@@ -1,11 +1,17 @@
 /*==================== CURSOR ====================*/
 .hover-cursor{
-    transition : all 0.3s ease;
+    transition : 0.5s;
+    cursor: none!important;
     &:hover ~ .cursor{
         transform: translate(-50%,-50%) scale(8);
     }
 }
-.hover-text{
+.hover-cursor-trans{
+    transition : 1s;
+    cursor: none!important;
+    &:hover ~ .cursor{
+        transform: translate(-50%,-50%) scale(8);
+    }
 }
 .cursor,.follower{
     will-change: transform;
@@ -25,8 +31,9 @@
     background-color: $color-white;
 }
 .cursor.is-active{
-    -webkit-transform: scale(0);
-    transform: scale(0)
+    -webkit-transform: scale(10);
+    transform: scale(10);
+    opacity: 0;
 }
 .follower {
     display: -webkit-box;
@@ -49,14 +56,6 @@
 }
 .follower.is-active{
     background-color: $color-white;
-    -webkit-transform: scale(1.8);
-    transform: scale(1.8)
-}
-
-@media(max-width:900px) {
-    .hover-cursor{
-        width:100%;
-        padding:20px 0;
-        display:inline-block
-    }
+    -webkit-transform: scale(1.6);
+    transform: scale(1.6)
 }

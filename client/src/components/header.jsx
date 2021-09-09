@@ -14,7 +14,7 @@ function Header(props) {
                             <img src={logodark} alt="qhjv portfolio"/>
                         </div>
                         <div className="header-logo__text">
-                            <a className="hover-text" href="#top">H-JV</a>
+                            <a className="hover-cursor hover-text" href="#top">H-JV</a>
                         </div>
                     </div>
                     <div className="header-project hover-text hover-cursor">PRODUCTS</div>

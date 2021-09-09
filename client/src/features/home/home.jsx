@@ -6,15 +6,35 @@ Home.propTypes = {
 };
 
 function Home(props) {
+    
+    let width = window.innerWidth;
+    
+    function handleMouseMove(e) {
+        const spansSlow = document.querySelectorAll('.spanSlow');
+        const spansFast = document.querySelectorAll('.spanFast');
+        let normalizedPosition = e.pageX / (width/2) - 1;
+        let speedSlow = 10 * normalizedPosition;
+        let speedFast = 20 * normalizedPosition;
+        spansSlow.forEach((span) => {
+            span.style.transform = `translate(${speedSlow}px)`;
+        });
+        spansFast.forEach((span) => {
+            span.style.transform = `translate(${speedFast}px)`
+        })
+        
+    }
+        window.addEventListener('mousemove', handleMouseMove);
     return (
         <section className="home section" id="home">
             <div className="home-text text-center">
-                <h2>
-                    <a href="#top">
+                <h2 className="d-flex flex-column">
+                    <a className="spanFast hover-cursor" href="#top">
                         CLICK TO
-                        <br></br> 
+                    </a>
+                    <a className="spanSlow hover-cursor" href="#top">
                         VIEW INFOMATION
-                        <br></br>
+                    </a>
+                    <a className="spanFast hover-cursor" href="#top">
                         ABOUT ME
                     </a>
                 </h2>

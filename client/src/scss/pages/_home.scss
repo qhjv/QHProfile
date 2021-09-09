@@ -3,13 +3,15 @@
 .home{
     padding: 200px 0;
     .home-text{
-        width: 80%;
+        width: 60%;
         margin:auto;
         color:$color-white;
         h2{
             word-break: break-all;
-            font-size:8rem;
+            font-size:7rem;
             margin:0;
+            cursor: pointer;
+            
         }
     }
 }

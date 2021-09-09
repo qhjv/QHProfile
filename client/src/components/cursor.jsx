@@ -15,7 +15,6 @@ function Cursor(props) {
         mouseY = 0,
         posX = 0,
         posY = 0;
-        console.log("1")
     $(document).on("mousemove", function(e) {
         mouseX = e.clientX
         mouseY = e.clientY
@@ -44,18 +43,37 @@ function Cursor(props) {
             })
         }
     })  
+    setTimeout(() => {
+        $('.hover-cursor').on({
+            mouseenter: function() {
+                $('.cursor').addClass("is-active")
+                $('.follower').addClass("is-active")
+            },
+            mouseleave: function() {
+                $('.cursor').removeClass("is-active")
+                $('.follower').removeClass("is-active")
+            }
+        })
+        // const link = document.querySelectorAll('.hover-text');
     
-    $('.hover-cursor').on({
-        mouseenter: function() {
-            $('.cursor').addClass("is-active")
-            $('.follower').addClass("is-active")
-        },
-        mouseleave: function() {
-            $('.cursor').removeClass("is-active")
-            $('.follower').removeClass("is-active")
-        }
-    })
-
+        // const animateit = function (e) {
+        //     for (let i = 0; i < link.length; i++) {
+        //         const { offsetX: x, offsetY: y } = e,
+        //         { offsetWidth: width, offsetHeight: height } = this,
+    
+        //         move = 25,
+        //         xMove = x / width * (move * 2) - move,
+        //         yMove = y / height * (move * 2) - move;
+    
+        //         this.style.transform = `translate(${xMove}px, ${yMove}px)`;
+    
+        //         if (e.type === 'mouseleave') this.style.transform = '';
+        //     }   
+        // };
+    
+        // link.forEach(b => b.addEventListener('mousemove', animateit));
+        // link.forEach(b => b.addEventListener('mouseleave', animateit));
+    }, 500);
     return (
         <>
             <div className="cursor"></div>
