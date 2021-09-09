@@ -7,43 +7,59 @@ Cursor.propTypes = {
 };
 
 function Cursor(props) {
-    const updateCursor = (e) => {
-        const cursor = document.querySelector(".cursor");
-        const follower = document.querySelector(".follower");
-        if(follower && cursor){
-            gsap.to(".cursor", {
-                duration: 2,
-                x: e.pageX * 2 - 50 + "%",
-                y: e.pageY * 2 - 50 + "%",
-                ease: "power3.out",
-            });
-            follower.style.top = e.pageY + "px";
-            follower.style.left = e.pageX + "px";
-        }
-    }
+    
+    let cWidth = 8,
+        fWidth = 48,
+        delay = 10,
+        mouseX = 0,
+        mouseY = 0,
+        posX = 0,
+        posY = 0;
+        console.log("1")
+    $(document).on("mousemove", function(e) {
+        mouseX = e.clientX
+        mouseY = e.clientY
+    })
 
-    document.addEventListener("mouseleave", () => {
-        if($(".cursor") && $(".follower")) {
-            $(".cursor").removeClass("cursorBlock");
-            $(".cursor").addClass("cursorNone");
-            $(".follower").removeClass("cursorBlock");
-            $(".follower").addClass("cursorNone");
+    gsap.config ({ 
+        nullTargetWarn : false ,
+    })
+    gsap.to({}, .016, {
+        
+        repeat: -1,
+        onRepeat: function() {
+            posX += (mouseX - posX) / delay
+            posY += (mouseY - posY) / delay
+            gsap.set('.follower', {
+                css: {
+                    left: posX - fWidth / 2,
+                    top: posY - fWidth / 2
+                }
+            })
+            gsap.set('.cursor', {
+                css: {
+                    left: mouseX - cWidth / 2,
+                    top: mouseY - cWidth / 2
+                }
+            })
+        }
+    })  
+    
+    $('.hover-cursor').on({
+        mouseenter: function() {
+            $('.cursor').addClass("is-active")
+            $('.follower').addClass("is-active")
+        },
+        mouseleave: function() {
+            $('.cursor').removeClass("is-active")
+            $('.follower').removeClass("is-active")
         }
     })
 
-    document.addEventListener("mouseover", () => {
-        if($(".cursor") && $(".follower")) {
-            $(".cursor").removeClass("cursorNone");
-            $(".cursor").addClass("cursorBlock");
-            $(".follower").removeClass("cursorNone");
-            $(".follower").addClass("cursorBlock");
-        }
-    })
-    window.addEventListener("mousemove", updateCursor);
     return (
         <>
-            <div className="cursor cursorNone"></div>
-            <div className="follower cursorNone"></div>
+            <div className="cursor"></div>
+            <div className="follower"></div>
         </>
     );
 }
