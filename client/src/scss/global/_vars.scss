@@ -6,7 +6,7 @@ $color-dark:var(--color-dark);
 $color-white:var(--color-white);
 
 //var
-.hover-text{
+.hover-text-underlined{
     position: relative;
     &::before{
         position: absolute;

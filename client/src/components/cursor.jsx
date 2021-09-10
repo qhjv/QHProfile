@@ -10,7 +10,7 @@ function Cursor(props) {
     
     let cWidth = 8,
         fWidth = 48,
-        delay = 10,
+        delay = 5,
         mouseX = 0,
         mouseY = 0,
         posX = 0,
@@ -54,25 +54,25 @@ function Cursor(props) {
                 $('.follower').removeClass("is-active")
             }
         })
-        // const link = document.querySelectorAll('.hover-text');
+        const link = document.querySelectorAll('.hover-text');
     
-        // const animateit = function (e) {
-        //     for (let i = 0; i < link.length; i++) {
-        //         const { offsetX: x, offsetY: y } = e,
-        //         { offsetWidth: width, offsetHeight: height } = this,
+        const animateit = function (e) {
+            for (let i = 0; i < link.length; i++) {
+                const { offsetX: x, offsetY: y } = e,
+                { offsetWidth: width, offsetHeight: height } = this,
     
-        //         move = 25,
-        //         xMove = x / width * (move * 2) - move,
-        //         yMove = y / height * (move * 2) - move;
+                move = 25,
+                xMove = x / width * (move * 2) - move,
+                yMove = y / height * (move * 2) - move;
     
-        //         this.style.transform = `translate(${xMove}px, ${yMove}px)`;
+                this.style.transform = `translate(${xMove}px, ${yMove}px)`;
     
-        //         if (e.type === 'mouseleave') this.style.transform = '';
-        //     }   
-        // };
+                if (e.type === 'mouseleave') this.style.transform = '';
+            }   
+        };
     
-        // link.forEach(b => b.addEventListener('mousemove', animateit));
-        // link.forEach(b => b.addEventListener('mouseleave', animateit));
+        link.forEach(b => b.addEventListener('mousemove', animateit));
+        link.forEach(b => b.addEventListener('mouseleave', animateit));
     }, 500);
     return (
         <>

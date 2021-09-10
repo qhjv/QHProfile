@@ -1,17 +1,21 @@
 /*==================== HOME ====================*/
 
 .home{
-    padding: 200px 0;
+    padding:30vh 0 40vh 0;
+    width:100vw;
     .home-text{
-        width: 60%;
+        width: 65%;
         margin:auto;
         color:$color-white;
         h2{
+            position: relative;
             word-break: break-all;
-            font-size:7rem;
-            margin:0;
+            font-size:5vw;
+            line-height: 7vw;
             cursor: pointer;
-            
+            a{
+                margin:0;
+            }
         }
     }
 }

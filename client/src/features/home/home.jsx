@@ -13,7 +13,7 @@ function Home(props) {
         const spansSlow = document.querySelectorAll('.spanSlow');
         const spansFast = document.querySelectorAll('.spanFast');
         let normalizedPosition = e.pageX / (width/2) - 1;
-        let speedSlow = 10 * normalizedPosition;
+        let speedSlow = 15 * normalizedPosition;
         let speedFast = 20 * normalizedPosition;
         spansSlow.forEach((span) => {
             span.style.transform = `translate(${speedSlow}px)`;
@@ -23,9 +23,9 @@ function Home(props) {
         })
         
     }
-        window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousemove', handleMouseMove);
     return (
-        <section className="home section" id="home">
+        <section className="home section d-flex justify-content-between align-items-center" id="home">
             <div className="home-text text-center">
                 <h2 className="d-flex flex-column">
                     <a className="spanFast hover-cursor" href="#top">

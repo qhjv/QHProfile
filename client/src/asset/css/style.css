@@ -1,6 +1,6 @@
-.hover-text {
+.hover-text-underlined {
   position: relative; }
-  .hover-text::before {
+  .hover-text-underlined::before {
     position: absolute;
     bottom: -3px;
     left: 0;
@@ -11,7 +11,7 @@
     transform-origin: right top;
     transition: transform .3s;
     background: var(--color-white); }
-  .hover-text:hover::before {
+  .hover-text-underlined:hover::before {
     transform-origin: left top;
     transform: scaleX(1); }
 
@@ -39,17 +39,30 @@ section {
 
 .wrapper {
   position: relative;
+  display: block;
   height: 100%;
   background: var(--color-dark);
   margin: auto;
   transition: opacity 1s ease 1s; }
+  .wrapper .container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; }
+  .wrapper #my-scroll {
+    height: 100vh; }
+    .wrapper #my-scroll::-webkit-scrollbar {
+      width: 0px !important;
+      display: none !important; }
 
 img {
   max-width: 100%;
   width: 100%; }
 
 ::-webkit-scrollbar {
-  width: 0px; }
+  width: 0px !important;
+  display: none !important; }
 
 /*-------------------------
      RESET Default Styles
@@ -112,7 +125,7 @@ h1, h2, h3 {
 --------------------------*/
 @font-face {
   font-family: Ogg;
-  src: url("../../asset/fonts/Ogg-Regular.woff2") format("woff2"), url("../../asset/fonts/Ogg-Regular.woff2") format("woff");
+  src: url("../../asset/fonts/Ogg-Roman.otf") format("woff2"), url("../../asset/fonts/Ogg-Roman.otf") format("woff");
   font-weight: 400;
   font-style: normal; }
 
@@ -161,7 +174,7 @@ h1, h2, h3 {
       visibility: hidden; }
     .header .header-logo .light-click {
       background: var(--color-light);
-      animation: lightclick 500ms  ease; }
+      animation: lightclick 500ms ease; }
   .header .header-project {
     cursor: pointer; }
 
@@ -254,13 +267,17 @@ h1, h2, h3 {
 
 /*==================== HOME ====================*/
 .home {
-  padding: 200px 0; }
+  padding: 30vh 0 40vh 0;
+  width: 100vw; }
   .home .home-text {
-    width: 60%;
+    width: 65%;
     margin: auto;
     color: var(--color-white); }
     .home .home-text h2 {
+      position: relative;
       word-break: break-all;
-      font-size: 7rem;
-      margin: 0;
+      font-size: 5vw;
+      line-height: 7vw;
       cursor: pointer; }
+      .home .home-text h2 a {
+        margin: 0; }
