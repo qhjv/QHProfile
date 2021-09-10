@@ -166,12 +166,12 @@ h1, h2, h3 {
   padding: 4vw 7vw 0 7vw;
   color: var(--color-white);
   font-weight: 400;
+  visibility: hidden;
   z-index: 99; }
   .header .header-logo {
     position: relative; }
     .header .header-logo__img {
-      width: 1.953vw;
-      transition: 0.5s; }
+      width: 1.953vw; }
       .header .header-logo__img:hover {
         transform: scale(1.1); }
     .header .header-logo__text {
@@ -190,7 +190,8 @@ h1, h2, h3 {
       background: var(--color-light);
       animation: lightclick 500ms ease; }
   .header .header-project {
-    cursor: pointer; }
+    cursor: pointer;
+    position: relative; }
 
 /*==================== FOOTER ====================*/
 .footer {
@@ -201,7 +202,8 @@ h1, h2, h3 {
   padding: 0 7vw 4vw 7vw;
   color: var(--color-white);
   font-weight: 400;
-  z-index: 99; }
+  z-index: 99;
+  visibility: hidden; }
   .footer .footer-socials div i {
     font-size: 1.4vw; }
   .footer .footer-socials div + div {
