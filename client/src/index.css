@@ -17,5 +17,6 @@ body.light-theme{
   --color-black:#ffffff;
   --color-light:#1a1a1a;
   --color-dark:#eaeaea;
+  animation: opacity 1.5s ease;
 }
 

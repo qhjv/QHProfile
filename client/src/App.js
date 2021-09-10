@@ -10,7 +10,7 @@ import $ from 'jquery'
 function App() {
   window.addEventListener('load',() => {
       Scrollbar.init(document.querySelector('#my-scroll'), {
-          damping:0.03,
+          damping:0.01,
           thumbMinSize:20
       });
       Scrollbar.detachStyle()
