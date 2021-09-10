@@ -67,4 +67,23 @@
     -o-animation: #{$str};
     animation: #{$str};
 }
+@keyframes lightclick {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
 
+    100% {
+        transform: scale(50);
+        opacity: 1;
+    }
+}
+@keyframes opacity {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

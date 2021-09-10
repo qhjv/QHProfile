@@ -1,44 +1,42 @@
-
 /*==================== HEADER ====================*/
-.header{
-    position: fixed;
-    top:0;
-    left:0;
-    width: 100%;
-    padding: 4vw 7vw 0 7vw;
-    color:$color-white;
-    font-weight: 400;
-    z-index: 99;
-    .header-logo{
-        position: relative;
-        &__img{
-            width:1.953vw;
-            transition: 0.5s;
-            cursor: pointer;
-            &:hover{
-                transform: scale(1.1);
-            }
-        }
-        &__text{
-            font-weight: 500;
-            margin-left: 1vw;
-        }
-        &__before{
-            position:absolute;
-            top:8px;
-            left:8px;
-            width:100px;
-            height:100px;
-            border-radius:100%;
-            opacity: 0;
-            visibility: hidden;
-        }
-        .light-click{
-            background:$color-light;
-            animation: lightclick 500ms  ease;
-        }
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 4vw 7vw 0 7vw;
+  color: $color-white;
+  font-weight: 400;
+  z-index: 99;
+  .header-logo {
+    position: relative;
+    &__img {
+      width: 1.953vw;
+      transition: 0.5s;
+      &:hover {
+        transform: scale(1.1);
+      }
     }
-    .header-project{
-        cursor: pointer;
+    &__text {
+      font-weight: 500;
+      margin-left: 1vw;
     }
+    &__before {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      width: 100px;
+      height: 100px;
+      border-radius: 100%;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .light-click {
+      background: $color-light;
+      animation: lightclick 500ms ease;
+    }
+  }
+  .header-project {
+    cursor: pointer;
+  }
 }

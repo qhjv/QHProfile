@@ -25,7 +25,7 @@ function Footer(props) {
                             </a>
                         </div>
                     </div>
-                    <div className="footer-year hover-cursor">@2021</div>
+                    <div className="footer-year hover-text hover-cursor">@2021</div>
                 </div>
         </footer>
     );

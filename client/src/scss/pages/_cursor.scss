@@ -1,11 +1,17 @@
 /*==================== CURSOR ====================*/
 .hover-cursor{
-    transition : all 0.3s ease;
+    transition : 0.5s;
+    cursor: none!important;
     &:hover ~ .cursor{
         transform: translate(-50%,-50%) scale(8);
     }
 }
-.hover-text{
+.hover-cursor-trans{
+    transition : 1s;
+    cursor: none!important;
+    &:hover ~ .cursor{
+        transform: translate(-50%,-50%) scale(8);
+    }
 }
 .cursor,.follower{
     will-change: transform;
@@ -22,41 +28,25 @@
     width: 8px;
     height: 8px;
     z-index: 999;
-    background-color: $color-white;
+    background-color: #ffffff;
 }
 .cursor.is-active{
-    -webkit-transform: scale(0);
-    transform: scale(0)
+    -webkit-transform: scale(10);
+    transform: scale(10);
+    opacity: 0;
 }
 .follower {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
     justify-content: center;
     width: 48px;
     height: 48px;
-    border: 1px solid $color-white;
+    border: 1px solid #ffffff;
     z-index: 998;
-    -webkit-transition: -webkit-transform .3s;
-    transition: -webkit-transform .3s;
     transition: transform .3s;
-    transition: transform .3s, -webkit-transform .3s;
 }
 .follower.is-active{
-    background-color: $color-white;
-    -webkit-transform: scale(1.8);
-    transform: scale(1.8)
-}
-
-@media(max-width:900px) {
-    .hover-cursor{
-        width:100%;
-        padding:20px 0;
-        display:inline-block
-    }
+    background-color: #ffffff;
+    -webkit-transform: scale(1.6);
+    transform: scale(1.6)
 }
