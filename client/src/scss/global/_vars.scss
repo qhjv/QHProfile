@@ -25,3 +25,7 @@ $color-white:var(--color-white);
         transform: scaleX(1);
     } 
 }
+.transform-left{
+    transition : 0.5s;
+    transform:translateX(-4vw);
+}

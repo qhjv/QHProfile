@@ -15,6 +15,10 @@
     transform-origin: left top;
     transform: scaleX(1); }
 
+.transform-left {
+  transition: 0.5s;
+  transform: translateX(-4vw); }
+
 @keyframes lightclick {
   0% {
     transform: scale(0);
@@ -108,7 +112,8 @@ a:hover {
   text-decoration: none !important; }
 
 h1, h2, h3 {
-  font-family: Ogg, "Cormorant Upright", serif; }
+  font-family: Ogg, "Cormorant Upright", serif;
+  margin: 0; }
 
 @media (min-width: 1400px) {
   .container {
@@ -204,10 +209,12 @@ h1, h2, h3 {
   font-weight: 400;
   z-index: 99;
   visibility: hidden; }
-  .footer .footer-socials div i {
-    font-size: 1.4vw; }
-  .footer .footer-socials div + div {
-    margin-top: 1vw; }
+  .footer .footer-socials {
+    transition: 0.5s; }
+    .footer .footer-socials div i {
+      font-size: 1.4vw; }
+    .footer .footer-socials div + div {
+      margin-top: 1vw; }
 
 /*==================== NOISE ====================*/
 .noise::before {
@@ -275,7 +282,8 @@ h1, h2, h3 {
 /*==================== HOME ====================*/
 .home {
   padding: 30vh 0 40vh 0;
-  width: 100vw; }
+  width: 100vw;
+  transition: 0.5s; }
   .home .home-text {
     width: 65%;
     margin: auto;

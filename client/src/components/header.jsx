@@ -41,7 +41,11 @@ function Header(props) {
         TweenMax.to(header,0,{visibility:'visible'})
         TweenMax.staggerFrom([logoImg,logoText],.8,{opacity:0,y:20,ease:Power3.easeOut},.8)
     }, [])
-
+    const handleClickMenu = () => {
+        $(".header-logo").toggleClass("transform-left");
+        $(".footer-socials").toggleClass("transform-left");
+        $("#home").toggleClass("transform-left");
+    }
     return (
             <header className="header" id="header" ref={el => header = el}>
                 <div className="d-flex align-items-center justify-content-between">
@@ -54,7 +58,11 @@ function Header(props) {
                             <a className="hover-cursor hover-text hover-text-underlined" href="#top">H-JV</a>
                         </div>
                     </div>
-                    <div className="header-project hover-text hover-cursor hover-text-underlined">PRODUCTS</div>
+                    <div className="header-project hover-text hover-cursor hover-text-underlined"
+                        onClick={handleClickMenu}
+                    >
+                        PRODUCTS
+                    </div>
                 </div>
             </header>
     );

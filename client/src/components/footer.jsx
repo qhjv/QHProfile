@@ -23,17 +23,17 @@ function Footer(props) {
                 <div className="d-flex align-items-end justify-content-between">
                     <div className="footer-socials d-flex align-items-center flex-column">
                         <div className="footer-socials__facebook" ref={el => link1 = el}>
-                            <a className="hover-cursor" href="#top">
+                            <a className="hover-cursor" rel="noopener noreferrer" href="https://www.facebook.com/profile.php?id=100009360518751" target="_blank">
                                 <i className="fab fa-facebook-square"></i>
                             </a>
                         </div>
                         <div className="footer-socials__instagram" ref={el => link2 = el}>
-                            <a className="hover-cursor" href="#top">
+                            <a className="hover-cursor" href="#top" target="_blank">
                                 <i className="fab fa-instagram-square"></i>
                             </a>
                         </div>
                         <div className="footer-socials__github" ref={el => link3 = el}>
-                            <a className="hover-cursor" href="#top">
+                            <a className="hover-cursor" href="#top" target="_blank">
                                 <i className="fab fa-github-square"></i>
                             </a>
                         </div>
