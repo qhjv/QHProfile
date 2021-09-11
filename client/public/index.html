@@ -25,6 +25,8 @@
     <!--------------------- ICONS --------------------->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--main js-->
+    <script type="text/babel" src="../src/main.js"></script>
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -53,34 +55,33 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!--bootstrap js-->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <!--main js-->
-    <!-- <script type="text/javascript" src="../src/main.js"></script> -->
-    <script>
-      // $(window).resize(function() {
-      //   nsZoomZoom();
-      // });
-      // function nsZoomZoom() {
-      //     let htmlWidth = $(window).innerWidth();
-      //     let bodyWidth = 1280;
-      //     let scale;
-      //     if (htmlWidth < bodyWidth)
-      //         scale = 1
-      //     else {
-      //         scale = htmlWidth / bodyWidth;
-      //     }
-      //     if(htmlWidth>1024){
-      //         $(".wrapper").css('-ms-transform', 'scale(' + scale + ')');
-      //         $(".wrapper").css('transform', 'scale(' + scale + ')')
-      //         $(".wrapper").css('transform-origin', 'center top');
-      //     }
-      //     else{
-      //         $(".wrapper").css('transform', 'none');
-      //     }
-      // }
-      // setTimeout(() => {
-      //   nsZoomZoom();
-      // }, 100);
-    </script>
+    <!-- <script>
+      $(window).resize(function() {
+        nsZoomZoom();
+      });
+      function nsZoomZoom() {
+          let htmlWidth = $(window).innerWidth();
+          let bodyWidth = 1280;
+          let scale;
+          if (htmlWidth < bodyWidth)
+              scale = 1
+          else {
+              scale = htmlWidth / bodyWidth;
+          }
+          if(htmlWidth>1024){
+              $(".wrapper").css('-ms-transform', 'scale(' + scale + ')');
+              $(".wrapper").css('transform', 'scale(' + scale + ')')
+              $(".wrapper").css('transform-origin', 'center top');
+          }
+          else{
+              $(".wrapper").css('transform', 'none');
+          }
+      }
+      setTimeout(() => {
+        nsZoomZoom();
+      }, 100);
+      
+    </script> -->
     
   </body>
 </html>

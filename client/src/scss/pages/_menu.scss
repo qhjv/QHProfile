@@ -1,0 +1,73 @@
+/*==================== MENU ====================*/
+.menu{
+    position: fixed;
+    // display: inline-table;
+    top:0;
+    right:0;
+    width:28vw;
+    height:100%;
+    background:$color-light;
+    z-index: 101;
+    transition:0.5s;
+    transform:translateX(40vw);
+    .menuProducts{
+        height:100%;
+        padding:2.3vw 2vw;
+        overflow-x: scroll;
+        .container{
+            padding: 0;
+            .menuProduct{
+                position:relative;
+                &__img{
+                    width: 100%;
+                    height:15vw;
+                    overflow: hidden;
+                    img{
+                        height:100%;
+                        -o-object-fit: cover;
+                        object-fit: cover;
+                        image-rendering: -webkit-optimize-contrast;
+                    }
+                }
+                &__name{
+                    position:absolute;
+                    bottom:-2vw;
+                    right:0;
+                    h3{
+                        font-family: 'vladimir', sans-serif;
+                        font-size: 3vw;
+                        color:$color-dark
+                    }
+                }
+            }
+            .menuProduct + .menuProduct{
+                margin-top: 2.5vw;
+            }
+        }
+    }
+    &__close{
+        position:absolute;
+        width:4vw;
+        height:4vw;
+        top: 3.5vw;
+        left: -6vw;
+        border:1.5px solid $color-light;
+        border-radius: 50%;;
+        z-index: 101;
+        opacity: 0;
+        transition:0.5s;
+        transform: translateY(-500);
+        img{
+            width:50%;
+        }
+    }
+}
+.menutranfrom{
+    transform:translateX(0);
+}
+// .trans-closeMenu{
+//     animation: closeMenu 0.5 ease-out 1s;;
+// }
+.arrowDark{
+    filter:invert(1);
+}
