@@ -2,7 +2,7 @@ import React,{useRef,useEffect} from 'react';
 import logodark from '../asset/image/logo.png'
 import logolight from '../asset/image/logo_light.png'
 import $ from 'jquery'
-import {TimelineLite ,TweenMax, Power3} from 'gsap';
+import {TimelineLite ,TweenMax, Power3,gsap} from 'gsap';
 
 Header.propTypes = {
     
@@ -22,9 +22,11 @@ function Header(props) {
             setTimeout(function(){
                 $('body').toggleClass('light-theme');
                 if(logo === true){
+                    $(".arrowLight").addClass('arrowDark');
                     $(".header-logo__img img").attr("src",`${logolight}`);
                     logo = false
                 }else if(logo === false){
+                    $(".arrowLight").removeClass('arrowDark');
                     $(".header-logo__img img").attr("src",`${logodark}`);
                     logo = true
                 }
@@ -42,9 +44,15 @@ function Header(props) {
         TweenMax.staggerFrom([logoImg,logoText],.8,{opacity:0,y:20,ease:Power3.easeOut},.8)
     }, [])
     const handleClickMenu = () => {
-        $(".header-logo").toggleClass("transform-left");
-        $(".footer-socials").toggleClass("transform-left");
-        $("#home").toggleClass("transform-left");
+        $(".header-logo").addClass("transform-left");
+        $(".footer-socials").addClass("transform-left");
+        $("#home").addClass("transform-left");
+        $(".backgroundBlur").removeClass('hidden');
+        $(".menu").addClass('menutranfrom');
+        $("body").addClass('overflow-hidden');
+        $('.spanFast').addClass('no-trans');
+        $('.spanSlow').addClass('no-trans');
+        gsap.fromTo(".menu__close", {opacity: 0,y:-200}, {opacity: 1,y:0, duration: 0.5});
     }
     return (
             <header className="header" id="header" ref={el => header = el}>

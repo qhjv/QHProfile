@@ -26,23 +26,16 @@ section {
 .wrapper{
     position: relative;
     display:block;
-    height:100%;
+    // height:100%;
     background: $color-dark;
     margin: auto;
     transition: opacity 1s ease 1s;
     .container{
-        height:100%;
+        // height:100%;
         display:flex;
         justify-content: center;
         align-items:center;
         flex-direction: column;
-    }
-    #my-scroll{
-        height:100vh;
-        &::-webkit-scrollbar {
-            width: 0px!important;
-            display: none!important; 
-        }
     }
 }
 
@@ -54,7 +47,18 @@ img {
     width: 0px!important;
     display: none!important; 
 }
-
+.backgroundBlur {
+    background: $color-dark;
+    opacity:0.8;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    right: o;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    transition:0.5s;
+}
 /*-------------------------
      RESET Default Styles
  --------------------------*/

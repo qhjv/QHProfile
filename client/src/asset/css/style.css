@@ -17,7 +17,21 @@
 
 .transform-left {
   transition: 0.5s;
-  transform: translateX(-4vw); }
+  transform: translateX(-4vw) !important; }
+
+.hidden {
+  opacity: 0;
+  visibility: hidden; }
+
+.show {
+  opacity: 1;
+  visibility: visibility; }
+
+.overflow-hidden {
+  overflow-y: hidden; }
+
+.no-trans {
+  transform: none !important; }
 
 @keyframes lightclick {
   0% {
@@ -32,6 +46,14 @@
     opacity: 0; }
   100% {
     opacity: 1; } }
+
+@keyframes closeMenu {
+  0% {
+    opacity: 0;
+    transform: translateY(-4vw); }
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
 
 /*-------------------------- 
       Global Styles
@@ -58,21 +80,14 @@ section {
 .wrapper {
   position: relative;
   display: block;
-  height: 100%;
   background: var(--color-dark);
   margin: auto;
   transition: opacity 1s ease 1s; }
   .wrapper .container {
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column; }
-  .wrapper #my-scroll {
-    height: 100vh; }
-    .wrapper #my-scroll::-webkit-scrollbar {
-      width: 0px !important;
-      display: none !important; }
 
 img {
   max-width: 100%;
@@ -81,6 +96,18 @@ img {
 ::-webkit-scrollbar {
   width: 0px !important;
   display: none !important; }
+
+.backgroundBlur {
+  background: var(--color-dark);
+  opacity: 0.8;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  right: o;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  transition: 0.5s; }
 
 /*-------------------------
      RESET Default Styles
@@ -151,6 +178,12 @@ h1, h2, h3 {
 @font-face {
   font-family: "Cormorant Upright";
   src: url("../../asset/fonts/CormorantUpright-Regular.ttf") format("woff2"), url("../../asset/fonts/CormorantUpright-Regular.ttf") format("woff");
+  font-weight: 400;
+  font-style: normal; }
+
+@font-face {
+  font-family: "vladimir";
+  src: url("./../fonts/vladimir.TTF") format("woff2"), url("./../fonts/vladimir.TTF") format("woff");
   font-weight: 400;
   font-style: normal; }
 
@@ -279,9 +312,68 @@ h1, h2, h3 {
   -webkit-transform: scale(1.6);
   transform: scale(1.6); }
 
+/*==================== MENU ====================*/
+.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 28vw;
+  height: 100%;
+  background: var(--color-light);
+  z-index: 101;
+  transition: 0.5s;
+  transform: translateX(40vw); }
+  .menu .menuProducts {
+    height: 100%;
+    padding: 2.3vw 2vw;
+    overflow-x: scroll; }
+    .menu .menuProducts .container {
+      padding: 0; }
+      .menu .menuProducts .container .menuProduct {
+        position: relative; }
+        .menu .menuProducts .container .menuProduct__img {
+          width: 100%;
+          height: 15vw;
+          overflow: hidden; }
+          .menu .menuProducts .container .menuProduct__img img {
+            height: 100%;
+            -o-object-fit: cover;
+            object-fit: cover;
+            image-rendering: -webkit-optimize-contrast; }
+        .menu .menuProducts .container .menuProduct__name {
+          position: absolute;
+          bottom: -2vw;
+          right: 0; }
+          .menu .menuProducts .container .menuProduct__name h3 {
+            font-family: 'vladimir', sans-serif;
+            font-size: 3vw;
+            color: var(--color-dark); }
+      .menu .menuProducts .container .menuProduct + .menuProduct {
+        margin-top: 2.5vw; }
+  .menu__close {
+    position: absolute;
+    width: 4vw;
+    height: 4vw;
+    top: 3.5vw;
+    left: -6vw;
+    border: 1.5px solid var(--color-light);
+    border-radius: 50%;
+    z-index: 101;
+    opacity: 0;
+    transition: 0.5s;
+    transform: translateY(-500); }
+    .menu__close img {
+      width: 50%; }
+
+.menutranfrom {
+  transform: translateX(0); }
+
+.arrowDark {
+  filter: invert(1); }
+
 /*==================== HOME ====================*/
 .home {
-  padding: 30vh 0 40vh 0;
+  padding: 15vw 0 17vw 0;
   width: 100vw;
   transition: 0.5s; }
   .home .home-text {

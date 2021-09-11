@@ -13,6 +13,12 @@
     font-weight: 400;
     font-style: normal
 }
+@font-face {
+    font-family: "vladimir";
+    src: url("./../fonts/vladimir.TTF") format("woff2"), url("./../fonts/vladimir.TTF") format("woff");
+    font-weight: 400;
+    font-style: normal
+}
 /* Font Size */
 .font--80{
     font-size: 8rem;

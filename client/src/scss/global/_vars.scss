@@ -27,5 +27,19 @@ $color-white:var(--color-white);
 }
 .transform-left{
     transition : 0.5s;
-    transform:translateX(-4vw);
+    transform:translateX(-4vw)!important;
+}
+.hidden{
+    opacity: 0;
+    visibility:hidden
+}
+.show{
+    opacity: 1;
+    visibility:visibility
+}
+.overflow-hidden{
+    overflow-y: hidden;
+}
+.no-trans{
+    transform: none!important;
 }
