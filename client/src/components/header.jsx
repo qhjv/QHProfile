@@ -52,7 +52,7 @@ function Header(props) {
         $("body").addClass('overflow-hidden');
         $('.spanFast').addClass('no-trans');
         $('.spanSlow').addClass('no-trans');
-        gsap.fromTo(".menu__close", {opacity: 0,y:-200}, {opacity: 1,y:0, duration: 0.5});
+        gsap.fromTo(".menu__close", {opacity: 0,y:-1000}, {opacity: 1,y:0, duration: 0.5});
     }
     return (
             <header className="header" id="header" ref={el => header = el}>
