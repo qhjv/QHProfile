@@ -54,6 +54,16 @@ function Cursor(props) {
                 $('.follower').removeClass("is-active")
             }
         })
+        $('.hover-product').on({
+            mouseenter: function() {
+                $('.cursor').addClass("is-product")
+                $('.follower').addClass("is-product")
+            },
+            mouseleave: function() {
+                $('.cursor').removeClass("is-product")
+                $('.follower').removeClass("is-product")
+            }
+        })
         const link = document.querySelectorAll('.hover-text');
     
         const animateit = function (e) {
