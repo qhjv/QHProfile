@@ -297,6 +297,11 @@ h1, h2, h3 {
   transform: scale(10);
   opacity: 0; }
 
+.cursor.is-product {
+  -webkit-transform: scale(10);
+  transform: scale(10);
+  opacity: 0; }
+
 .follower {
   display: flex;
   align-items: center;
@@ -311,6 +316,30 @@ h1, h2, h3 {
   background-color: #ffffff;
   -webkit-transform: scale(1.6);
   transform: scale(1.6); }
+
+.follower.is-product {
+  background-color: #6d6d6d;
+  -webkit-transform: scale(2);
+  transform: scale(2);
+  border: none; }
+  .follower.is-product::before {
+    content: "View";
+    font-family: 'Poppins', sans-serif;
+    font-weight: 100;
+    font-size: 0.6vw !important;
+    letter-spacing: 0.1vw;
+    color: var(--color-white);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    animation: opacity 1s ease-out; }
 
 /*==================== MENU ====================*/
 .menu {
@@ -330,7 +359,9 @@ h1, h2, h3 {
     .menu .menuProducts .container {
       padding: 0; }
       .menu .menuProducts .container .menuProduct {
-        position: relative; }
+        cursor: none;
+        position: relative;
+        margin-bottom: 40px; }
         .menu .menuProducts .container .menuProduct__img {
           width: 100%;
           height: 15vw;
@@ -340,6 +371,9 @@ h1, h2, h3 {
             -o-object-fit: cover;
             object-fit: cover;
             image-rendering: -webkit-optimize-contrast; }
+          .menu .menuProducts .container .menuProduct__img:hover {
+            filter: contrast(0.6);
+            transition: 0.5s; }
         .menu .menuProducts .container .menuProduct__name {
           position: absolute;
           bottom: -2vw;
@@ -348,8 +382,6 @@ h1, h2, h3 {
             font-family: 'vladimir', sans-serif;
             font-size: 3vw;
             color: var(--color-dark); }
-      .menu .menuProducts .container .menuProduct + .menuProduct {
-        margin-top: 2.5vw; }
   .menu__close {
     position: absolute;
     width: 4vw;
