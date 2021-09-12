@@ -27,8 +27,10 @@ function Menu(props) {
   
     //   window.addEventListener('load',() => {
     //     let windowWidth , containerHeight , imageHeight , skewDiff;
-    //     let container = document.querySelector('.menuProducts')
-    
+    //     let container = document.querySelector('.menuProducts');
+    //     let images = Array.from(document.querySelectorAll(".menuProduct__img"));
+
+
     //     const left = (start,t,end) => {
     //         return start * (1-t) + end * t;
     //     }
@@ -38,6 +40,8 @@ function Menu(props) {
     //     const setupAnimation = () => {
     //         windowWidth = window.innerHeight;
     //         containerHeight = container.getBoundingClientRect().height;
+    //         imageHeight = containerHeight / images.length;
+
     //         document.body.style.height = `${containerHeight}px`
     //         smothScroll()
     //     }
@@ -47,7 +51,17 @@ function Menu(props) {
     //         target = window.scrollY;
             
     //         setTransfrom(container,`translateY(${-current}px)`);
-    //         requestAnimationFrame(smothScroll)
+    //         updateImage();
+    //         requestAnimationFrame(smothScroll);
+    //     }
+    //     const updateImage = () => {
+    //         let ratio = current/imageHeight;
+    //         let intersectionRatioValue;
+
+    //         images.forEach((img,idx)=>{
+    //             intersectionRatioValue = ratio - (idx * 0.7);
+    //             setTransfrom(img,`translateX(${intersectionRatioValue * 70}px)`)
+    //         })
     //     }
     //     setupAnimation()
     // })
@@ -56,7 +70,7 @@ function Menu(props) {
             <div className="menu__close d-flex justify-content-center align-items-center hover-cursor hover-text"
                 onClick={handleClickCloseMenu}
             >
-                <img className="arrowLight" src={arrowLight} alt="arrow right"/>
+                <img className="arrowLight" src={arrowLight} alt="PRODUCTS"/>
             </div>
             <div className="menuProducts my-scrollbar">
                 <div className="container">
@@ -66,7 +80,7 @@ function Menu(props) {
                                 <img src={product1} alt="skillpark"/>
                             </div>
                             <div className="menuProduct__name">
-                                <h3 className="hover-text hover-cursor">Skill Park</h3>
+                                <h2 className="hover-text hover-cursor">Skill Park</h2>
                             </div>
                         </div>
                     </a>
@@ -76,7 +90,7 @@ function Menu(props) {
                                 <img src={product1} alt="skillpark"/>
                             </div>
                             <div className="menuProduct__name">
-                                <h3 className="hover-text hover-cursor">Skill Park</h3>
+                                <h2 className="hover-text hover-cursor">Skill Park</h2>
                             </div>
                         </div>
                     </a>
@@ -86,7 +100,7 @@ function Menu(props) {
                                 <img src={product1} alt="skillpark"/>
                             </div>
                             <div className="menuProduct__name">
-                                <h3 className="hover-text hover-cursor">Skill Park</h3>
+                                <h2 className="hover-text hover-cursor">Skill Park</h2>
                             </div>
                         </div>
                     </a>
@@ -96,7 +110,7 @@ function Menu(props) {
                                 <img src={product1} alt="skillpark"/>
                             </div>
                             <div className="menuProduct__name">
-                                <h3 className="hover-text hover-cursor">Skill Park</h3>
+                                <h2 className="hover-text hover-cursor">Skill Park</h2>
                             </div>
                         </div>
                     </a>
