@@ -87,7 +87,9 @@ function Cursor(props) {
     return (
         <>
             <div className="cursor"></div>
-            <div className="follower"></div>
+            <div className="follower">
+                <div className="follower__text">View</div>
+            </div>
         </>
     );
 }

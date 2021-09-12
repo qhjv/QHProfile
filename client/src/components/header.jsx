@@ -33,7 +33,7 @@ function Header(props) {
                 $('.header-logo__before').removeClass('light-click');
                 TweenMax.staggerFrom([logoImg,logoText],.8,{opacity:0,y:20,ease:Power3.easeOut},.8)
                 TweenMax.staggerFrom([".footer-socials__facebook",".footer-socials__instagram",".footer-socials__github"],.8,{opacity:0,x:-20,ease:Power3.easeOut},.8)
-            }, 500);
+            }, 700);
             setTimeout(() => {
                 click = true
             }, 3000);
