@@ -61,42 +61,42 @@ function Menu(props) {
             <div className="menuProducts my-scrollbar">
                 <div className="container">
                     <a href="#top">
-                        <div className="menuProduct hover-product">
-                            <div className="menuProduct__img">
+                        <div className="menuProduct">
+                            <div className="menuProduct__img hover-product">
                                 <img src={product1} alt="skillpark"/>
                             </div>
                             <div className="menuProduct__name">
-                                <h3 className="hover-text">Skill Park</h3>
+                                <h3 className="hover-text hover-cursor">Skill Park</h3>
                             </div>
                         </div>
                     </a>
                     <a href="#top">
-                        <div className="menuProduct hover-product">
-                            <div className="menuProduct__img">
+                        <div className="menuProduct">
+                            <div className="menuProduct__img hover-product">
                                 <img src={product1} alt="skillpark"/>
                             </div>
                             <div className="menuProduct__name">
-                                <h3 className="hover-text">Skill Park</h3>
+                                <h3 className="hover-text hover-cursor">Skill Park</h3>
                             </div>
                         </div>
                     </a>
                     <a href="#top">
-                        <div className="menuProduct hover-product">
-                            <div className="menuProduct__img">
+                        <div className="menuProduct">
+                            <div className="menuProduct__img hover-product">
                                 <img src={product1} alt="skillpark"/>
                             </div>
                             <div className="menuProduct__name">
-                                <h3 className="hover-text">Skill Park</h3>
+                                <h3 className="hover-text hover-cursor">Skill Park</h3>
                             </div>
                         </div>
                     </a>
                     <a href="#top">
-                        <div className="menuProduct hover-product">
-                            <div className="menuProduct__img">
+                        <div className="menuProduct">
+                            <div className="menuProduct__img hover-product">
                                 <img src={product1} alt="skillpark"/>
                             </div>
                             <div className="menuProduct__name">
-                                <h3 className="hover-text">Skill Park</h3>
+                                <h3 className="hover-text hover-cursor">Skill Park</h3>
                             </div>
                         </div>
                     </a>
