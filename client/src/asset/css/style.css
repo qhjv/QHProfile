@@ -381,7 +381,8 @@ h1, h2, h3 {
           .menu .menuProducts .container .menuProduct__name h3 {
             font-family: 'vladimir', sans-serif;
             font-size: 3vw;
-            color: var(--color-dark); }
+            color: var(--color-dark);
+            transition: 0.5s; }
   .menu__close {
     position: absolute;
     width: 4vw;
