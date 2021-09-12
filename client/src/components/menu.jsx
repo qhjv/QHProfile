@@ -66,7 +66,7 @@ function Menu(props) {
                                 <img src={product1} alt="skillpark"/>
                             </div>
                             <div className="menuProduct__name">
-                                <h3>Skill Park</h3>
+                                <h3 className="hover-text">Skill Park</h3>
                             </div>
                         </div>
                     </a>
@@ -76,7 +76,7 @@ function Menu(props) {
                                 <img src={product1} alt="skillpark"/>
                             </div>
                             <div className="menuProduct__name">
-                                <h3>Skill Park</h3>
+                                <h3 className="hover-text">Skill Park</h3>
                             </div>
                         </div>
                     </a>
@@ -86,7 +86,7 @@ function Menu(props) {
                                 <img src={product1} alt="skillpark"/>
                             </div>
                             <div className="menuProduct__name">
-                                <h3>Skill Park</h3>
+                                <h3 className="hover-text">Skill Park</h3>
                             </div>
                         </div>
                     </a>
@@ -96,7 +96,7 @@ function Menu(props) {
                                 <img src={product1} alt="skillpark"/>
                             </div>
                             <div className="menuProduct__name">
-                                <h3>Skill Park</h3>
+                                <h3 className="hover-text">Skill Park</h3>
                             </div>
                         </div>
                     </a>
