@@ -9,7 +9,7 @@
     background:$color-light;
     z-index: 101;
     transition:0.5s;
-    transform:translateX(40vw);
+    transform:translateX(100vw);
     .menuProducts{
         height:100%;
         padding:2.3vw 2vw;
@@ -19,7 +19,7 @@
             .menuProduct{
                 cursor: none;
                 position:relative;
-                margin-bottom: 50px;
+                margin-top:5vw;
                 &__img{
                     width: 100%;
                     height:15vw;
@@ -47,6 +47,9 @@
                     }
                 }
             }
+            .menuProduct-first{
+                margin-top:0!important;
+            }
         }
     }
     &__close{
@@ -66,6 +69,7 @@
         }
     }
 }
+
 .menutranfrom{
     transform:translateX(0);
 }
@@ -74,4 +78,74 @@
 // }
 .arrowDark{
     filter:invert(1);
+}
+//table and mobile
+@media (max-width: 1200px){
+}
+//tablet
+@media (min-width: 768px) and (max-width: 1200px) {
+    .menu {
+        width: 50vw;
+        &__close {
+            width: 8vw;
+            height: 8vw;
+            top: 2.5vw;
+            left: -12vw;
+            border: 2px solid var(--color-light);
+        }
+        .menuProducts {
+            padding: 4vw 3vw;
+            .container {
+                .menuProduct{
+                    margin-top: 6vw;
+                    &__img {
+                        height: 27vw;
+                    }
+                    &__name {
+                        bottom: -4vw;
+                        h2 {
+                            font-size: 6vw;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+//mobile
+@media (max-width: 768px){
+    .menu {
+        width: 100vw;
+        &__close {
+            width: 10vw;
+            height: 10vw;
+            border: 1px solid var(--color-dark);
+            top: 2vw;
+            left: 50%;
+            transform: translateX(-50%)!important;
+            img {
+                filter: invert(1);
+            }
+        }
+        .menuProducts {
+            padding: 15vw 3vw 4vw 3vw;
+            .container {
+                .menuProduct{
+                    margin-top: 15vw;
+                    &__img {
+                        height: 50vw;
+                    }
+                    &__name {
+                        bottom: -7vw;
+                        h2 {
+                            font-size: 10vw;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .arrowDark {
+        filter: invert(0)!important;
+    }
 }

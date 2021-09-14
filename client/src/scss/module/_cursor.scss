@@ -82,3 +82,17 @@
     }
 
 }
+//table and mobile
+@media (max-width: 1200px){
+    .hover-cursor-trans,.hover-cursor,.hover-text{
+        transform:none!important;
+    }
+}
+//tablet
+@media (min-width: 768px) and (max-width: 1200px) {
+    
+}
+//mobile
+@media (max-width: 768px){
+    
+}

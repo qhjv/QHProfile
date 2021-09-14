@@ -9,6 +9,7 @@ import Scrollbar from 'smooth-scrollbar';
 import luxy from 'luxy.js'
 import $ from 'jquery'
 import Menu from './components/menu';
+import Loader from './components/loader';
 function App() {
   window.addEventListener('load',() => {
       luxy.init({
@@ -36,10 +37,12 @@ function App() {
         <Cursor></Cursor>
         <Header></Header>
         <Menu></Menu>
+        <Loader></Loader>
         <div className="backgroundBlur hidden" 
               onClick={handleClickBlur}>
         </div>
           <div className="wrapper" id="luxy">
+              <div className="loader"></div>
               <Home></Home>
           </div>
         <Footer></Footer>

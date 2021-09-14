@@ -8,6 +8,14 @@ import $ from 'jquery'
 Menu.propTypes = {
     
 };
+const images = [
+    "https://images.unsplash.com/photo-1551392505-f4056032826e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1497&q=80",
+    "https://images.unsplash.com/photo-1594312180721-3b5217cfc65f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
+    "https://images.unsplash.com/photo-1593806812862-1dc510b769a8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2851&q=80",
+    "https://images.unsplash.com/photo-1558507652-2d9626c4e67a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
+    "https://images.unsplash.com/photo-1484517186945-df8151a1a871?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=987&q=80",
+    "https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
+];
 
 function Menu(props) {
         
@@ -21,50 +29,7 @@ function Menu(props) {
         $('.spanFast').removeClass('no-trans');
         $('.spanSlow').removeClass('no-trans');
     }
-    // let current = 0,
-    //   target = 0, 
-    //   ease = 0.01;
-  
-    //   window.addEventListener('load',() => {
-    //     let windowWidth , containerHeight , imageHeight , skewDiff;
-    //     let container = document.querySelector('.menuProducts');
-    //     let images = Array.from(document.querySelectorAll(".menuProduct__img"));
-
-
-    //     const left = (start,t,end) => {
-    //         return start * (1-t) + end * t;
-    //     }
-    //     const setTransfrom = (el,transform) => {
-    //         el.style.transform = transform
-    //     }
-    //     const setupAnimation = () => {
-    //         windowWidth = window.innerHeight;
-    //         containerHeight = container.getBoundingClientRect().height;
-    //         imageHeight = containerHeight / images.length;
-
-    //         document.body.style.height = `${containerHeight}px`
-    //         smothScroll()
-    //     }
-    //     const smothScroll = () => {
-    //         current = left(current,target,ease);
-    //         current = parseFloat(current.toFixed(2));
-    //         target = window.scrollY;
-            
-    //         setTransfrom(container,`translateY(${-current}px)`);
-    //         updateImage();
-    //         requestAnimationFrame(smothScroll);
-    //     }
-    //     const updateImage = () => {
-    //         let ratio = current/imageHeight;
-    //         let intersectionRatioValue;
-
-    //         images.forEach((img,idx)=>{
-    //             intersectionRatioValue = ratio - (idx * 0.7);
-    //             setTransfrom(img,`translateX(${intersectionRatioValue * 70}px)`)
-    //         })
-    //     }
-    //     setupAnimation()
-    // })
+    
     return (
         <div className="menu">
             <div className="menu__close d-flex justify-content-center align-items-center hover-cursor hover-text"
@@ -74,46 +39,18 @@ function Menu(props) {
             </div>
             <div className="menuProducts my-scrollbar">
                 <div className="container">
-                    <a href="#top">
-                        <div className="menuProduct">
-                            <div className="menuProduct__img hover-product">
-                                <img src={product1} alt="skillpark"/>
+                    {images.map((image, index) => (
+                        <a key={index} href="#top">
+                            <div className={(index===0 ? "menuProduct menuProduct-first" : "menuProduct")}>
+                                <div className="menuProduct__img hover-product">
+                                    <img src={image} alt="skillpark"/>
+                                </div>
+                                <div className="menuProduct__name">
+                                    <h2 className="hover-text hover-cursor">Skill Park</h2>
+                                </div>
                             </div>
-                            <div className="menuProduct__name">
-                                <h2 className="hover-text hover-cursor">Skill Park</h2>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#top">
-                        <div className="menuProduct">
-                            <div className="menuProduct__img hover-product">
-                                <img src={product1} alt="skillpark"/>
-                            </div>
-                            <div className="menuProduct__name">
-                                <h2 className="hover-text hover-cursor">Skill Park</h2>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#top">
-                        <div className="menuProduct">
-                            <div className="menuProduct__img hover-product">
-                                <img src={product1} alt="skillpark"/>
-                            </div>
-                            <div className="menuProduct__name">
-                                <h2 className="hover-text hover-cursor">Skill Park</h2>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#top">
-                        <div className="menuProduct">
-                            <div className="menuProduct__img hover-product">
-                                <img src={product1} alt="skillpark"/>
-                            </div>
-                            <div className="menuProduct__name">
-                                <h2 className="hover-text hover-cursor">Skill Park</h2>
-                            </div>
-                        </div>
-                    </a>
+                        </a>
+                    ))}
                 </div>
             </div>
         </div>
