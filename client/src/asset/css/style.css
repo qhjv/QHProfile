@@ -509,7 +509,7 @@ h1, h2, h3 {
 /*==================== LOADER ====================*/
 #preloader {
   position: absolute;
-  display: flex;
+  display: flex !important;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -519,6 +519,11 @@ h1, h2, h3 {
   flex-direction: column; }
   #preloader svg {
     width: 7vw; }
+    #preloader svg .st0 {
+      fill: none;
+      stroke: #f1f505;
+      stroke-width: 2;
+      stroke-miterlimit: 10; }
     #preloader svg path:first-child {
       stroke: #fff;
       fill: none;

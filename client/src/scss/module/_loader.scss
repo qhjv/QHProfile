@@ -1,7 +1,7 @@
 /*==================== LOADER ====================*/
 #preloader{
     position: absolute;
-    display: flex;
+    display: flex!important;
     align-items: center;
     justify-content: center;
     width: 100%;
@@ -11,6 +11,7 @@
     flex-direction: column;
     svg{
         width:7vw;
+        .st0{fill:none;stroke:rgb(241, 245, 5);stroke-width:2;stroke-miterlimit:10;}
         path:first-child{
             stroke:#fff;
             fill:none;
