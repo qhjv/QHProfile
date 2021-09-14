@@ -98,3 +98,35 @@
         transform:translateY(0)
     }
 }
+@keyframes loader1 {
+    0% {
+        opacity: 0;
+        stroke-dasharray: 150;
+    }
+    30% {
+        opacity: 10;
+        stroke-dasharray: 150;
+    }
+    90% {
+    }
+    100% {
+        opacity: 0;
+        stroke-dasharray: 0;
+    }
+}
+@keyframes loader2 {
+    0% {
+        opacity: 0;
+        stroke-dasharray: 500;
+    }
+    30% {
+        opacity: 10;
+        stroke-dasharray: 500;
+    }
+    90% {
+    }
+    100% {
+        opacity: 0;
+        stroke-dasharray: 0;
+    }
+}

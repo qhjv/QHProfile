@@ -9,11 +9,13 @@
 @import "layout/buttons";
 @import "layout/font";
 
+// Module
+@import "module/header";
+@import "module/footer";
+@import "module/noise";
+@import "module/cursor";
+@import "module/menu";
+@import "module/loader";
 
-// pages
-@import "pages/header";
-@import "pages/footer";
-@import "pages/noise";
-@import "pages/cursor";
-@import "pages/menu";
+// Pages
 @import "pages/home";

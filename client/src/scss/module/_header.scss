@@ -45,3 +45,23 @@
     position: relative;
   }
 }
+//table and mobile
+@media (max-width: 1200px){
+  .header{
+    .header-logo{
+      &__img{
+        width: 4vw;
+      }
+      &__text {
+        margin-left: 2vw;
+      }
+    }
+  }
+}
+//tablet
+@media (min-width: 768px) and (max-width: 1200px) {
+}
+//mobile
+@media (max-width: 768px){
+    
+}
