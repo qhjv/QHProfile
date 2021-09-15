@@ -1,0 +1,19 @@
+/*==================== LOADING ====================*/
+
+.loading{
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 100;
+    width: 100%;
+    height: 100vh;
+    background-color: #f9fafb;
+    transition: 0.8s;
+    .page-transition{
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+}

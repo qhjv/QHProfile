@@ -39,22 +39,9 @@
     -->
     <title>React App</title>
   </head>
-  <body onload="move()">
+  <body data-barba="container">
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div className="preloader" id="preloader" style="display: none;">
-      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-          viewBox="0 0 95 114.3" style="enable-background:new 0 0 95 114.3;" xml:space="preserve">
-          <g>
-            <path class="st0" id="path1" d="M53.4,107.4c0,2.5-2.4,4.6-5.4,4.6l0,0c-3,0-5.4-2-5.4-4.6V49.9c0-2.5,2.4-4.6,5.4-4.6l0,0c3,0,5.4,2,5.4,4.6
-              V107.4z"/>
-            <path class="st0" id="path2" d="M48,3.9C24.1,3.9,4.7,23.2,4.7,47.1c0,17.8,10.7,33,26.1,39.7c4.2,0,6.7-7.3,4.2-9.8
-              c-11.6-5-19.6-16.5-19.6-29.9c0-18,14.6-32.6,32.6-32.6s32.6,14.6,32.6,32.6c0,13.4-8.1,24.9-19.6,29.9c-2,2,2.1,9.8,4.2,9.8
-              c15.3-6.6,26.1-21.9,26.1-39.7C91.2,23.2,71.8,3.9,48,3.9z"/>
-          </g>
-      </svg>
-        <div id="percent">1%</div>
-    </div>
-    <div id="root"></div>
+    <div id="root" ></div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -97,50 +84,5 @@
       }, 100);
       
     </script> -->
-    <script>
-      const tll = gsap.timeline({
-            paused: "true"
-        });
-        tll.to("#percent, #bar,svg",{
-            duration:.2,
-            opacity: 0,
-            zIndex: -1
-        });
-        tll.to("#preloader",{
-            duration: .8,
-            width: "0%"
-        });
-        tll.from(".wrapper",{
-            duration: 1.5,
-            y: "-150%"
-        },"-=.2");
-        var width = 1;
-        var pathSVG1 = document.getElementById("path1");
-        var pathSVG2 = document.getElementById("path2");
-        var id;
-        function move(){
-            id = setInterval(frame,10);
-
-        }
-        function frame(){
-            if(width>=100){
-              pathSVG1.style.stroke = 'yellow';
-              pathSVG1.style.fill = 'yellow';
-              pathSVG2.style.stroke = 'yellow';
-              pathSVG2.style.fill = 'yellow';
-              document.getElementById("percent").style.color = 'yellow'
-              clearInterval(id);
-              setTimeout(() => {
-                tll.play();
-              }, 1000);
-            }
-            else{
-                width++;
-                pathSVG1.style.strokeDasharray = width + 50;
-                pathSVG2.style.strokeDasharray = (width+50)*3;
-                document.getElementById("percent").innerHTML = width + "%";
-            }
-        }
-    </script>
   </body>
 </html>
