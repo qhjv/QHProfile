@@ -1,6 +1,7 @@
 import React,{useRef,useEffect} from 'react';
 import gsap from 'gsap'
 import {TimelineLite ,TweenMax, Power3} from 'gsap';
+import { Link, NavLink, useHistory } from 'react-router-dom';
 
 Home.propTypes = {
     
@@ -39,15 +40,15 @@ function Home(props) {
         <section className="home section d-flex justify-content-between align-items-center" id="home" ref={el => textHome = el}>
             <div className="home-text text-center" ref={el => content = el}>
                 <h2 className="d-flex flex-column">
-                    <a className="spanFast hover-cursor" href="#top">
+                    <Link className="spanFast hover-cursor" to="/about">
                         CLICK TO
-                    </a>
-                    <a className="spanSlow hover-cursor" href="#top">
+                    </Link>
+                    <Link className="spanSlow hover-cursor" to="/about">
                         VIEW INFOMATION
-                    </a>
-                    <a className="spanFast hover-cursor" href="#top">
+                    </Link>
+                    <Link className="spanFast hover-cursor" to="/about">
                         ABOUT ME
-                    </a>
+                    </Link>
                 </h2>
             </div>
          </section>

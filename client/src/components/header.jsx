@@ -3,6 +3,7 @@ import logodark from '../asset/image/logo.png'
 import logolight from '../asset/image/logo_light.png'
 import $ from 'jquery'
 import {TimelineLite ,TweenMax, Power3,gsap} from 'gsap';
+import { Link, NavLink, useHistory } from 'react-router-dom';
 
 Header.propTypes = {
     
@@ -63,7 +64,9 @@ function Header(props) {
                             <h1><img src={logodark} alt="qhjv portfolio"/></h1>
                         </div>
                         <div className="header-logo__text" ref={el => logoText = el}>
-                            <a className="hover-cursor hover-text hover-text-underlined" href="#top">H-JV</a>
+                            <Link className="hover-cursor hover-text hover-text-underlined" to="/">
+                                H-JV
+                            </Link>
                         </div>
                     </div>
                     <div className="header-project hover-text hover-cursor hover-text-underlined"

@@ -8,7 +8,7 @@
     z-index: 100;
     width: 100%;
     height: 100vh;
-    background-color: #f9fafb;
+    background-color: $color-white;
     transition: 0.8s;
     .page-transition{
         position: absolute;
@@ -16,4 +16,30 @@
         width: 100%;
         height: 100%;
     }
+}
+.loadRouter{
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 100;
+    width: 100%;
+    height: 100vh;
+    background-color: $color-white;
+    transform: translateY(100%);
+    transition: 0.8s;
+}
+.animationLoadRouter{
+    animation: animationLoadRouter 3s ease;
+}
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 99;
+    width: 100%;
+    height: 100vh;
+    background-color: $color-dark;
+    // transition: 0.2s;
 }
