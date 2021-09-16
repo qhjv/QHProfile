@@ -8,7 +8,7 @@
   color: $color-white;
   font-weight: 400;
   visibility:hidden;
-  z-index: 99;
+  z-index: 98;
   .header-logo {
     position: relative;
     &__img {
@@ -50,7 +50,7 @@
   .header{
     .header-logo{
       &__img{
-        width: 4vw;
+        width: 4.5vw;
       }
       &__text {
         margin-left: 2vw;

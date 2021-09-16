@@ -11,5 +11,5 @@ const loaded = createSlice({
     }
 })
 const {reducer,actions} =loaded
-export const {loadedSet}=actions
+export const {loadedSet} = actions
 export default reducer;

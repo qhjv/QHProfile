@@ -12,8 +12,11 @@ import Menu from './components/menu';
 import Loading from './components/loading';
 import Preloader from './components/preloader/preloader';
 import { useDispatch, useSelector } from 'react-redux';
+import Router from './router/router';
 
 function App() {
+  const loaded = useSelector(state=>state.loaded)
+  
   const handleClickBlur = () => {
     $(".header-logo").removeClass("transform-left");
     $(".footer-socials").removeClass("transform-left");
@@ -25,9 +28,9 @@ function App() {
         $("body").removeClass('overflow-hidden');
       }
       
-      const loaded = useSelector(state=>state.loaded)
       
     if(loaded === true){
+      $('body').removeClass('overflow-hidden')
       $( document ).ready(function() {
         luxy.init({
           wrapper: "#luxy",
@@ -50,12 +53,13 @@ function App() {
           </div>
             <div className="wrapper" id="luxy" data-barba="container" data-barba-namespace="home-section">
                 <div className="loader"></div>
-                <Home></Home>
+                <Router></Router>
             </div>
           <Footer></Footer>
       </div>
     );
   }else{
+    $('body').addClass('overflow-hidden')
     return(
       <div className="App">
           <Noise></Noise>

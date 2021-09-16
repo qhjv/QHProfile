@@ -1,20 +1,45 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import product1 from '../asset/image/products/1.jpg'
 import arrowLight from '../asset/image/icons/arrow-light.png'
 import arrowdark from '../asset/image/icons/arrow-dark.png'
 import $ from 'jquery'
+import { Link, NavLink, useHistory } from 'react-router-dom';
+import loadImg from "../asset/image/icons/load.gif"
 
 Menu.propTypes = {
     
 };
 const images = [
-    "https://images.unsplash.com/photo-1551392505-f4056032826e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1497&q=80",
-    "https://images.unsplash.com/photo-1594312180721-3b5217cfc65f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
-    "https://images.unsplash.com/photo-1593806812862-1dc510b769a8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2851&q=80",
-    "https://images.unsplash.com/photo-1558507652-2d9626c4e67a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
-    "https://images.unsplash.com/photo-1484517186945-df8151a1a871?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=987&q=80",
-    "https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
+    {
+        id:1,
+        src:"https://images.unsplash.com/photo-1594312180721-3b5217cfc65f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
+        name:"Skill Park"
+    },
+    {
+        id:2,
+        src:"https://images.unsplash.com/photo-1594312180721-3b5217cfc65f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
+        name:"Hihi"
+    },
+    {
+        id:3,
+        src:"https://images.unsplash.com/photo-1593806812862-1dc510b769a8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2851&q=80",
+        name:"Skill Park"
+    },
+    {
+        id:4,
+        src:"https://images.unsplash.com/photo-1558507652-2d9626c4e67a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
+        name:"Skill Park"
+    },
+    {
+        id:5,
+        src:"https://images.unsplash.com/photo-1484517186945-df8151a1a871?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=987&q=80",
+        name:"Skill Park"
+    },
+    {
+        id:6,
+        src:"https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+        name:"Skill Park"
+    },
 ];
 
 function Menu(props) {
@@ -29,7 +54,46 @@ function Menu(props) {
         $('.spanFast').removeClass('no-trans');
         $('.spanSlow').removeClass('no-trans');
     }
-    
+    const handleClickLinkMenu = () => {
+        $(".header-logo").removeClass("transform-left");
+        $(".footer-socials").removeClass("transform-left");
+        $("#home").removeClass("transform-left");
+        $(".backgroundBlur").addClass('hidden');
+        $(".menu").removeClass('menutranfrom');
+        $("body").removeClass('overflow-hidden');
+        $('.spanFast').removeClass('no-trans');
+        $('.spanSlow').removeClass('no-trans');
+    }
+    //url seo
+    const changeURL = (str) =>
+        {
+            // Chuyển hết sang chữ thường
+            str = str.toLowerCase();     
+        
+            // xóa dấu
+            str = str.replace(/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/g, 'a');
+            str = str.replace(/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/g, 'e');
+            str = str.replace(/(ì|í|ị|ỉ|ĩ)/g, 'i');
+            str = str.replace(/(ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ)/g, 'o');
+            str = str.replace(/(ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ)/g, 'u');
+            str = str.replace(/(ỳ|ý|ỵ|ỷ|ỹ)/g, 'y');
+            str = str.replace(/(đ)/g, 'd');
+        
+            // Xóa ký tự đặc biệt
+            str = str.replace(/([^0-9a-z-\s])/g, '');
+        
+            // Xóa khoảng trắng thay bằng ký tự -
+            str = str.replace(/(\s+)/g, '-');
+        
+            // xóa phần dự - ở đầu
+            str = str.replace(/^-+/g, '');
+        
+            // xóa phần dư - ở cuối
+            str = str.replace(/-+$/g, '');
+        
+            // return
+            return str;
+        }
     return (
         <div className="menu">
             <div className="menu__close d-flex justify-content-center align-items-center hover-cursor hover-text"
@@ -39,17 +103,21 @@ function Menu(props) {
             </div>
             <div className="menuProducts my-scrollbar">
                 <div className="container">
-                    {images.map((image, index) => (
-                        <a key={index} href="#top">
+                    {(images?images:[]).map((image, index) => (
+                        <Link 
+                            key={index} 
+                            to = {`/product/${changeURL(image.name)}`}
+                            onClick={handleClickLinkMenu}
+                        >
                             <div className={(index===0 ? "menuProduct menuProduct-first" : "menuProduct")}>
                                 <div className="menuProduct__img hover-product">
-                                    <img src={image} alt="skillpark"/>
+                                    <img src={image.src?image.src:loadImg} alt={image.name}/>
                                 </div>
                                 <div className="menuProduct__name">
-                                    <h2 className="hover-text hover-cursor">Skill Park</h2>
+                                    <h2 className="hover-text hover-cursor">{image.name}</h2>
                                 </div>
                             </div>
-                        </a>
+                        </Link>
                     ))}
                 </div>
             </div>

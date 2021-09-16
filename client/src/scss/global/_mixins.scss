@@ -98,6 +98,20 @@
         transform:translateY(0)
     }
 }
+@keyframes animationLoadRouter {
+    0% {
+        transform:translateY(100%)
+    }
+    30% {
+        transform:translateY(0)
+    }
+    70% {
+        transform:translateY(100%)
+    }
+    100% {
+        transform:translateY(100%)
+    }
+}
 @keyframes loader1 {
     0% {
         opacity: 0;
