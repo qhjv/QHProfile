@@ -33,8 +33,8 @@ function Home(props) {
     }
     window.addEventListener('mousemove', handleMouseMove);
     useEffect(() => {
-        TweenMax.to(textHome,0,{visibility:'visible'})
-        TweenMax.from(content,1,{opacity:0,y:100,ease:Power3.easeOut},2)
+        TweenMax.to(textHome,1,{opacity:'1'})
+        TweenMax.from(content,3,{opacity:0,y:100,ease:Power3.easeOut},2)
     }, [])
     return (
         <section className="home section d-flex justify-content-between align-items-center" id="home" ref={el => textHome = el}>

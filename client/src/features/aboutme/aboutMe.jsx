@@ -7,9 +7,13 @@ AboutMe.propTypes = {
 
 function AboutMe(props) {
     return (
-        <div>
-            about
-        </div>
+        <section className="home section d-flex justify-content-between align-items-center" id="home" >
+            <div className="home-text text-center" >
+                <h2 className="d-flex flex-column">
+                    about
+                </h2>
+            </div>
+         </section>
     );
 }
 
