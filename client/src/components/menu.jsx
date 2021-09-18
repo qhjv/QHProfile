@@ -47,7 +47,7 @@ function Menu(props) {
     const handleClickCloseMenu = () => {
         $(".header-logo").removeClass("transform-left");
         $(".footer-socials").removeClass("transform-left");
-        $("#home").removeClass("transform-left");
+        $(".section").removeClass("transform-left");
         $(".backgroundBlur").addClass('hidden');
         $(".menu").removeClass('menutranfrom');
         $("body").removeClass('overflow-hidden');
@@ -57,7 +57,7 @@ function Menu(props) {
     const handleClickLinkMenu = () => {
         $(".header-logo").removeClass("transform-left");
         $(".footer-socials").removeClass("transform-left");
-        $("#home").removeClass("transform-left");
+        $(".section").removeClass("transform-left");
         $(".backgroundBlur").addClass('hidden');
         $(".menu").removeClass('menutranfrom');
         $("body").removeClass('overflow-hidden');

@@ -23,6 +23,7 @@ body {
 }
 section {
     position: relative;
+    transition: 0.5s;
 }
 .wrapper{
     position: relative;
@@ -35,10 +36,7 @@ section {
     left:0;
     .container{
         // height:100%;
-        display:flex;
-        justify-content: center;
-        align-items:center;
-        flex-direction: column;
+        
     }
 }
 
@@ -94,6 +92,7 @@ a{
 }
 a:hover{
     text-decoration: none!important;
+    cursor: inherit;
 }
 h1,h2,h3{
     font-family: Ogg, "Cormorant Upright", serif;

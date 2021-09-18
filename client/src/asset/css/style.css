@@ -110,7 +110,8 @@ body {
   color: red; }
 
 section {
-  position: relative; }
+  position: relative;
+  transition: 0.5s; }
 
 .wrapper {
   position: relative;
@@ -120,11 +121,6 @@ section {
   transition: opacity 1s ease 1s;
   top: 0;
   left: 0; }
-  .wrapper .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column; }
 
 img {
   max-width: 100%;
@@ -172,7 +168,8 @@ a {
   text-decoration: none !important; }
 
 a:hover {
-  text-decoration: none !important; }
+  text-decoration: none !important;
+  cursor: inherit; }
 
 h1, h2, h3 {
   font-family: Ogg, "Cormorant Upright", serif;
@@ -255,7 +252,9 @@ h1, h2, h3 {
   visibility: hidden;
   z-index: 98; }
   .header .header-logo {
-    position: relative; }
+    position: absolute;
+    top: 0;
+    left: 0; }
     .header .header-logo__img {
       width: 1.953vw; }
       .header .header-logo__img:hover {
@@ -280,7 +279,9 @@ h1, h2, h3 {
       transition: 0.8s ease-in-out; }
   .header .header-project {
     cursor: pointer;
-    position: relative; }
+    position: absolute;
+    top: 0;
+    right: 0; }
 
 @media (max-width: 1200px) {
   .header .header-logo__img {
@@ -300,11 +301,18 @@ h1, h2, h3 {
   z-index: 98;
   visibility: hidden; }
   .footer .footer-socials {
-    transition: 0.5s; }
+    transition: 0.5s;
+    position: absolute;
+    bottom: 0;
+    left: 0; }
     .footer .footer-socials div i {
       font-size: 1.4vw; }
     .footer .footer-socials div + div {
       margin-top: 1vw; }
+  .footer .footer-year {
+    position: absolute;
+    bottom: 0;
+    right: 0; }
 
 @media (max-width: 1200px) {
   .footer .footer-socials div i {
@@ -629,3 +637,86 @@ h1, h2, h3 {
     .home .home-text h2 {
       font-size: 7vw;
       line-height: 10vw; } }
+
+/*==================== ABOUT ME ====================*/
+.about {
+  padding: 18vw 0 60vh 0;
+  color: var(--color-white);
+  opacity: 0; }
+  .about__title h2 {
+    font-size: 5vw;
+    letter-spacing: 0.5vw; }
+  .about .container {
+    width: 70%;
+    max-width: 70% !important; }
+    .about .container h3 {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: 400; }
+    .about .container h3 + h3 {
+      margin-top: 0.7vw; }
+    .about .container p {
+      margin-bottom: 0 !important;
+      font-size: 0.93vw;
+      font-weight: 400; }
+    .about .container .title-about {
+      position: relative;
+      display: inline-block; }
+      .about .container .title-about h2 {
+        font-size: 2.34vw; }
+      .about .container .title-about::before {
+        position: absolute;
+        bottom: -0.05vw;
+        left: 0;
+        content: '';
+        width: 100%;
+        height: 0.156vw;
+        transform: scaleX(0.4);
+        transform-origin: left top;
+        transition: transform .3s;
+        background: var(--color-white); }
+      .about .container .title-about:hover::before {
+        transform-origin: left top;
+        transform: scaleX(1); }
+    .about .container .about-div {
+      margin-top: 4vw; }
+    .about .container .about-content {
+      margin-top: 2vw; }
+    .about .container .about-info__hello p {
+      font-size: 1.1vw; }
+    .about .container .about-info__hello h3 {
+      margin-top: 1.17vw; }
+    .about .container .about-info__content {
+      margin-top: 1.56vw;
+      width: 70%; }
+      .about .container .about-info__content h3 p {
+        line-height: 1.7vw; }
+    .about .container .about-info__button {
+      position: relative;
+      margin-top: 4vw;
+      width: 14vw;
+      height: 3vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 0.5s;
+      background: var(--color-dark);
+      border: 0.1vw solid var(--color-white); }
+      .about .container .about-info__button i {
+        margin-right: 0.78vw; }
+      .about .container .about-info__button::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-left: 0.1vw solid var(--color-white);
+        border-bottom: 0.1vw solid var(--color-white);
+        opacity: 0;
+        top: 0;
+        right: 0;
+        transition: 0.5s; }
+      .about .container .about-info__button:hover {
+        transform: translate(0.78vw, -0.78vw); }
+        .about .container .about-info__button:hover::before {
+          opacity: 1;
+          top: 0.78vw;
+          right: 0.78vw; }

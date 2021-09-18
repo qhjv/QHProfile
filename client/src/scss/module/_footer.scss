@@ -11,6 +11,9 @@
     visibility:hidden;
     .footer-socials{
         transition : 0.5s;
+        position: absolute;
+        bottom:0;
+        left:0;
         div{
             i{
                 font-size: 1.4vw;
@@ -19,6 +22,11 @@
         div + div{
             margin-top: 1vw;
         }
+    }
+    .footer-year{
+        position: absolute;
+        bottom:0;
+        right:0;
     }
 }
 //table and mobile

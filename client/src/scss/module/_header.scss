@@ -10,7 +10,9 @@
   visibility:hidden;
   z-index: 98;
   .header-logo {
-    position: relative;
+    position: absolute;
+    top:0;
+    left:0;
     &__img {
       width: 1.953vw;
       // transition: 0.5s;
@@ -42,7 +44,9 @@
   }
   .header-project {
     cursor: pointer;
-    position: relative;
+    position: absolute;
+    top: 0;
+    right: 0;
   }
 }
 //table and mobile

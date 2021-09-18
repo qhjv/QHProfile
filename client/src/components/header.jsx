@@ -47,7 +47,7 @@ function Header(props) {
     const handleClickMenu = () => {
         $(".header-logo").addClass("transform-left");
         $(".footer-socials").addClass("transform-left");
-        $("#home").addClass("transform-left");
+        $(".section").addClass("transform-left");
         $(".backgroundBlur").removeClass('hidden');
         $(".menu").addClass('menutranfrom');
         $("body").addClass('overflow-hidden');
@@ -57,7 +57,7 @@ function Header(props) {
     }
     return (
             <header className="header" id="header" ref={el => header = el}>
-                <div className="d-flex align-items-center justify-content-between">
+                <div className="d-flex align-items-center justify-content-between position-relative">
                     <div className="header-logo d-flex align-items-center hover-cursor">
                         <div className="header-logo__img" onClick={handleClickLogo} ref={el => logoImg = el}>
                             <div className="header-logo__before"></div>
@@ -72,7 +72,7 @@ function Header(props) {
                     <div className="header-project hover-text hover-cursor hover-text-underlined"
                         onClick={handleClickMenu}
                     >
-                        PRODUCTS
+                        PRODUCT
                     </div>
                 </div>
             </header>
