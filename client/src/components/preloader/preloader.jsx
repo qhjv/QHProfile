@@ -1,5 +1,4 @@
 import React,{useState} from 'react';
-import PropTypes from 'prop-types';
 import gsap from 'gsap'
 import $ from 'jquery'
 import { useDispatch } from 'react-redux';

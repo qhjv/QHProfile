@@ -54,6 +54,7 @@
             margin-top: 2vw;
         }
         .about-info{
+            margin-top: 4vw;
             &__hello{
                 p{
                     font-size: 1.1vw;
@@ -117,7 +118,13 @@
 
         }
         .about-contacts{
-
+            h3{
+                p{
+                    a{
+                        text-decoration: underline!important;
+                    }
+                }
+            }
         }
     }
 }

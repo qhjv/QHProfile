@@ -1,5 +1,7 @@
 import React,{useEffect,useRef} from 'react';
-import {TweenMax, Power3} from 'gsap';
+import {TweenMax, Power3 , gsap} from 'gsap';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger)
 
 AboutMe.propTypes = {
     
@@ -8,8 +10,25 @@ AboutMe.propTypes = {
 function AboutMe(props) {
 
     let about = useRef(null)
-
+    
     useEffect(() => {
+        const boxes = document.querySelectorAll('.about-div');
+    
+        boxes.forEach((box, i) => {
+            gsap.from(box, {
+                duration: 3,
+                y: '100',
+                opacity: 0,
+                ease: 'ease-in',
+                scrollTrigger: {
+                  trigger: box,
+                  start: 'top 70%',
+                  end: 'bottom 40%',
+                  toggleActions: 'play none none none',
+                  //options: play, pause, resume, reset, restart, complete, reverse,none
+                },
+              });
+        });
         TweenMax.to(about,1,{opacity:1})
     }, [])
     return (
@@ -18,15 +37,15 @@ function AboutMe(props) {
                 <div className="about__title hover-cursor">
                     <h2 className="hover-cursor">ABOUT ME</h2>
                 </div>
-                <div className="about-div about-info">
+                <div className="about-info">
                     <div className="about-info__hello">
                         <p className="hover-cursor">Hello,</p>
                         <h3><p className="hover-cursor">I am VU QUANG HUY - Web Developer</p></h3>
                     </div>
                     <div className="about-info__content">
                         <h3><p className="hover-cursor">My name is Huy, a student at Posts and Telecommunications Institute of Technology (PTIT), major in Information Technology. 
-                            I always want to learn more from experience and use my creativity to create good products. And I want to be a Web developer.
-                            Thank you for reading .</p></h3>
+                            I always want to learn more from experience and use my creativity to create good products. And I want to be a professional Web developer.
+                            <br></br>Thank you for reading .</p></h3>
                     </div>
                     <a href="">
                         <div className="about-info__button hover-cursor">
@@ -69,9 +88,9 @@ function AboutMe(props) {
                         <h2 className="hover-cursor">CONTACT</h2>
                     </div>
                     <div className="about-content about-product">
-                        <h3><p>SDT : 0358839559 .</p></h3>
+                        <h3><p>SDT : <a className="hover-text hover-cursor" href="tel:0358839559">0358839559</a> .</p></h3>
                         <h3><p>ANDRESS : HaNoi - VietNam .</p></h3>
-                        <h3><p>EMAIL : vuquanghuy978@gmail.com .</p></h3>
+                        <h3><p>EMAIL : <a className="hover-text hover-cursor" href="mailto:vuquanghuy978@gmail.com">vuquanghuy978@gmail.com</a> .</p></h3>
                     </div>
                 </div>
             </div>
