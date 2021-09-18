@@ -32,6 +32,9 @@ function Loading(props) {
         setTimeout(() => {
             $('.overlay').addClass('hidden')
         }, 1000);
+        $('html,body').animate({
+            scrollTop: 0
+            }, );
         $('.loadRouter').removeClass('animationLoadRouter')
     },[location.pathname,loadRouter]);
     return (

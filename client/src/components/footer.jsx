@@ -20,7 +20,7 @@ function Footer(props) {
 
     return (
         <footer className="footer" ref={el => footer = el}>
-                <div className="d-flex align-items-end justify-content-between">
+                <div className="d-flex align-items-end justify-content-between position-relative">
                     <div className="footer-socials d-flex align-items-center flex-column">
                         <div className="footer-socials__facebook" ref={el => link1 = el}>
                             <a className="hover-cursor" rel="noopener noreferrer" href="https://www.facebook.com/profile.php?id=100009360518751" target="_blank">

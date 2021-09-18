@@ -20,21 +20,21 @@ function App() {
   const handleClickBlur = () => {
     $(".header-logo").removeClass("transform-left");
     $(".footer-socials").removeClass("transform-left");
-    $("#home").removeClass("transform-left");
+    $(".section").removeClass("transform-left");
     $(".backgroundBlur").addClass('hidden');
     $(".menu").removeClass('menutranfrom');
     $('.spanFast').removeClass('no-trans')
-        $('.spanSlow').removeClass('no-trans')
-        $("body").removeClass('overflow-hidden');
-      }
+    $('.spanSlow').removeClass('no-trans')
+    $("body").removeClass('overflow-hidden');
+  }
       
       
-    if(loaded === true){
+  if(loaded === true){
       $('body').removeClass('overflow-hidden')
       $( document ).ready(function() {
         luxy.init({
           wrapper: "#luxy",
-          wrapperSpeed: .065
+          wrapperSpeed: .01
         });
         Scrollbar.init(document.querySelector('.my-scrollbar'), {
           damping:0.02
