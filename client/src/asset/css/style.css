@@ -681,42 +681,46 @@ h1, h2, h3 {
       margin-top: 4vw; }
     .about .container .about-content {
       margin-top: 2vw; }
-    .about .container .about-info__hello p {
-      font-size: 1.1vw; }
-    .about .container .about-info__hello h3 {
-      margin-top: 1.17vw; }
-    .about .container .about-info__content {
-      margin-top: 1.56vw;
-      width: 70%; }
-      .about .container .about-info__content h3 p {
-        line-height: 1.7vw; }
-    .about .container .about-info__button {
-      position: relative;
-      margin-top: 4vw;
-      width: 14vw;
-      height: 3vw;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: 0.5s;
-      background: var(--color-dark);
-      border: 0.1vw solid var(--color-white); }
-      .about .container .about-info__button i {
-        margin-right: 0.78vw; }
-      .about .container .about-info__button::before {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        border-left: 0.1vw solid var(--color-white);
-        border-bottom: 0.1vw solid var(--color-white);
-        opacity: 0;
-        top: 0;
-        right: 0;
-        transition: 0.5s; }
-      .about .container .about-info__button:hover {
-        transform: translate(0.78vw, -0.78vw); }
-        .about .container .about-info__button:hover::before {
-          opacity: 1;
-          top: 0.78vw;
-          right: 0.78vw; }
+    .about .container .about-info {
+      margin-top: 4vw; }
+      .about .container .about-info__hello p {
+        font-size: 1.1vw; }
+      .about .container .about-info__hello h3 {
+        margin-top: 1.17vw; }
+      .about .container .about-info__content {
+        margin-top: 1.56vw;
+        width: 70%; }
+        .about .container .about-info__content h3 p {
+          line-height: 1.7vw; }
+      .about .container .about-info__button {
+        position: relative;
+        margin-top: 4vw;
+        width: 14vw;
+        height: 3vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.5s;
+        background: var(--color-dark);
+        border: 0.1vw solid var(--color-white); }
+        .about .container .about-info__button i {
+          margin-right: 0.78vw; }
+        .about .container .about-info__button::before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          border-left: 0.1vw solid var(--color-white);
+          border-bottom: 0.1vw solid var(--color-white);
+          opacity: 0;
+          top: 0;
+          right: 0;
+          transition: 0.5s; }
+        .about .container .about-info__button:hover {
+          transform: translate(0.78vw, -0.78vw); }
+          .about .container .about-info__button:hover::before {
+            opacity: 1;
+            top: 0.78vw;
+            right: 0.78vw; }
+    .about .container .about-contacts h3 p a {
+      text-decoration: underline !important; }
