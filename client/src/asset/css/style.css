@@ -89,6 +89,12 @@
     opacity: 0;
     stroke-dasharray: 0; } }
 
+@keyframes scaleTrans {
+  0% {
+    transform: scale(0.9); }
+  100% {
+    transform: scale(1.2); } }
+
 /*-------------------------- 
       Global Styles
 ---------------------------*/
@@ -246,7 +252,8 @@ h1, h2, h3 {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 4vw 7vw 0 7vw;
+  margin-top: 4vw;
+  padding: 0 7vw 0 7vw;
   color: var(--color-white);
   font-weight: 400;
   visibility: hidden;
@@ -295,7 +302,8 @@ h1, h2, h3 {
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 0 7vw 4vw 7vw;
+  margin-bottom: 4vw;
+  padding: 0 7vw 0 7vw;
   color: var(--color-white);
   font-weight: 400;
   z-index: 98;
@@ -640,13 +648,13 @@ h1, h2, h3 {
 
 /*==================== ABOUT ME ====================*/
 .about {
-  padding: 18vw 0 60vh 0;
   color: var(--color-white);
   opacity: 0; }
   .about__title h2 {
     font-size: 5vw;
     letter-spacing: 0.5vw; }
   .about .container {
+    padding: 18vw 0 60vh 0;
     width: 70%;
     max-width: 70% !important; }
     .about .container h3 {
@@ -722,5 +730,116 @@ h1, h2, h3 {
             opacity: 1;
             top: 0.78vw;
             right: 0.78vw; }
+    .about .container .about-experiences .about-experience {
+      position: relative;
+      margin-top: 7vw; }
+      .about .container .about-experiences .about-experience__line {
+        position: absolute;
+        width: 0.12vw;
+        height: 95%;
+        top: 0;
+        left: 17.95vw;
+        background: var(--color-light);
+        z-index: 1; }
+      .about .container .about-experiences .about-experience .experience {
+        padding: 3.125vw 0 5vw 7.81vw; }
+        .about .container .about-experiences .about-experience .experience__date {
+          font-size: 0.78vw;
+          width: 7.42vw; }
+        .about .container .about-experiences .about-experience .experience__span {
+          position: relative;
+          width: 1.64vw;
+          height: 1.64vw;
+          border-radius: 50%;
+          background: var(--color-white);
+          z-index: 2;
+          margin: 0 1.953vw;
+          animation: scaleTrans 500ms alternate infinite ease-in; }
+          .about .container .about-experiences .about-experience .experience__span::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 2.11vw;
+            height: 2.11vw;
+            border-radius: 50%;
+            border: 0.078vw solid var(--color-white); }
+        .about .container .about-experiences .about-experience .experience .experience-company {
+          width: 50%; }
+          .about .container .about-experiences .about-experience .experience .experience-company__name h3 {
+            font-size: 1.09vw;
+            font-weight: 700; }
+          .about .container .about-experiences .about-experience .experience .experience-company__detail {
+            margin-top: 1vw; }
+            .about .container .about-experiences .about-experience .experience .experience-company__detail p {
+              font-size: 0.94vw; }
+            .about .container .about-experiences .about-experience .experience .experience-company__detail p + p {
+              margin-top: 0.2vw; }
     .about .container .about-contacts h3 p a {
       text-decoration: underline !important; }
+
+@media (max-width: 1200px) {
+  .about__title h2 {
+    font-size: 8vw; }
+  .about .container {
+    padding: 30vw 0 60vh 0;
+    width: 60%;
+    max-width: 60% !important; }
+    .about .container h3 + h3 {
+      margin-top: 1.5vw; }
+    .about .container p {
+      font-size: 1.5vw; }
+    .about .container .title-about h2 {
+      font-size: 3.5vw; }
+    .about .container .about-div {
+      margin-top: 7vw; }
+    .about .container .about-content {
+      margin-top: 3vw; }
+    .about .container .about-info {
+      margin-top: 4vw; }
+      .about .container .about-info__hello p {
+        font-size: 2.1vw; }
+      .about .container .about-info__hello h3 {
+        margin-top: 1.17vw; }
+      .about .container .about-info__content {
+        margin-top: 1.56vw;
+        width: 100%; }
+        .about .container .about-info__content h3 p {
+          line-height: 3vw; }
+      .about .container .about-info__button {
+        width: 20vw;
+        height: 5vw;
+        font-size: 1.5vw; }
+        .about .container .about-info__button i {
+          margin-right: 1.5vw; }
+    .about .container .about-experiences .about-experience {
+      margin-top: 7vw; }
+      .about .container .about-experiences .about-experience__line {
+        height: 95%;
+        left: 21vw; }
+      .about .container .about-experiences .about-experience .experience {
+        padding: 3.125vw 0 5vw 7.81vw; }
+        .about .container .about-experiences .about-experience .experience__date {
+          font-size: 1vw;
+          width: 9vw; }
+        .about .container .about-experiences .about-experience .experience__span {
+          width: 2.5vw;
+          height: 2.5vw;
+          margin: 0 3vw; }
+          .about .container .about-experiences .about-experience .experience__span::before {
+            width: 3.5vw;
+            height: 3.5vw; }
+        .about .container .about-experiences .about-experience .experience .experience-company {
+          width: 65%; }
+          .about .container .about-experiences .about-experience .experience .experience-company__name h3 {
+            font-size: 1.5vw;
+            margin-top: 0vw; }
+          .about .container .about-experiences .about-experience .experience .experience-company__detail {
+            margin-top: 1.5vw; }
+            .about .container .about-experiences .about-experience .experience .experience-company__detail p {
+              font-size: 1.1vw; }
+            .about .container .about-experiences .about-experience .experience .experience-company__detail p + p {
+              margin-top: 0.5vw; }
+    .about .container .about-contacts h3 p a {
+      text-decoration: underline !important; } }

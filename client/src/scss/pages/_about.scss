@@ -1,6 +1,5 @@
 /*==================== ABOUT ME ====================*/
 .about{
-    padding:18vw 0 60vh 0;
     color:$color-white;
     opacity:0;
     &__title{
@@ -10,6 +9,7 @@
         }
     }
     .container{
+        padding:18vw 0 60vh 0;
         width:70%;
         max-width: 70%!important;
         h3{
@@ -115,7 +115,65 @@
 
         }
         .about-experiences{
-
+            .about-experience{
+                position: relative;
+                margin-top:7vw;
+                &__line{
+                    position:absolute;
+                    width:0.12vw;
+                    height: 95%;
+                    top:0;
+                    left: 17.95vw;
+                    background:$color-light;
+                    z-index: 1;
+                }
+                .experience{
+                    padding:3.125vw 0 5vw 7.81vw;
+                    &__date{
+                        font-size:0.78vw;
+                        width: 7.42vw;
+                    }
+                    &__span{
+                        position:relative;
+                        width:1.64vw;
+                        height:1.64vw;
+                        border-radius:50%;
+                        background:$color-white;
+                        z-index: 2;
+                        margin: 0 1.953vw;
+                        animation: scaleTrans 500ms alternate infinite ease-in;
+                        &::before{
+                            content:'';
+                            position:absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            width:2.11vw;
+                            height:2.11vw;
+                            border-radius:50%;
+                            border: 0.078vw solid $color-white;
+                        }
+                    }
+                    .experience-company{
+                        width: 50%;
+                        &__name{
+                            h3{
+                                font-size: 1.09vw;
+                                font-weight: 700;
+                            }
+                        }
+                        &__detail{
+                            margin-top:1vw;
+                            p{
+                                font-size:0.94vw
+                            }
+                            p + p{
+                                margin-top: 0.2vw;
+                            }
+                        }
+                    }
+                }
+            }
         }
         .about-contacts{
             h3{
@@ -127,4 +185,130 @@
             }
         }
     }
+}
+//table and mobile
+@media (max-width: 1200px){
+    .about{
+        &__title{
+            h2{
+                font-size: 8vw;
+            }
+        }
+        .container{
+            padding:30vw 0 60vh 0;
+            width:60%;
+            max-width: 60%!important;
+            h3 + h3 {
+                margin-top: 1.5vw;
+            }
+            p{
+                font-size: 1.5vw;
+            }
+            .title-about{
+                h2{
+                    font-size: 3.5vw;
+                }
+            }
+            .about-div{
+                margin-top: 7vw;
+            }
+            .about-content{
+                margin-top: 3vw;
+            }
+            .about-info{
+                margin-top: 4vw;
+                &__hello{
+                    p{
+                        font-size: 2.1vw;
+                    }
+                    h3{
+                        margin-top: 1.17vw;
+                    }
+                }
+                &__content{
+                    margin-top: 1.56vw;
+                    width:100%;
+                    h3{
+                        p{
+                            line-height: 3vw;
+                        }
+                    }
+                }
+                &__button{
+                    width: 20vw;
+                    height: 5vw;
+                    font-size: 1.5vw;
+                    i{
+                        margin-right: 1.5vw;
+                    }
+                }
+            }
+            .about-skills{
+    
+            }
+            .about-products{
+    
+            }
+            .about-experiences{
+                .about-experience{
+                    margin-top:7vw;
+                    &__line{
+                        height: 95%;
+                        left: 21vw;
+                    }
+                    .experience{
+                        padding:3.125vw 0 5vw 7.81vw;
+                        &__date{
+                            font-size: 1vw;
+                            width: 9vw;
+                        }
+                        &__span{
+                            width: 2.5vw;
+                            height: 2.5vw;
+                            margin: 0 3vw;
+                            &::before{
+                                width: 3.5vw;
+                                height: 3.5vw;
+                            }
+                        }
+                        .experience-company{
+                            width: 65%;
+                            &__name{
+                                h3{
+                                    font-size: 1.5vw;
+                                    margin-top: 0vw;
+                                }
+                            }
+                            &__detail{
+                                margin-top:1.5vw;
+                                p{
+                                    font-size:1.1vw
+                                }
+                                p + p{
+                                    margin-top: 0.5vw;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .about-contacts{
+                h3{
+                    p{
+                        a{
+                            text-decoration: underline!important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+//tablet
+@media (min-width: 768px) and (max-width: 1200px) {
+    
+}
+//mobile
+@media (max-width: 768px){
+    
 }

@@ -17,18 +17,32 @@ function AboutMe(props) {
         boxes.forEach((box, i) => {
             gsap.from(box, {
                 duration: 3,
-                y: '100',
+                y: '7.81vw',
                 opacity: 0,
                 ease: 'ease-in',
                 scrollTrigger: {
                   trigger: box,
-                  start: 'top 70%',
-                  end: 'bottom 40%',
+                  start: 'top 80%',
+                  end: 'bottom 30%',
                   toggleActions: 'play none none none',
                   //options: play, pause, resume, reset, restart, complete, reverse,none
                 },
               });
         });
+        gsap.from('.about-experience__line', {
+            duration: 2.5,
+            y: '100',
+            opacity: 0,
+            ease: 'ease-in',
+            scrollTrigger: {
+              trigger: '.about-experience__line',
+              start: 'top 70%',
+              end: 'bottom 40%',
+              markers:true,
+              toggleActions: 'play none none none',
+              //options: play, pause, resume, reset, restart, complete, reverse,none
+            },
+          });
         TweenMax.to(about,1,{opacity:1})
     }, [])
     return (
@@ -80,7 +94,67 @@ function AboutMe(props) {
                         <h2 className="hover-cursor">EXPERIENCE</h2>
                     </div>
                     <div className="about-content about-experience">
-
+                        <div className="about-experience__line"></div>
+                        <div className="experience d-flex">
+                            <div className="experience__date hover-cursor">08/2017 - 12/2021</div>
+                            <div className="experience__span hover-cursor"></div>
+                            <div className="experience-company">
+                                <div className="experience-company__name">
+                                    <h3 className="hover-cursor">Posts and Telecommunications Institute of Technology</h3>
+                                </div>
+                                <div className="experience-company__detail">
+                                    <p>
+                                        The school has taught me all in-depth knowledge about all areas especially 
+                                        information technology so that I can use them.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="experience d-flex">
+                            <div className="experience__date hover-cursor">04/2021 - 07/2021</div>
+                            <div className="experience__span hover-cursor"></div>
+                            <div className="experience-company">
+                                <div className="experience-company__name">
+                                    <h3 className="hover-cursor">DEHA Software</h3>
+                                </div>
+                                <div className="experience-company__detail">
+                                    <p>Position : Full-stack Developer Intern.</p>
+                                    <p>Time : 3 month.</p>
+                                    <p>Experience : During my internship, I achieved lots of work 
+                                        experience and develop many skills for yourself.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="experience d-flex">
+                            <div className="experience__date hover-cursor">07/2021 - 09/2021</div>
+                            <div className="experience__span hover-cursor"></div>
+                            <div className="experience-company">
+                                <div className="experience-company__name">
+                                    <h3 className="hover-cursor">FPT Software</h3>
+                                </div>
+                                <div className="experience-company__detail">
+                                    <p>Position: Front-end Developer Intern.</p>
+                                    <p>Time : 2 month.</p>
+                                    <p>Experience : Being involved in a professional working environment, 
+                                        it helps me to learn a lot of knowledge and experience for programming.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="experience d-flex">
+                            <div className="experience__date hover-cursor">08/2021 - present</div>
+                            <div className="experience__span hover-cursor"></div>
+                            <div className="experience-company">
+                                <div className="experience-company__name">
+                                    <h3 className="hover-cursor">NETKO Company</h3>
+                                </div>
+                                <div className="experience-company__detail">
+                                    <p>Position: Front-end Developer</p>
+                                    <p>Experience : Participated in many large scale projects. Since then, I have 
+                                        gained more experience and knowledge to apply in my future work in the 
+                                        field of web programming</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className="about-div about-contacts">
