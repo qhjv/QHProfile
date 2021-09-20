@@ -28,18 +28,24 @@ function App() {
     $("body").removeClass('overflow-hidden');
   }
       
-      
   if(loaded === true){
       $('body').removeClass('overflow-hidden')
       $( document ).ready(function() {
-        luxy.init({
-          wrapper: "#luxy",
-          wrapperSpeed: .01
-        });
-        Scrollbar.init(document.querySelector('.my-scrollbar'), {
-          damping:0.02
-        });
-        Scrollbar.detachStyle()    
+        if($(window).width() < 768){
+          Scrollbar.init(document.querySelector('.my-scrollbar'), {
+            damping:0.1
+          });
+          Scrollbar.detachStyle()  
+        }else{
+          luxy.init({
+            wrapper: "#luxy",
+            wrapperSpeed: .01
+          });
+          Scrollbar.init(document.querySelector('.my-scrollbar'), {
+            damping:0.02
+          });
+          Scrollbar.detachStyle()    
+        }
       });
     return (
       <div className="App">
@@ -54,7 +60,7 @@ function App() {
             <div className="wrapper" id="luxy" data-barba="container" data-barba-namespace="home-section">
                 <div className="loader"></div>
                 <Router></Router>
-            </div>
+            </div> 
           <Footer></Footer>
       </div>
     );

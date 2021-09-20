@@ -1,5 +1,6 @@
 import React,{useEffect,useRef} from 'react';
 import {TweenMax, Power3 , gsap} from 'gsap';
+import $ from 'jquery'
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger)
 
@@ -10,48 +11,82 @@ AboutMe.propTypes = {
 function AboutMe(props) {
 
     let about = useRef(null)
-    
     useEffect(() => {
         const boxes = document.querySelectorAll('.about-div');
-    
-        boxes.forEach((box, i) => {
-            gsap.from(box, {
-                duration: 3,
-                y: '7.81vw',
+        if($(window).width() > 768){
+
+            boxes.forEach((box, i) => {
+                gsap.from(box, {
+                    duration: 3,
+                    y: '7.81vw',
+                    opacity: 0,
+                    ease: 'ease-in',
+                    scrollTrigger: {
+                      trigger: box,
+                      start: 'top 80%',
+                      end: 'bottom 30%',
+                      toggleActions: 'play none none none',
+                      //options: play, pause, resume, reset, restart, complete, reverse,none
+                    },
+                  });
+            });
+            gsap.from('.about-experience__line', {
+                duration: 2.5,
+                y: '100',
                 opacity: 0,
                 ease: 'ease-in',
                 scrollTrigger: {
-                  trigger: box,
-                  start: 'top 80%',
-                  end: 'bottom 30%',
+                  trigger: '.about-experience__line',
+                  start: 'top 68%',
+                  end: 'bottom 40%',
+                //   markers:true,
                   toggleActions: 'play none none none',
                   //options: play, pause, resume, reset, restart, complete, reverse,none
                 },
               });
-        });
-        gsap.from('.about-experience__line', {
-            duration: 2.5,
-            y: '100',
-            opacity: 0,
-            ease: 'ease-in',
-            scrollTrigger: {
-              trigger: '.about-experience__line',
-              start: 'top 70%',
-              end: 'bottom 40%',
-              markers:true,
-              toggleActions: 'play none none none',
-              //options: play, pause, resume, reset, restart, complete, reverse,none
-            },
-          });
+        }
+        else {
+            boxes.forEach((box, i) => {
+                gsap.from(box, {
+                    duration: 3,
+                    y: '7.81vw',
+                    opacity: 0,
+                    ease: 'ease-in',
+                    scrollTrigger: {
+                    trigger: box,
+                    start: 'top 70%',
+                    // markers:true,
+                    end: 'bottom 40%',
+                    toggleActions: 'play none none none',
+                    //options: play, pause, resume, reset, restart, complete, reverse,none
+                    },
+                  });
+            });
+        }
         TweenMax.to(about,1,{opacity:1})
     }, [])
+    
+
+
+    
+
+    const handleScroll = () => {
+        // console.log("hihi")
+    }
+
     return (
         <section className="about section" id="about" ref={el => about = el}>
-            <div className="container">
+            <div className="container ">
                 <div className="about__title hover-cursor">
                     <h2 className="hover-cursor">ABOUT ME</h2>
                 </div>
                 <div className="about-info">
+                    <div className="scroll-down">
+                        <div className="scroll-down-text" onClick={handleScroll}>
+                            SCROLL DOWN
+                        </div>
+                        <div className="scroll-down-bar"></div>
+                    </div>
                     <div className="about-info__hello">
                         <p className="hover-cursor">Hello,</p>
                         <h3><p className="hover-cursor">I am VU QUANG HUY - Web Developer</p></h3>

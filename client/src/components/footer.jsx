@@ -1,6 +1,8 @@
 import React,{useRef,useEffect} from 'react';
 import $ from 'jquery'
-import {TimelineLite ,TweenMax, Power3} from 'gsap';
+import {TweenMax, Power3, gsap} from 'gsap';
+import { Draggable } from "gsap/Draggable";
+gsap.registerPlugin(Draggable);
 
 Footer.propTypes = {
     
@@ -15,7 +17,6 @@ function Footer(props) {
     useEffect(() => {
         TweenMax.to(footer,0,{visibility:'visible'})
         TweenMax.staggerFrom([link1,link2,link3],1,{opacity:0,x:-20,ease:Power3.easeOut},.8)
-
     }, [])
 
     return (

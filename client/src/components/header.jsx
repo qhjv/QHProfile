@@ -2,8 +2,10 @@ import React,{useRef,useEffect} from 'react';
 import logodark from '../asset/image/logo.png'
 import logolight from '../asset/image/logo_light.png'
 import $ from 'jquery'
-import {TimelineLite ,TweenMax, Power3,gsap} from 'gsap';
-import { Link, NavLink, useHistory } from 'react-router-dom';
+import { TweenMax, Power3,gsap} from 'gsap';
+import { Link } from 'react-router-dom';
+import { Draggable } from "gsap/Draggable";
+gsap.registerPlugin(Draggable);
 
 Header.propTypes = {
     
@@ -41,8 +43,10 @@ function Header(props) {
         }
     }
     useEffect(() => {
-        TweenMax.to(header,0,{visibility:'visible'})
-        TweenMax.staggerFrom([logoImg,logoText],.8,{opacity:0,y:20,ease:Power3.easeOut},.8)
+        TweenMax.to(header,0,{visibility:'visible'});
+        TweenMax.staggerFrom([logoImg,logoText],.8,{opacity:0,y:20,ease:Power3.easeOut},.8);
+        const thumbnail = document.querySelector(".header-logo__img");
+        Draggable.create(thumbnail);
     }, [])
     const handleClickMenu = () => {
         $(".header-logo").addClass("transform-left");
