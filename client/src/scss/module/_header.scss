@@ -46,13 +46,14 @@
   .header-project {
     cursor: pointer;
     position: absolute;
-    top: 0;
+    top: 1vw;
     right: 0;
   }
 }
 //table and mobile
 @media (max-width: 1200px){
   .header{
+    // padding: 0 4vw 0 4vw;
     .header-logo{
       &__img{
         width: 4.5vw;

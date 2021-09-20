@@ -2,6 +2,7 @@
 .about{
     color:$color-white;
     opacity:0;
+    transition: 0.5s;
     &__title{
         h2{
             font-size: 5vw;
@@ -54,7 +55,32 @@
             margin-top: 2vw;
         }
         .about-info{
+            position: relative;
             margin-top: 4vw;
+            .scroll-down {
+                bottom: 0;
+                height: 6.406vw;
+                position: absolute;
+                right: 0;
+                text-align: center;
+                z-index: 1;
+                .scroll-down-text {
+                    color: $color-white;
+                    font-size: 0.7vw;
+                }
+                .scroll-down-bar {
+                    animation: elasticus 1.2s cubic-bezier(1, 0, 0, 1) infinite;
+                    background: $color-white;
+                    bottom: 0;
+                    display: inline-block;
+                    height: 4.078vw;
+                    left: 0;
+                    margin: 0 auto;
+                    position: absolute;
+                    right: 0;
+                    width: 0.078vw;
+                }
+            }
             &__hello{
                 p{
                     font-size: 1.1vw;
@@ -195,18 +221,18 @@
             }
         }
         .container{
-            padding:30vw 0 60vh 0;
-            width:60%;
-            max-width: 60%!important;
+            padding:50vw 0 40vh 0;
+            width:65%;
+            max-width: 65%!important;
             h3 + h3 {
                 margin-top: 1.5vw;
             }
             p{
-                font-size: 1.5vw;
+                font-size: 1.7vw;
             }
             .title-about{
                 h2{
-                    font-size: 3.5vw;
+                    font-size: 4vw;
                 }
             }
             .about-div{
@@ -217,6 +243,11 @@
             }
             .about-info{
                 margin-top: 4vw;
+                .scroll-down{
+                    .scroll-down-text {
+                        font-size: 1.2vw;
+                    }
+                }
                 &__hello{
                     p{
                         font-size: 2.1vw;
@@ -253,14 +284,14 @@
                 .about-experience{
                     margin-top:7vw;
                     &__line{
-                        height: 95%;
-                        left: 21vw;
+                        height: 97%;
+                        left: 18.89vw;
                     }
                     .experience{
                         padding:3.125vw 0 5vw 7.81vw;
                         &__date{
-                            font-size: 1vw;
-                            width: 9vw;
+                            font-size: 1.2vw;
+                            width: 7vw;
                         }
                         &__span{
                             width: 2.5vw;
@@ -275,14 +306,15 @@
                             width: 65%;
                             &__name{
                                 h3{
-                                    font-size: 1.5vw;
+                                    font-size: 1.8vw;
                                     margin-top: 0vw;
+                                    line-height: 3vw;
                                 }
                             }
                             &__detail{
                                 margin-top:1.5vw;
                                 p{
-                                    font-size:1.1vw
+                                    font-size:1.5vw
                                 }
                                 p + p{
                                     margin-top: 0.5vw;
@@ -312,3 +344,17 @@
 @media (max-width: 768px){
     
 }
+
+//iphone 6
+@media (max-width: 400px){
+    .about{
+        .container{
+            padding:60vw 0 40vh 0;
+        }
+    }
+}
+
+// //iphone x
+// @media (max-width: 768px){
+    
+// }
