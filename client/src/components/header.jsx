@@ -45,8 +45,6 @@ function Header(props) {
     useEffect(() => {
         TweenMax.to(header,0,{visibility:'visible'});
         TweenMax.staggerFrom([logoImg,logoText],.8,{opacity:0,y:20,ease:Power3.easeOut},.8);
-        const thumbnail = document.querySelector(".header-logo__img");
-        Draggable.create(thumbnail);
     }, [])
     const handleClickMenu = () => {
         $(".header-logo").addClass("transform-left");

@@ -1,0 +1,136 @@
+/*==================== MORE ====================*/
+
+.more{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 99;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    padding: 4vw 7vw;
+    pointer-events: none;
+    visibility: hidden;
+    &__div{
+        position: relative;
+        height:100%;
+        // overflow: hidden;
+        .brand {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 4vw;
+            height: 4vw;
+            top:8vw;
+            right:15vw;
+            pointer-events: visible;
+            opacity: 0.3;
+            transition:0.2s;
+            .icon-circle {
+                width: 4vw;
+                height: 4vw;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                &__child{
+                    width: 3vw;
+                    height: 3vw;
+                    border-radius: 50%;
+                    display: flex;
+                    border: 1px solid $color-white;
+                    justify-content: center;
+                    align-items: center;
+                    .svg-play{
+                        margin-left: 0.1vw;
+                    }
+                    svg{
+                        width: 0.9vw;
+                        font-size: 7px;
+                        fill:$color-white;
+                    }
+                }
+            }
+          
+            .brand-label {
+              transition: all 0.2s ease-in-out;
+          
+              svg {
+                position: absolute;
+                left: -90%;
+                top: -90%;
+                height: 280%;
+                width: 280%;
+                pointer-events: none;
+                animation-name: rotate;
+                animation-duration: 15s;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+                animation-play-state: paused;
+          
+                text {
+                  font-family: "Inter", sans-serif;
+                  font-size: 19px;
+                  letter-spacing: 2.2px;
+                  font-variation-settings: "wght" 650;
+                  fill: $color-white;
+                  text-transform: uppercase;
+                  transition:0.5s;
+                }
+              }
+            }
+          
+            &:hover {
+                // opacity: 1;
+              .brand-label svg {
+                animation-play-state: running;
+              }
+            }
+          }
+        }
+        .svgMore-active {
+            animation-play-state: running!important;
+        }
+        .svgMore-opacity{
+            opacity:1!important;
+        }
+}
+//table and mobile
+@media (max-width: 1200px){
+    .more{
+        &__div{
+            .brand {
+                width: 8vw;
+                height: 8vw;
+                top:40vw;
+                .icon-circle {
+                    width: 6vw;
+                    height: 6vw;
+                    &__child{
+                        width: 6vw;
+                        height: 6vw;
+                        svg{
+                            width: 1.8vw;
+                        }
+                    }
+                }
+                .brand-label {
+                  svg {
+                    text {
+                      font-size: 19px;
+                      letter-spacing: 2.2px;
+                    }
+                  }
+                }
+              }
+        }
+    }
+}
+//tablet
+@media (min-width: 768px) and (max-width: 1200px) {
+}
+//mobile
+@media (max-width: 768px){
+    
+}
