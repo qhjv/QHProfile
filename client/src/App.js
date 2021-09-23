@@ -1,4 +1,5 @@
 import './App.css';
+import React,{useState} from 'react';
 import Header from './components/header';
 import '../src/asset/css/style.css'
 import Footer from './components/footer';
@@ -13,10 +14,11 @@ import Loading from './components/loading';
 import Preloader from './components/preloader/preloader';
 import { useDispatch, useSelector } from 'react-redux';
 import Router from './router/router';
+import More from './components/more';
 
 function App() {
   const loaded = useSelector(state=>state.loaded)
-  
+  const [mobile,setMobile] = useState(false)
   const handleClickBlur = () => {
     $(".header-logo").removeClass("transform-left");
     $(".footer-socials").removeClass("transform-left");
@@ -32,11 +34,13 @@ function App() {
       $('body').removeClass('overflow-hidden')
       $( document ).ready(function() {
         if($(window).width() < 768){
+          setMobile(true)
           Scrollbar.init(document.querySelector('.my-scrollbar'), {
             damping:0.1
           });
           Scrollbar.detachStyle()  
         }else{
+          setMobile(false)
           luxy.init({
             wrapper: "#luxy",
             wrapperSpeed: .01
@@ -51,6 +55,11 @@ function App() {
       <div className="App">
           <Noise></Noise>
           <Cursor></Cursor>
+          {mobile===true?(
+            <></>
+            ):(
+            <More></More>
+          )}
           <Header></Header>
           <Menu></Menu>
           <Loading></Loading>
@@ -70,7 +79,7 @@ function App() {
       <div className="App">
           <Noise></Noise>
           <Loading></Loading>
-        <Preloader></Preloader>
+          <Preloader></Preloader>
       </div>
     )
 
