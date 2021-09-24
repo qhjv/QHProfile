@@ -1,4 +1,5 @@
 import React,{useEffect,useRef} from 'react';
+import cvPDF from '../../asset/files/CV_Q-HJV.pdf'
 import {TweenMax, Power3 , gsap} from 'gsap';
 import $ from 'jquery'
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -13,8 +14,73 @@ function AboutMe(props) {
     let about = useRef(null)
     useEffect(() => {
         const boxes = document.querySelectorAll('.about-div');
-        if($(window).width() > 768){
+        const lines = document.querySelectorAll('.experience__line');
+        const spans = document.querySelectorAll('.experience__span');
+        const companys = document.querySelectorAll('.experience-company');
+        const dates = document.querySelectorAll('.experience__date');
+        lines.forEach((line, i) => {
+            gsap.from(line, {
+                duration: 1,
+                height: 0,
+                ease: 'ease-in',
+                scrollTrigger: {
+                    trigger: line,
+                    start: 'top 40%',
+                    end: 'bottom 10%',
+                    // markers:true,
+                    toggleActions: 'play none none none',
+                    //options: play, pause, resume, reset, restart, complete, reverse,none
+                },
+            });
+        });
+        spans.forEach((span, i) => {
+            gsap.from(span, {
+                duration: 0.5,
+                opacity: 0,
+                ease: 'ease-in',
+                scrollTrigger: {
+                    trigger: span,
+                    start: 'top 45%',
+                    end: 'bottom 10%',
+                    // markers:true,
+                    toggleActions: 'play none none none',
+                    //options: play, pause, resume, reset, restart, complete, reverse,none
+                },
+            });
+        });
+        companys.forEach((company, i) => {
+            gsap.from(company, {
+                duration: 1,
+                opacity: 0,
+                x: 100,
+                ease: 'ease-in',
+                scrollTrigger: {
+                    trigger: company,
+                    start: 'top 45%',
+                    end: 'bottom 10%',
+                    // markers:true,
+                    toggleActions: 'play none none none',
+                    //options: play, pause, resume, reset, restart, complete, reverse,none
+                },
+            });
+        });
+        dates.forEach((date, i) => {
+            gsap.from(date, {
+                duration: 1.5,
+                opacity: 0,
+                ease: 'ease-in',
+                scrollTrigger: {
+                    trigger: date,
+                    start: 'top 45%',
+                    end: 'bottom 30%',
+                    // markers:true,
+                    toggleActions: 'play none none none',
+                    //options: play, pause, resume, reset, restart, complete, reverse,none
+                },
+            });
+        });
 
+        if($(window).width() > 768){
             boxes.forEach((box, i) => {
                 gsap.from(box, {
                     duration: 3,
@@ -30,20 +96,6 @@ function AboutMe(props) {
                     },
                   });
             });
-            gsap.from('.about-experience__line', {
-                duration: 2.5,
-                y: '100',
-                opacity: 0,
-                ease: 'ease-in',
-                scrollTrigger: {
-                  trigger: '.about-experience__line',
-                  start: 'top 68%',
-                  end: 'bottom 40%',
-                //   markers:true,
-                  toggleActions: 'play none none none',
-                  //options: play, pause, resume, reset, restart, complete, reverse,none
-                },
-              });
         }
         else {
             boxes.forEach((box, i) => {
@@ -63,7 +115,7 @@ function AboutMe(props) {
                   });
             });
         }
-        TweenMax.to(about,1,{opacity:1})
+        TweenMax.to(about,2,{opacity:1})
     }, [])
     
 
@@ -96,7 +148,7 @@ function AboutMe(props) {
                             I always want to learn more from experience and use my creativity to create good products. And I want to be a professional Web developer.
                             <br></br>Thank you for reading .</p></h3>
                     </div>
-                    <a href="">
+                    <a rel="noopener noreferrer" href="#top">
                         <div className="about-info__button hover-cursor">
                             <i className="fas fa-download"></i>
                             Download CV
@@ -129,8 +181,8 @@ function AboutMe(props) {
                         <h2 className="hover-cursor">EXPERIENCE</h2>
                     </div>
                     <div className="about-content about-experience">
-                        <div className="about-experience__line"></div>
                         <div className="experience d-flex">
+                            <div className="experience__line"></div>
                             <div className="experience__date hover-cursor">08/2017 - 12/2021</div>
                             <div className="experience__span hover-cursor"></div>
                             <div className="experience-company">
@@ -146,6 +198,7 @@ function AboutMe(props) {
                             </div>
                         </div>
                         <div className="experience d-flex">
+                            <div className="experience__line"></div>
                             <div className="experience__date hover-cursor">04/2021 - 07/2021</div>
                             <div className="experience__span hover-cursor"></div>
                             <div className="experience-company">
@@ -161,6 +214,7 @@ function AboutMe(props) {
                             </div>
                         </div>
                         <div className="experience d-flex">
+                            <div className="experience__line"></div>
                             <div className="experience__date hover-cursor">07/2021 - 09/2021</div>
                             <div className="experience__span hover-cursor"></div>
                             <div className="experience-company">
@@ -176,6 +230,7 @@ function AboutMe(props) {
                             </div>
                         </div>
                         <div className="experience d-flex">
+                            <div className="experience__line"></div>
                             <div className="experience__date hover-cursor">08/2021 - present</div>
                             <div className="experience__span hover-cursor"></div>
                             <div className="experience-company">

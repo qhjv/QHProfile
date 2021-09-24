@@ -37,15 +37,22 @@ function More(props) {
         if (isPlay) {
             audioRef.current.pause();
             $('.brand-label svg').removeClass('svgMore-active')
-          } else {
+        } else {
             audioRef.current.play();
             $('.brand-label svg').addClass('svgMore-active')
-          }
-          setPlay(!isPlay);
+        }
+        setPlay(!isPlay);
     }
     const handleLoadedData = () => {
         if (isPlay) audioRef.current.pause();
-      };
+    };
+    // $(window).scroll( function (){
+    //     var offset = $(window).scrollTop();
+    //     offset = offset * 4;
+    //     $(".brand").css({
+    //         "transform":"rotate("+ offset +"deg)"
+    //     })
+    // })
     return (
         <div className="more" ref={el => more = el}>
             <div className="more__div">

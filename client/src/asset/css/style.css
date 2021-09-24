@@ -542,13 +542,12 @@ h1, h2, h3 {
 .menu {
   position: fixed;
   top: 0;
-  right: 0;
+  right: -40vw;
   width: 28vw;
   height: 100%;
   background: var(--color-light);
   z-index: 101;
-  transition: 0.5s;
-  transform: translateX(100vw); }
+  transition: 0.5s; }
   .menu .menuProducts {
     height: 100%;
     padding: 2.3vw 2vw;
@@ -598,14 +597,15 @@ h1, h2, h3 {
       width: 50%; }
 
 .menutranfrom {
-  transform: translateX(0); }
+  right: 0 !important; }
 
 .arrowDark {
   filter: invert(1); }
 
 @media (min-width: 768px) and (max-width: 1200px) {
   .menu {
-    width: 50vw; }
+    width: 50vw;
+    right: -70vw; }
     .menu__close {
       width: 8vw;
       height: 8vw;
@@ -625,7 +625,8 @@ h1, h2, h3 {
 
 @media (max-width: 768px) {
   .menu {
-    width: 100vw; }
+    width: 100vw;
+    right: -100vw; }
     .menu__close {
       width: 10vw;
       height: 10vw;
@@ -755,7 +756,7 @@ h1, h2, h3 {
 @media (max-width: 1200px) {
   .home {
     height: 100%;
-    padding: 40vh 0; }
+    padding: 35vh 0; }
     .home .home-text h2 {
       font-size: 7vw;
       line-height: 10vw; } }
@@ -868,18 +869,18 @@ h1, h2, h3 {
             top: 0.78vw;
             right: 0.78vw; }
     .about .container .about-experiences .about-experience {
-      position: relative;
       margin-top: 7vw; }
-      .about .container .about-experiences .about-experience__line {
-        position: absolute;
-        width: 0.12vw;
-        height: 95%;
-        top: 0;
-        left: 17.95vw;
-        background: var(--color-light);
-        z-index: 1; }
       .about .container .about-experiences .about-experience .experience {
+        position: relative;
         padding: 3.125vw 0 5vw 7.81vw; }
+        .about .container .about-experiences .about-experience .experience__line {
+          position: absolute;
+          width: 0.12vw;
+          height: 100%;
+          top: 0;
+          left: 17.95vw;
+          background: var(--color-light);
+          z-index: 1; }
         .about .container .about-experiences .about-experience .experience__date {
           font-size: 0.78vw;
           width: 7.42vw; }
@@ -954,11 +955,10 @@ h1, h2, h3 {
           margin-right: 1.5vw; }
     .about .container .about-experiences .about-experience {
       margin-top: 7vw; }
-      .about .container .about-experiences .about-experience__line {
-        height: 97%;
-        left: 18.89vw; }
       .about .container .about-experiences .about-experience .experience {
         padding: 3.125vw 0 5vw 7.81vw; }
+        .about .container .about-experiences .about-experience .experience__line {
+          left: 19vw; }
         .about .container .about-experiences .about-experience .experience__date {
           font-size: 1.2vw;
           width: 7vw; }
