@@ -43,7 +43,7 @@ function Header(props) {
         }
     }
     useEffect(() => {
-        TweenMax.to(header,0,{visibility:'visible'});
+        TweenMax.to(header,1,{visibility:'visible'});
         TweenMax.staggerFrom([logoImg,logoText],.8,{opacity:0,y:20,ease:Power3.easeOut},.8);
     }, [])
     const handleClickMenu = () => {

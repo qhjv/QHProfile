@@ -3,13 +3,13 @@
     position: fixed;
     // display: inline-table;
     top:0;
-    right:0;
+    right:-40vw;
     width:28vw;
     height:100%;
     background:$color-light;
     z-index: 101;
     transition:0.5s;
-    transform:translateX(100vw);
+    // transform:translateX(100vw);
     .menuProducts{
         height:100%;
         padding:2.3vw 2vw;
@@ -71,7 +71,7 @@
 }
 
 .menutranfrom{
-    transform:translateX(0);
+    right:0!important;
 }
 // .trans-closeMenu{
 //     animation: closeMenu 0.5 ease-out 1s;;
@@ -86,6 +86,7 @@
 @media (min-width: 768px) and (max-width: 1200px) {
     .menu {
         width: 50vw;
+        right:-70vw;
         &__close {
             width: 8vw;
             height: 8vw;
@@ -116,6 +117,7 @@
 @media (max-width: 768px){
     .menu {
         width: 100vw;
+        right:-100vw;
         &__close {
             width: 10vw;
             height: 10vw;
