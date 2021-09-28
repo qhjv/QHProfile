@@ -12,6 +12,7 @@ AboutMe.propTypes = {
 function AboutMe(props) {
 
     let about = useRef(null)
+    
     useEffect(() => {
         const boxes = document.querySelectorAll('.about-div');
         const lines = document.querySelectorAll('.experience__line');
@@ -22,7 +23,7 @@ function AboutMe(props) {
             gsap.from(line, {
                 duration: 1,
                 height: 0,
-                ease: 'ease-in',
+                ease: 'ease-in-out',
                 scrollTrigger: {
                     trigger: line,
                     start: 'top 40%',
