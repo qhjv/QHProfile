@@ -239,7 +239,7 @@ function AboutMe(props) {
                                     <h3 className="hover-cursor">NETKO Company</h3>
                                 </div>
                                 <div className="experience-company__detail">
-                                    <p>Position: Front-end Developer</p>
+                                    <p>Position: Full-stack Developer</p>
                                     <p>Experience : Participated in many large scale projects. Since then, I have 
                                         gained more experience and knowledge to apply in my future work in the 
                                         field of web programming</p>

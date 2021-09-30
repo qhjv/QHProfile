@@ -25,6 +25,9 @@ function Loading(props) {
     // const action = loading(true)
     // dispatch(action)
     useEffect(() => {
+        $('html,body').animate({
+            scrollTop: 0
+        }, );
         $('.overlay').removeClass('hidden')
         setTimeout(() => {
             $('.loadRouter').addClass('animationLoadRouter')
@@ -32,9 +35,6 @@ function Loading(props) {
         setTimeout(() => {
             $('.overlay').addClass('hidden')
         }, 1000);
-        $('html,body').animate({
-            scrollTop: 0
-            }, );
         $('.loadRouter').removeClass('animationLoadRouter')
     },[location.pathname,loadRouter]);
     return (

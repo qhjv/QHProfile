@@ -47,15 +47,15 @@ function Header(props) {
         TweenMax.staggerFrom([logoImg,logoText],.8,{opacity:0,y:20,ease:Power3.easeOut},.8);
     }, [])
     const handleClickMenu = () => {
+        $(".menu").addClass('menutranfrom');
+        gsap.fromTo(".menu__close", {opacity: 0,y:-1000}, {opacity: 1,y:0, duration: 0.5});
         $(".header-logo").addClass("transform-left");
         $(".footer-socials").addClass("transform-left");
         $(".section").addClass("transform-left");
         $(".backgroundBlur").removeClass('hidden');
-        $(".menu").addClass('menutranfrom');
         $("body").addClass('overflow-hidden');
         $('.spanFast').addClass('no-trans');
         $('.spanSlow').addClass('no-trans');
-        gsap.fromTo(".menu__close", {opacity: 0,y:-1000}, {opacity: 1,y:0, duration: 0.5});
     }
     return (
             <header className="header" id="header" ref={el => header = el}>
