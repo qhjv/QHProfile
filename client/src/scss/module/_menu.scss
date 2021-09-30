@@ -118,6 +118,7 @@
     .menu {
         width: 100vw;
         right:-100vw;
+        transition:0.3s;
         &__close {
             width: 10vw;
             height: 10vw;
