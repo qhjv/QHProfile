@@ -12,6 +12,7 @@ AboutMe.propTypes = {
 function AboutMe(props) {
 
     let about = useRef(null)
+    console.log("hihi")
     
     useEffect(() => {
         const boxes = document.querySelectorAll('.about-div');
@@ -28,7 +29,6 @@ function AboutMe(props) {
                     trigger: line,
                     start: 'top 40%',
                     end: 'bottom 10%',
-                    // markers:true,
                     toggleActions: 'play none none none',
                     //options: play, pause, resume, reset, restart, complete, reverse,none
                 },
@@ -43,7 +43,6 @@ function AboutMe(props) {
                     trigger: span,
                     start: 'top 45%',
                     end: 'bottom 10%',
-                    // markers:true,
                     toggleActions: 'play none none none',
                     //options: play, pause, resume, reset, restart, complete, reverse,none
                 },
@@ -59,7 +58,6 @@ function AboutMe(props) {
                     trigger: company,
                     start: 'top 45%',
                     end: 'bottom 10%',
-                    // markers:true,
                     toggleActions: 'play none none none',
                     //options: play, pause, resume, reset, restart, complete, reverse,none
                 },
@@ -74,7 +72,6 @@ function AboutMe(props) {
                     trigger: date,
                     start: 'top 45%',
                     end: 'bottom 30%',
-                    // markers:true,
                     toggleActions: 'play none none none',
                     //options: play, pause, resume, reset, restart, complete, reverse,none
                 },
@@ -89,11 +86,11 @@ function AboutMe(props) {
                     opacity: 0,
                     ease: 'ease-in',
                     scrollTrigger: {
-                      trigger: box,
-                      start: 'top 80%',
-                      end: 'bottom 30%',
-                      toggleActions: 'play none none none',
-                      //options: play, pause, resume, reset, restart, complete, reverse,none
+                        trigger: box,
+                        start: 'top 80%',
+                        end: 'bottom 30%',
+                        toggleActions: 'play none none none',
+                        //options: play, pause, resume, reset, restart, complete, reverse,none
                     },
                   });
             });
@@ -106,26 +103,17 @@ function AboutMe(props) {
                     opacity: 0,
                     ease: 'ease-in',
                     scrollTrigger: {
-                    trigger: box,
-                    start: 'top 70%',
-                    // markers:true,
-                    end: 'bottom 40%',
-                    toggleActions: 'play none none none',
-                    //options: play, pause, resume, reset, restart, complete, reverse,none
+                        trigger: box,
+                        start: 'top 70%',
+                        end: 'bottom 40%',
+                        toggleActions: 'play none none none',
+                        //options: play, pause, resume, reset, restart, complete, reverse,none
                     },
                   });
             });
         }
         TweenMax.to(about,2,{opacity:1})
     }, [])
-    
-
-
-    
-
-    const handleScroll = () => {
-        // console.log("hihi")
-    }
 
     return (
         <section className="about section" id="about" ref={el => about = el}>
@@ -135,7 +123,7 @@ function AboutMe(props) {
                 </div>
                 <div className="about-info">
                     <div className="scroll-down">
-                        <div className="scroll-down-text" onClick={handleScroll}>
+                        <div className="scroll-down-text">
                             SCROLL DOWN
                         </div>
                         <div className="scroll-down-bar"></div>

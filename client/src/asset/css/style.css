@@ -1227,7 +1227,8 @@ h1, h2, h3 {
   .productPage .container {
     padding: 35vw 0 40vh 0;
     width: 65%;
-    max-width: 65% !important; }
+    max-width: 65% !important;
+    overflow-x: hidden; }
     .productPage .container .productPage-video__iframe {
       margin-top: 15vw; }
     .productPage .container .productPage-view {
