@@ -18,13 +18,12 @@ import img2 from '../../asset/image/products/booking-movie/infomovie.png'
 import img3 from '../../asset/image/products/booking-movie/bookroom.png'
 import img4 from '../../asset/image/products/booking-movie/historyTicket.png'
 
-
 gsap.registerPlugin(ScrollTrigger)
 
 Product.propTypes = {
     
 };
-const qhMovieProduct =[
+const qhMovieProduct = [
     {   
         name:"QH movie",
         trailer:"",
@@ -75,8 +74,7 @@ const qhMovieProduct =[
                 name:"movie"
             },
         ]
-    }
-    
+    },
 ]
 
 function Product(props) {
@@ -85,40 +83,36 @@ function Product(props) {
     let intro_tl = gsap.timeline();
     const [current, setCurrent] = useState(0);
     const lengthImg = qhMovieProduct[0].imgProduct.length;
-
-
-    $( document ).ready(function() {
-        var rect = $('.wrapper')[0].getBoundingClientRect();
-        var mouse = {x: 0, y: 0, moved: false};
-    
-        $(".wrapper").mousemove(function(e) {
-            mouse.moved = true;
-            mouse.x = e.clientX - rect.left;
-            mouse.y = e.clientY - rect.top;
-        });
-        // Ticker event will be called on every frame
-        gsap.ticker.add(function(){
-            if (mouse.moved){    
-                // parallaxIt(".productPage-info", -20);
-                parallaxIt(".productPage-img", -40);
-                parallaxIt(".productPage-button__text", -40);
-                // parallaxIt(".productPage-trailer__text", -40);
-            }
-            mouse.moved = false;
-        });
-        
-        function parallaxIt(target, movement) {
-            gsap.to(target, 0.5, {
-                x: (mouse.x - rect.width / 2) / rect.width * movement,
-                y: (mouse.y - rect.height / 2) / rect.height * movement
-            });
-        }
-        
-        $(window).on('resize scroll', function(){
-            rect = $('.wrapper')[0].getBoundingClientRect();
-        })
-    })
+    console.log("hihi")
     useEffect(() => {
+        $( document ).ready(function() {
+            var rect = $('.wrapper')[0].getBoundingClientRect();
+            var mouse = {x: 0, y: 0, moved: false};
+        
+            $(".wrapper").mousemove(function(e) {
+                mouse.moved = true;
+                mouse.x = e.clientX - rect.left;
+                mouse.y = e.clientY - rect.top;
+            });
+            gsap.ticker.add(function(){
+                if (mouse.moved){    
+                    parallaxIt(".productPage-img", -40);
+                    parallaxIt(".productPage-button__text", -40);
+                }
+                mouse.moved = false;
+            });
+            
+            function parallaxIt(target, movement) {
+                gsap.to(target, 0.5, {
+                    x: (mouse.x - rect.width / 2) / rect.width * movement,
+                    y: (mouse.y - rect.height / 2) / rect.height * movement
+                });
+            }
+            
+            $(window).on('resize scroll', function(){
+                rect = $('.wrapper')[0].getBoundingClientRect();
+            })
+        })
         if($(window).width() > 1025){
             
             intro_tl
@@ -127,7 +121,6 @@ function Product(props) {
                     start: 100,
                     end: 300,
                     scrub: 0.5,
-                    // markers: true,
                 },
                 y: -190,
                 scale: 0.6,
@@ -160,10 +153,8 @@ function Product(props) {
                     start: 100,
                     end: 500,
                     scrub: 0.5,
-                    // markers: true,
                 },
                 y: 500,
-                opacity: 0,
                 duration: 1.5,
                 ease: "expo.out"
             })
@@ -172,7 +163,6 @@ function Product(props) {
                     start: 650,
                     end: 1100,
                     scrub: 0.5,
-                    // markers: true,
                 },
                 y: 200,
                 opacity: 0,
@@ -184,7 +174,6 @@ function Product(props) {
                     start: 650,
                     end: 1100,
                     scrub: 0.5,
-                    // markers: true,
                 },
                 opacity: 0,
                 duration: 1,
@@ -195,15 +184,146 @@ function Product(props) {
                     start:650,
                     end: 1000,
                     scrub: 0.5,
-                    // markers: true,
                 },
                 x: 500,
                 duration: 2,
                 ease: "expo.out"
             })
-            
+            const titles = document.querySelectorAll('.productPage-detail__title');
+            titles.forEach((title, i) => {
+                intro_tl.from(title, {
+                    duration: 1,
+                    opacity: 0,
+                    x: 100,
+                    ease: 'ease-in',
+                    scrollTrigger: {
+                        trigger: title,
+                        start: 'top 80%',
+                        end: 'bottom 70%',
+                        scrub: 0.5,
+                    },
+                });
+            });
+            const contents = document.querySelectorAll('.productPage-detail__content');
+            contents.forEach((content, i) => {
+                intro_tl.from(content, {
+                    duration: 1.5,
+                    opacity: 0,
+                    x: 100,
+                    ease: 'ease-in',
+                    scrollTrigger: {
+                        trigger: content,
+                        start: 'top 80%',
+                        end: 'bottom 70%',
+                        scrub: 0.5,
+                    },
+                });
+            });
+            const imgGsaps = document.querySelectorAll('.productPage-imgs_img');
+            imgGsaps.forEach((imgGsap, i) => {
+                intro_tl.from(imgGsap, {
+                    duration: 1,
+                    y: 100,
+                    opacity: 0.5,
+                    ease: 'ease-in',
+                    scrollTrigger: {
+                        trigger: imgGsap,
+                        start: 'top 80%',
+                        end: 'bottom 60%',
+                        scrub: 0.5,
+                    },
+                });
+            });
         }else{
-            
+            intro_tl
+            .to(".productPage__title", {
+                scrollTrigger: {
+                    start: 50,
+                    end: 200,
+                    scrub: 0.5,
+                },
+                y: -190,
+                scale: 0.6,
+                duration: 0.6,
+                ease: "expo.out"
+            })
+            const titles = document.querySelectorAll('.productPage-detail__title');
+            titles.forEach((title, i) => {
+                intro_tl.from(title, {
+                    duration: 1,
+                    opacity: 0,
+                    x: 100,
+                    ease: 'ease-in',
+                    scrollTrigger: {
+                        trigger: title,
+                        start: 'top 80%',
+                        end: 'bottom 70%',
+                        scrub: 0.5,
+                    },
+                });
+            });
+            const contents = document.querySelectorAll('.productPage-detail__content');
+            contents.forEach((content, i) => {
+                intro_tl.from(content, {
+                    duration: 1.5,
+                    opacity: 0,
+                    x: 100,
+                    ease: 'ease-in',
+                    scrollTrigger: {
+                        trigger: content,
+                        start: 'top 80%',
+                        end: 'bottom 70%',
+                        scrub: 0.5,
+                    },
+                });
+            });
+            const imgGsaps = document.querySelectorAll('.productPage-imgs_img');
+            imgGsaps.forEach((imgGsap, i) => {
+                intro_tl.from(imgGsap, {
+                    duration: 1,
+                    y: 100,
+                    opacity: 0.5,
+                    ease: 'ease-in',
+                    scrollTrigger: {
+                        trigger: imgGsap,
+                        start: 'top 90%',
+                        end: 'bottom 70%',
+                        scrub: 0.5,
+                    },
+                });
+            });
+            intro_tl.from(".productPage-img", {
+                scrollTrigger: {
+                    start: 300,
+                    end: 500,
+                    scrub: 0.5,
+                },
+                y: 200,
+                opacity: 0,
+                duration: 2,
+                ease: "expo.out"
+            })
+            .from(".productPage-trailer__text", {
+                scrollTrigger: {
+                    start:300,
+                    end: 400,
+                    scrub: 0.5,
+                },
+                x: 300,
+                duration: 1,
+                ease: "expo.out"
+            })
+            gsap.from(".productPage-button", {
+                scrollTrigger: {
+                    trigger: '.productPage-button',
+                    start: 'top 90%',
+                    end: 'bottom 70%',
+                    scrub: 0.5,
+                },
+                scale: 0,
+                duration: 1,
+                ease: "expo.out"
+            })
         }
         TweenMax.to(productPage,2,{opacity:1})
         // var i = 0, timeOut = 0;
@@ -218,18 +338,18 @@ function Product(props) {
         //     },5000);
         //     clearInterval(timeOut);
         // });
+        $('.hover-img').on({
+            mouseenter: function() {
+                $('.follower').css("background-image",`url(${imgLogin})`)
+            },
+            mouseleave: function() {
+                $('.follower').css("background-image",`none`)
+            },
+        })
+        setTimeout(() => {
+            setCurrent(current === lengthImg - 1 ? 0 : current + 1); 
+        }, 7000);
     }, [])
-    $('.hover-img').on({
-        mouseenter: function() {
-            $('.follower').css("background-image",`url(${imgLogin})`)
-        },
-        mouseleave: function() {
-            $('.follower').css("background-image",`none`)
-        },
-    })
-    setTimeout(() => {
-        setCurrent(current === lengthImg - 1 ? 0 : current + 1); 
-    }, 7000);
     
 
     return (
@@ -253,35 +373,35 @@ function Product(props) {
                     </iframe>
                 <div className="productPage-view">
                     <div className="productPage-info">
-                        <div className="productPage-decription">
+                        <div className="productPage-decription hover-cursor">
                             <div className="productPage-decription__title">
                                 <h3>DESCRIPTION</h3>
                             </div>
                             <div className="productPage-decription__content">
-                                <h4 className="hover-cursor">
+                                <h4>
                                     {qhMovieProduct[0].decription} .
                                 </h4>
                             </div>
                         </div>
                         <div className="productPage-more d-flex align-items-center">
                             <div className="productPage-details">
-                                <div className="productPage-detail">
+                                <div className="productPage-detail hover-cursor">
                                     <div className="productPage-detail__title text-uppercase text-ogg">REPONSIBILITY</div>
-                                    <div className="productPage-detail__content hover-cursor">{qhMovieProduct[0].reponsibility} .</div>
+                                    <div className="productPage-detail__content">{qhMovieProduct[0].reponsibility} .</div>
                                 </div>
-                                <div className="productPage-detail">
+                                <div className="productPage-detail hover-cursor">
                                     <div className="productPage-detail__title text-uppercase text-ogg">technologies</div>
-                                    <div className="productPage-detail__content hover-cursor">{qhMovieProduct[0].technologies} .</div>
+                                    <div className="productPage-detail__content">{qhMovieProduct[0].technologies} .</div>
                                 </div>
                             </div>
                             <div className="productPage-details">
-                                <div className="productPage-detail">
+                                <div className="productPage-detail hover-cursor">
                                     <div className="productPage-detail__title text-uppercase text-ogg">TEAM SIZE</div>
-                                    <div className="productPage-detail__content hover-cursor">{qhMovieProduct[0].teamSize} .</div>
+                                    <div className="productPage-detail__content">{qhMovieProduct[0].teamSize} .</div>
                                 </div>
-                                <div className="productPage-detail">
+                                <div className="productPage-detail hover-cursor">
                                     <div className="productPage-detail__title text-uppercase text-ogg">site</div>
-                                    <div className="productPage-detail__content hover-cursor">
+                                    <div className="productPage-detail__content">
                                         <a href={qhMovieProduct[0].link} target="_blank">
                                             View website  
                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -293,20 +413,20 @@ function Product(props) {
                             </div>
                         </div>
                     </div>
-                    <div className="productPage-trailer">
+                    <div className="productPage-trailer hover-cursor">
                         {(qhMovieProduct[0].imgProduct?qhMovieProduct[0].imgProduct:0).map((img,index)=>(
                             <div 
                                 className={
                                     index === current ? 
-                                    'productPage-trailer__text text-uppercase hover-cursor active' 
-                                    : 'productPage-trailer__text text-uppercase hover-cursor'} 
+                                    'productPage-trailer__text text-uppercase active' 
+                                    : 'productPage-trailer__text text-uppercase'} 
                                 translate="no" 
                                 key={index}
                             >
                                 {img.name}<span>{img.name}</span>
                             </div>
                         ))}
-                        <div className="productPage-img hover-cursor">
+                        <div className="productPage-img">
                             {(qhMovieProduct[0].imgProduct?qhMovieProduct[0].imgProduct:0).map((img,index)=>(
                                 <img className={index === current ? 'lazyload active' : 'lazyload'} data-src={img.src} alt={img.name} key={index} />
                             ))}
