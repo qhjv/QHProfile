@@ -1,5 +1,5 @@
 import './App.css';
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import Header from './components/header';
 import '../src/asset/css/style.css'
 import Footer from './components/footer';
@@ -15,10 +15,13 @@ import Preloader from './components/preloader/preloader';
 import { useDispatch, useSelector } from 'react-redux';
 import Router from './router/router';
 import More from './components/more';
+import {products} from './api/productApi'
+import { productApi } from './features/products/productSlice';
 
 function App() {
   const loaded = useSelector(state=>state.loaded)
   const [mobile,setMobile] = useState(false)
+  const dispatch = useDispatch()
   const handleClickBlur = () => {
     $(".header-logo").removeClass("transform-left");
     $(".footer-socials").removeClass("transform-left");
@@ -29,6 +32,11 @@ function App() {
     $('.spanSlow').removeClass('no-trans')
     $("body").removeClass('overflow-hidden');
   }
+  useEffect(() => {
+      //push store redux
+      const action = productApi(products)
+      dispatch(action)
+  }, [])
       
   if(loaded === true){
       $('body').removeClass('overflow-hidden')

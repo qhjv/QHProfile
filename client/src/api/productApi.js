@@ -1,8 +1,6 @@
 //Image
 import imgLogin from '../asset/image/products/booking-movie/qhmovie-logout.png'
-import signinGif from '../asset/image/products/booking-movie/signin.gif'
 import registerImg from '../asset/image/products/booking-movie/register.png'
-import listmovieGif from '../asset/image/products/booking-movie/listmovie.gif'
 import img1 from '../asset/image/products/booking-movie/qhmovie.png'
 import img2 from '../asset/image/products/booking-movie/infomovie.png'
 import img3 from '../asset/image/products/booking-movie/bookroom.png'
@@ -47,7 +45,7 @@ export const products = [
     
             {
                 id:1,
-                src:`${signinGif}`,
+                src:`${registerImg}`,
                 name:"Signin"
             },
             {
@@ -57,7 +55,7 @@ export const products = [
             },
             {
                 id:3,
-                src:`${listmovieGif}`,
+                src:`${registerImg}`,
                 name:"movie"
             },
         ]
@@ -65,50 +63,50 @@ export const products = [
     {   
         name:"skill park",
         trailer:"",
-        decription:"QH Movie is a website to book movie tickets according to the list of cinemas, theater addresses and specific times. You can view movie information , seats , prices and payment options on the page . With a beautiful, easy and simple interface, you will have a pleasant experience",
-        reponsibility:"Front-end Developer , Designer",
-        technologies:"Reactjs, redux , axios, jquery, bootstrap, css ...",
-        year:"2020",
-        teamSize:"1 member",
+        decription:"skill park lalalalalallllllllllllllllllllllllllllllllllllllllllll",
+        reponsibility:"Designer",
+        technologies:"Reactjs ...",
+        year:"2021",
+        teamSize:"4 member",
         img:`${imgLogin}`,
         link:"http://hfgedigjhfdkjgh.vn/",
         imgView: [
             {
                 id:1,
-                src:`${img1}`,
-                name:"top page"
+                src:`${img3}`,
+                name:"1"
             },
             {
                 id:2,
-                src:`${img2}`,
-                name:"Movie information"
+                src:`${img4}`,
+                name:"2"
             },
             {
                 id:3,
-                src:`${img3}`,
-                name:"seat reservation room"
+                src:`${img1}`,
+                name:"3"
             },
             {
                 id:4,
-                src:`${img4}`,
-                name:"booking history"
+                src:`${img2}`,
+                name:"4"
             },
         ],
         imgProduct : [
     
             {
                 id:1,
-                src:`${signinGif}`,
+                src:`${img3}`,
                 name:"Signin"
             },
             {
                 id:2,
-                src:`${registerImg}`,
+                src:`${img3}`,
                 name:"register"
             },
             {
                 id:3,
-                src:`${listmovieGif}`,
+                src:`${img3}`,
                 name:"movie"
             },
         ]
