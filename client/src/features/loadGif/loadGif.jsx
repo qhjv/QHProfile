@@ -7,7 +7,9 @@ LoadGif.propTypes = {
 
 function LoadGif(props) {
     return (
-        <img src={loadImg} alt="loading" />
+        <div className="placeholder">
+            <img src={loadImg} alt="loading"/>
+        </div>
     );
 }
 

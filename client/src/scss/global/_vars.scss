@@ -57,12 +57,8 @@ $color-white:var(--color-white);
 .text-ogg{
     font-family: Ogg, "Cormorant Upright", serif;
 }
-.lazyload {
-    opacity: 0;
-}
-
-.lazyloading {
-    opacity: 1;
-    transition: opacity 300ms;
-    background: url("../../asset/image/icons/load.gif") no-repeat center;
+.placeholder {
+    width: 100px!important;
+    height: 100px!important;
+    margin: 0 auto;
 }
