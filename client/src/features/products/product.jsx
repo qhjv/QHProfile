@@ -8,84 +8,54 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 //lazyload
 import 'lazysizes';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
+import Lazyload from 'react-lazyload';
 //Image
 import imgLogin from '../../asset/image/products/booking-movie/qhmovie-logout.png'
-import signinGif from '../../asset/image/products/booking-movie/signin.gif'
-import registerImg from '../../asset/image/products/booking-movie/register.png'
-import listmovieGif from '../../asset/image/products/booking-movie/listmovie.gif'
-import img1 from '../../asset/image/products/booking-movie/qhmovie.png'
-import img2 from '../../asset/image/products/booking-movie/infomovie.png'
-import img3 from '../../asset/image/products/booking-movie/bookroom.png'
-import img4 from '../../asset/image/products/booking-movie/historyTicket.png'
+//other
+import {useSelector } from 'react-redux';
+import { Link, useRouteMatch } from 'react-router-dom';
+import { useLocation } from 'react-router';
+import LoadGif from '../loadGif/loadGif';
 
 gsap.registerPlugin(ScrollTrigger)
 
-Product.propTypes = {
-    
-};
-const qhMovieProduct = [
-    {   
-        name:"QH movie",
-        trailer:"",
-        decription:"QH Movie is a website to book movie tickets according to the list of cinemas, theater addresses and specific times. You can view movie information , seats , prices and payment options on the page . With a beautiful, easy and simple interface, you will have a pleasant experience",
-        reponsibility:"Front-end Developer , Designer",
-        technologies:"Reactjs, redux , axios, jquery, bootstrap, css ...",
-        year:"2020",
-        teamSize:"1 member",
-        img:`${imgLogin}`,
-        link:"http://hfgedigjhfdkjgh.vn/",
-        imgView: [
-            {
-                id:1,
-                src:`${img1}`,
-                name:"top page"
-            },
-            {
-                id:2,
-                src:`${img2}`,
-                name:"Movie information"
-            },
-            {
-                id:3,
-                src:`${img3}`,
-                name:"seat reservation room"
-            },
-            {
-                id:4,
-                src:`${img4}`,
-                name:"booking history"
-            },
-        ],
-        imgProduct : [
-    
-            {
-                id:1,
-                src:`${signinGif}`,
-                name:"Signin"
-            },
-            {
-                id:2,
-                src:`${registerImg}`,
-                name:"register"
-            },
-            {
-                id:3,
-                src:`${listmovieGif}`,
-                name:"movie"
-            },
-        ]
-    },
-]
 
 function Product(props) {
-
+    
     let productPage = useRef(null)
     let intro_tl = gsap.timeline();
     const [current, setCurrent] = useState(0);
-    const lengthImg = qhMovieProduct[0].imgProduct.length;
-    console.log("hihi")
+    
+    const [getProduct,setGetProduct] = useState([])
+    const [lengthImg,setLengthImg] = useState()
+    const productStore = useSelector(state=>state.product)
+    const newProduct =[]
+    const {
+        params: { id }
+    } = useRouteMatch()
+
+    const [loadRouter,setLoadRouter] = useState(false)
+    const loaded = useSelector(state=>state.loaded)
+    const location = useLocation();
+    
+    if(loaded === true){
+        setTimeout(() => {
+            $('.loading').css('transform','translateY(-100%)')
+            setLoadRouter(true)
+        }, 100);
+    }
+
     useEffect(() => {
+        
         $( document ).ready(function() {
+            //lọc id product
+            productStore.filter((product,index) =>{
+                return product.name.toLowerCase().split(' ').join('') === id.toLowerCase().split('-').join('')
+            }).map((product)=>{
+                newProduct.push(product)
+                setGetProduct(newProduct)
+                setLengthImg(product.imgProduct.length)
+            })
             var rect = $('.wrapper')[0].getBoundingClientRect();
             var mouse = {x: 0, y: 0, moved: false};
         
@@ -113,6 +83,9 @@ function Product(props) {
                 rect = $('.wrapper')[0].getBoundingClientRect();
             })
         })
+        const titles = document.querySelectorAll('.productPage-detail__title');
+        const contents = document.querySelectorAll('.productPage-detail__content');
+        const imgGsaps = document.querySelectorAll('.productPage-imgs_img');
         if($(window).width() > 1025){
             
             intro_tl
@@ -132,11 +105,11 @@ function Product(props) {
                     start: 100,
                     end: 300,
                     scrub: 0.5
-                  },
-                  y: -190,
-                  scale: 0.6,
-                  duration: 0.6,
-                  ease: "expo.out"
+                    },
+                    y: -190,
+                    scale: 0.6,
+                    duration: 0.6,
+                    ease: "expo.out"
             })
             .to(".scroll-down", {
                 scrollTrigger: {
@@ -189,7 +162,6 @@ function Product(props) {
                 duration: 2,
                 ease: "expo.out"
             })
-            const titles = document.querySelectorAll('.productPage-detail__title');
             titles.forEach((title, i) => {
                 intro_tl.from(title, {
                     duration: 1,
@@ -204,7 +176,6 @@ function Product(props) {
                     },
                 });
             });
-            const contents = document.querySelectorAll('.productPage-detail__content');
             contents.forEach((content, i) => {
                 intro_tl.from(content, {
                     duration: 1.5,
@@ -219,7 +190,6 @@ function Product(props) {
                     },
                 });
             });
-            const imgGsaps = document.querySelectorAll('.productPage-imgs_img');
             imgGsaps.forEach((imgGsap, i) => {
                 intro_tl.from(imgGsap, {
                     duration: 1,
@@ -247,7 +217,6 @@ function Product(props) {
                 duration: 0.6,
                 ease: "expo.out"
             })
-            const titles = document.querySelectorAll('.productPage-detail__title');
             titles.forEach((title, i) => {
                 intro_tl.from(title, {
                     duration: 1,
@@ -256,13 +225,12 @@ function Product(props) {
                     ease: 'ease-in',
                     scrollTrigger: {
                         trigger: title,
-                        start: 'top 80%',
-                        end: 'bottom 70%',
+                        start: 'top 85%',
+                        end: 'bottom 50%',
                         scrub: 0.5,
                     },
                 });
             });
-            const contents = document.querySelectorAll('.productPage-detail__content');
             contents.forEach((content, i) => {
                 intro_tl.from(content, {
                     duration: 1.5,
@@ -271,13 +239,12 @@ function Product(props) {
                     ease: 'ease-in',
                     scrollTrigger: {
                         trigger: content,
-                        start: 'top 80%',
-                        end: 'bottom 70%',
+                        start: 'top 85%',
+                        end: 'bottom 50%',
                         scrub: 0.5,
                     },
                 });
             });
-            const imgGsaps = document.querySelectorAll('.productPage-imgs_img');
             imgGsaps.forEach((imgGsap, i) => {
                 intro_tl.from(imgGsap, {
                     duration: 1,
@@ -346,30 +313,31 @@ function Product(props) {
                 $('.follower').css("background-image",`none`)
             },
         })
-        setTimeout(() => {
-            setCurrent(current === lengthImg - 1 ? 0 : current + 1); 
-        }, 7000);
-    }, [])
+    }, [id])
     
-
+    // useEffect(() => {
+    //     const timer =
+    //       setInterval(() => setCurrent(current === (lengthImg?lengthImg:0) - 1 ? 0 : current + 1), 7000);
+    //     return () => clearInterval(timer);
+    // }, [current]);
     return (
         <section className="productPage section" id="productPage" ref={el => productPage = el}>
             <div className="container">
                 <div className="productPage__title text-center text-uppercase">
-                    <h2 className=" hover-cursor">{qhMovieProduct[0].name}</h2>
-                    <p className="hover-cursor">{qhMovieProduct[0].year}</p>
+                    <h2 className=" hover-cursor">{(getProduct[0]?getProduct[0]:[]).name}</h2>
+                    <p className="hover-cursor">{(getProduct[0]?getProduct[0]:[]).year}</p>
                     <div className="scroll-down">
                         <div className="scroll-down-bar"></div>
                     </div>
                 </div>
                     <iframe 
-                        className="productPage-video__iframe lazyload"
+                        className="productPage-video__iframe"
                         width="100%"
                         title="YouTube video player" 
                         frameBorder="0"
                         allow="autoplay; picture-in-picture" 
                         allowFullScreen
-                        data-src="https://www.youtube.com/embed/hW4z1dYE7No">
+                        src="https://www.youtube.com/embed/hW4z1dYE7No">
                     </iframe>
                 <div className="productPage-view">
                     <div className="productPage-info">
@@ -379,7 +347,7 @@ function Product(props) {
                             </div>
                             <div className="productPage-decription__content">
                                 <h4>
-                                    {qhMovieProduct[0].decription} .
+                                    {(getProduct[0]?getProduct[0]:[]).decription} .
                                 </h4>
                             </div>
                         </div>
@@ -387,22 +355,22 @@ function Product(props) {
                             <div className="productPage-details">
                                 <div className="productPage-detail hover-cursor">
                                     <div className="productPage-detail__title text-uppercase text-ogg">REPONSIBILITY</div>
-                                    <div className="productPage-detail__content">{qhMovieProduct[0].reponsibility} .</div>
+                                    <div className="productPage-detail__content">{(getProduct[0]?getProduct[0]:[]).reponsibility} .</div>
                                 </div>
                                 <div className="productPage-detail hover-cursor">
                                     <div className="productPage-detail__title text-uppercase text-ogg">technologies</div>
-                                    <div className="productPage-detail__content">{qhMovieProduct[0].technologies} .</div>
+                                    <div className="productPage-detail__content">{(getProduct[0]?getProduct[0]:[]).technologies} .</div>
                                 </div>
                             </div>
                             <div className="productPage-details">
                                 <div className="productPage-detail hover-cursor">
                                     <div className="productPage-detail__title text-uppercase text-ogg">TEAM SIZE</div>
-                                    <div className="productPage-detail__content">{qhMovieProduct[0].teamSize} .</div>
+                                    <div className="productPage-detail__content">{(getProduct[0]?getProduct[0]:[]).teamSize} .</div>
                                 </div>
                                 <div className="productPage-detail hover-cursor">
                                     <div className="productPage-detail__title text-uppercase text-ogg">site</div>
                                     <div className="productPage-detail__content">
-                                        <a href={qhMovieProduct[0].link} target="_blank">
+                                        <a href={(getProduct[0]?getProduct[0]:[]).link} target="_blank">
                                             View website  
                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -413,34 +381,42 @@ function Product(props) {
                             </div>
                         </div>
                     </div>
-                    <div className="productPage-trailer hover-cursor">
-                        {(qhMovieProduct[0].imgProduct?qhMovieProduct[0].imgProduct:0).map((img,index)=>(
-                            <div 
-                                className={
-                                    index === current ? 
-                                    'productPage-trailer__text text-uppercase active' 
-                                    : 'productPage-trailer__text text-uppercase'} 
-                                translate="no" 
-                                key={index}
-                            >
-                                {img.name}<span>{img.name}</span>
-                            </div>
-                        ))}
-                        <div className="productPage-img">
-                            {(qhMovieProduct[0].imgProduct?qhMovieProduct[0].imgProduct:0).map((img,index)=>(
-                                <img className={index === current ? 'lazyload active' : 'lazyload'} data-src={img.src} alt={img.name} key={index} />
+                    {(getProduct?getProduct:[]).map((product,index)=>(
+                        <div className="productPage-trailer hover-cursor" key={index}>
+                            {(product.imgProduct?product.imgProduct:[]).map((img,index)=>(
+                                <div 
+                                    className={
+                                        index === current ? 
+                                        'productPage-trailer__text text-uppercase active' 
+                                        : 'productPage-trailer__text text-uppercase'} 
+                                    translate="no" 
+                                    key={index}
+                                >
+                                    {img.name}<span>{img.name}</span>
+                                </div>
                             ))}
-                        </div>
-                    </div>
-                </div>
-                <div className="productPage-imgs">
-                    {(qhMovieProduct[0].imgView?qhMovieProduct[0].imgView:0).map((img,index)=>(
-                        <div className="productPage-imgs_img" key={index}>
-                            <div className="productPage-imgs__name text-uppercase">{img.name}</div>
-                            <img className="hover-cursor lazyload" data-src={img.src} alt={img.name} />
+                            <div className="productPage-img">
+                                {(product.imgProduct?product.imgProduct:[]).map((img,index)=>(
+                                    <Lazyload placeholder={<LoadGif/>}>
+                                        <img className={index === current ? 'active' : ''} src={img.src} alt={img.name} key={index} />
+                                    </Lazyload>
+                                ))}
+                            </div>
                         </div>
                     ))}
                 </div>
+                {(getProduct?getProduct:[]).map((product,index)=>(
+                    <div className="productPage-imgs" key={index}>
+                        {(product.imgView?product.imgView:[]).map((img,index)=>(
+                            <div className="productPage-imgs_img" key={index}>
+                                <div className="productPage-imgs__name text-uppercase">{img.name}</div>
+                                <Lazyload placeholder={<LoadGif/>}>
+                                    <img className="hover-cursor" src={img.src} alt={img.name} />
+                                </Lazyload>
+                            </div>
+                        ))}
+                    </div>
+                ))}
                 <div className="productPage-button">
                         <div className="productPage-button__text text-center text-uppercase hover-img">
                             <a href="">
