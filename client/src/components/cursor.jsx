@@ -88,6 +88,10 @@ function Cursor(props) {
                 mouseleave: function() {
                     $('.cursor').removeClass("is-img")
                     $('.follower').removeClass("is-img")
+                },
+                click: function() {
+                    $('.cursor').removeClass("is-img")
+                    $('.follower').removeClass("is-img")
                 }
             })
             const link = document.querySelectorAll('.hover-text');

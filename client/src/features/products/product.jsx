@@ -10,7 +10,7 @@ import Lazyload from 'react-lazyload';
 import imgLogin from '../../asset/image/products/booking-movie/qhmovie-logout.png'
 //other
 import {useSelector } from 'react-redux';
-import { Link, useRouteMatch } from 'react-router-dom';
+import { Link, useRouteMatch ,useHistory} from 'react-router-dom';
 import LoadGif from '../loadGif/loadGif';
 import { changeURL } from '../../constants/changeUrl';
 
@@ -21,17 +21,20 @@ function Product(props) {
 
     let productPage = useRef(null)
     let intro_tl = gsap.timeline();
-    const [current, setCurrent] = useState(0);
+    const history = useHistory();
     
+    const [current, setCurrent] = useState(0);
     const [getProduct,setGetProduct] = useState([])
     const [nextProduct,setNextProduct] = useState()
     const [lengthImg,setLengthImg] = useState()
     const productStore = useSelector(state=>state.product)
     const newProduct =[]
+
     const {
         params: { id }
     } = useRouteMatch()
     console.log((nextProduct?nextProduct:[]).img)
+
     useEffect(() => {
         //lọc id product
         productStore.filter((product,index) =>{
