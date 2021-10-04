@@ -1,10 +1,14 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import PropTypes from 'prop-types';
 import arrowLight from '../asset/image/icons/arrow-light.png'
 import arrowdark from '../asset/image/icons/arrow-dark.png'
 import $ from 'jquery'
 import { Link, NavLink, useHistory } from 'react-router-dom';
 import loadImg from "../asset/image/icons/load.gif"
+import {useSelector } from 'react-redux';
+import { changeURL } from '../constants/changeUrl';
+import Lazyload from 'react-lazyload';
+import LoadGif from '../features/loadGif/loadGif';
 
 Menu.propTypes = {
     
@@ -23,7 +27,13 @@ const images = [
 ];
 
 function Menu(props) {
-        
+    const productStore = useSelector(state=>state.product)
+    const [getProduct,setGetProduct] = useState([])
+
+    useEffect(() => {
+        setGetProduct(productStore)
+    }, [])
+
     const handleClickCloseMenu = () => {
         $(".header-logo").removeClass("transform-left");
         $(".footer-socials").removeClass("transform-left");
@@ -44,36 +54,7 @@ function Menu(props) {
         $('.spanFast').removeClass('no-trans');
         $('.spanSlow').removeClass('no-trans');
     }
-    //url seo
-    const changeURL = (str) =>
-        {
-            // Chuyển hết sang chữ thường
-            str = str.toLowerCase();     
-        
-            // xóa dấu
-            str = str.replace(/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/g, 'a');
-            str = str.replace(/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/g, 'e');
-            str = str.replace(/(ì|í|ị|ỉ|ĩ)/g, 'i');
-            str = str.replace(/(ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ)/g, 'o');
-            str = str.replace(/(ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ)/g, 'u');
-            str = str.replace(/(ỳ|ý|ỵ|ỷ|ỹ)/g, 'y');
-            str = str.replace(/(đ)/g, 'd');
-        
-            // Xóa ký tự đặc biệt
-            str = str.replace(/([^0-9a-z-\s])/g, '');
-        
-            // Xóa khoảng trắng thay bằng ký tự -
-            str = str.replace(/(\s+)/g, '-');
-        
-            // xóa phần dự - ở đầu
-            str = str.replace(/^-+/g, '');
-        
-            // xóa phần dư - ở cuối
-            str = str.replace(/-+$/g, '');
-        
-            // return
-            return str;
-        }
+    
     return (
         <div className="menu">
             <div className="menu__close d-flex justify-content-center align-items-center hover-cursor hover-text"
@@ -83,18 +64,18 @@ function Menu(props) {
             </div>
             <div className="menuProducts my-scrollbar">
                 <div className="container">
-                    {(images?images:[]).map((image, index) => (
+                    {(getProduct?getProduct:[]).map((product, index) => (
                         <Link 
                             key={index} 
-                            to = {`/product/${changeURL(image.name)}/reload`}
+                            to = {`/product/${changeURL(product.name)}/reload`}
                             onClick={handleClickLinkMenu}
                         >
                             <div className={(index===0 ? "menuProduct menuProduct-first" : "menuProduct")}>
-                                <div className="menuProduct__img hover-product">
-                                    <img src={image.src?image.src:loadImg} alt={image.name}/>
-                                </div>
+                                <Lazyload className="menuProduct__img hover-product" placeholder={<LoadGif/>} height="100%" weight="100%">
+                                    <img src={product.img?product.img:loadImg} alt={product.name}/>
+                                </Lazyload>
                                 <div className="menuProduct__name">
-                                    <h2 className="hover-text hover-cursor">{image.name}</h2>
+                                    <h2 className="hover-text hover-cursor">{product.name}</h2>
                                 </div>
                             </div>
                         </Link>

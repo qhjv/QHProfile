@@ -14,9 +14,15 @@ function Cursor(props) {
     const location = useLocation();
     
     if(loaded === true){
+        $(".cursor").addClass('hidden')
+        $(".follower").addClass('hidden')
         setTimeout(() => {
             setLoadRouter(true)
         }, 100);
+        setTimeout(() => {
+            $(".cursor").removeClass('hidden')
+            $(".follower").removeClass('hidden')
+        }, 1000);
     }
     let cWidth = 8,
         fWidth = 48,
@@ -107,8 +113,8 @@ function Cursor(props) {
     }, [location.pathname,loadRouter]) 
     return (
         <>
-            <div className="cursor"></div>
-            <div className="follower">
+            <div className="cursor hidden"></div>
+            <div className="follower hidden">
                 <div className="follower__text">View</div>
             </div>
         </>

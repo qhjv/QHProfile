@@ -12,6 +12,7 @@ import imgLogin from '../../asset/image/products/booking-movie/qhmovie-logout.pn
 import {useSelector } from 'react-redux';
 import { Link, useRouteMatch } from 'react-router-dom';
 import LoadGif from '../loadGif/loadGif';
+import { changeURL } from '../../constants/changeUrl';
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -23,13 +24,14 @@ function Product(props) {
     const [current, setCurrent] = useState(0);
     
     const [getProduct,setGetProduct] = useState([])
+    const [nextProduct,setNextProduct] = useState()
     const [lengthImg,setLengthImg] = useState()
     const productStore = useSelector(state=>state.product)
     const newProduct =[]
     const {
         params: { id }
     } = useRouteMatch()
-
+    console.log((nextProduct?nextProduct:[]).img)
     useEffect(() => {
         //lọc id product
         productStore.filter((product,index) =>{
@@ -38,11 +40,22 @@ function Product(props) {
             newProduct.push(product)
             setGetProduct(newProduct)
             setLengthImg(product.imgProduct.length)
+            setNextProduct(productStore[(product.id<productStore.length?product.id:0)])
+            setTimeout(() => {
+                $('.hover-img').on({
+                    mouseenter: function() {
+                        $('.follower').css("background-image",`url(${(productStore[(product.id<productStore.length?product.id:0)]).img})`)
+                    },
+                    mouseleave: function() {
+                        $('.follower').css("background-image",`none`)
+                    },
+                })
+            }, 500);
         })
         $( document ).ready(function() {
             var rect = $('.wrapper')[0].getBoundingClientRect();
             var mouse = {x: 0, y: 0, moved: false};
-        
+            
             $(".wrapper").mousemove(function(e) {
                 mouse.moved = true;
                 mouse.x = e.clientX - rect.left;
@@ -277,36 +290,14 @@ function Product(props) {
             }
         })
         TweenMax.to(productPage,2,{opacity:1})
-        // var i = 0, timeOut = 0;
-        // $('.hihi').on('mousedown touchstart', function() {
-        //     timeOut = setInterval(function(){
-        //         console.log("next")
-        //     }, 3000);
-        // }).bind('mouseup touchend', function(e) {
-        //     console.log("ko next")
-        //     $('html,body').animate({
-        //         scrollTop: 0
-        //     },5000);
-        //     clearInterval(timeOut);
-        // });
-        $('.hover-img').on({
-            mouseenter: function() {
-                $('.follower').css("background-image",`url(${imgLogin})`)
-            },
-            mouseleave: function() {
-                $('.follower').css("background-image",`none`)
-            },
-        })
     }, [id])
-    
-    // useEffect(() => {
-    //     const timer =
-    //       setInterval(() => setCurrent(current === (lengthImg?lengthImg:0) - 1 ? 0 : current + 1), 7000);
-    //     return () => clearInterval(timer);
-    // }, [current]);
+   
     useEffect(() => {
-        
-    }, [id])
+        const timer =
+          setInterval(() => setCurrent(current === (lengthImg?lengthImg:0) - 1 ? 0 : current + 1), 7000);
+        return () => clearInterval(timer);
+    }, [current]);
+    
     return (
         <section className="productPage section" id="productPage" ref={el => productPage = el}>
             {(getProduct?getProduct:[]).map((product,index)=>(
@@ -384,7 +375,7 @@ function Product(props) {
                             ))}
                             <div className="productPage-img">
                                 {(product.imgProduct?product.imgProduct:[]).map((img,index)=>(
-                                    <Lazyload placeholder={<LoadGif/>} width={100} height={100} offset={[-200, 0]} debounce={500} key={index}>
+                                    <Lazyload placeholder={<LoadGif/>} width={100} height={100} key={index}>
                                         <img className={index === current ? 'active' : ''} src={img.src} alt={img.name}/>
                                     </Lazyload>
                                 ))}
@@ -395,20 +386,24 @@ function Product(props) {
                         {(product.imgView?product.imgView:[]).map((img,index)=>(
                             <div className="productPage-imgs_img" key={index}>
                                 <div className="productPage-imgs__name text-uppercase">{img.name}</div>
-                                <Lazyload placeholder={<LoadGif/>} width={100} height={100} offset={[-200, 0]} debounce={500}>
-                                    <img className="hover-cursor" src={img.src} alt={img.name} />
+                                <Lazyload className="hover-cursor" placeholder={<LoadGif/>} width={100} height={100}>
+                                    <img src={img.src} alt={img.name} />
                                 </Lazyload>
                             </div>
                         ))}
                     </div>
+                    
                     <div className="productPage-button">
                             <div className="productPage-button__text text-center text-uppercase hover-img">
-                                <a href="">
+                                <Link 
+                                    to = {`/product/${changeURL(nextProduct.name)}/reload`}
+                                >
                                     <p>NEXT</p>
-                                    <i>skill park</i>
-                                </a>
+                                    <i>{nextProduct.name}</i>
+                                </Link>
                             </div>
                     </div>
+                   
                 </div>
             ))}
         </section>

@@ -4,7 +4,6 @@ import Header from './components/header';
 import '../src/asset/css/style.css'
 import Footer from './components/footer';
 import Noise from './components/noise';
-import Home from './features/home/home';
 import Cursor from './components/cursor';
 import Scrollbar from 'smooth-scrollbar';
 import luxy from 'luxy.js'
