@@ -1,27 +1,23 @@
 import React,{useEffect,useRef,useState} from 'react';
-import PropTypes from 'prop-types';
 //jquery
 import $ from 'jquery'
 //gsap
-import {TweenMax, Power3 , gsap} from 'gsap';
+import {TweenMax, gsap} from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 //lazyload
-import 'lazysizes';
-import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 import Lazyload from 'react-lazyload';
 //Image
 import imgLogin from '../../asset/image/products/booking-movie/qhmovie-logout.png'
 //other
 import {useSelector } from 'react-redux';
 import { Link, useRouteMatch } from 'react-router-dom';
-import { useLocation } from 'react-router';
 import LoadGif from '../loadGif/loadGif';
 
 gsap.registerPlugin(ScrollTrigger)
 
 
 function Product(props) {
-    
+
     let productPage = useRef(null)
     let intro_tl = gsap.timeline();
     const [current, setCurrent] = useState(0);
@@ -34,28 +30,16 @@ function Product(props) {
         params: { id }
     } = useRouteMatch()
 
-    const [loadRouter,setLoadRouter] = useState(false)
-    const loaded = useSelector(state=>state.loaded)
-    const location = useLocation();
-    
-    if(loaded === true){
-        setTimeout(() => {
-            $('.loading').css('transform','translateY(-100%)')
-            setLoadRouter(true)
-        }, 100);
-    }
-
     useEffect(() => {
-        
+        //lọc id product
+        productStore.filter((product,index) =>{
+            return product.name.toLowerCase().split(' ').join('') === id.toLowerCase().split('-').join('')
+        }).map((product)=>{
+            newProduct.push(product)
+            setGetProduct(newProduct)
+            setLengthImg(product.imgProduct.length)
+        })
         $( document ).ready(function() {
-            //lọc id product
-            productStore.filter((product,index) =>{
-                return product.name.toLowerCase().split(' ').join('') === id.toLowerCase().split('-').join('')
-            }).map((product)=>{
-                newProduct.push(product)
-                setGetProduct(newProduct)
-                setLengthImg(product.imgProduct.length)
-            })
             var rect = $('.wrapper')[0].getBoundingClientRect();
             var mouse = {x: 0, y: 0, moved: false};
         
@@ -82,216 +66,216 @@ function Product(props) {
             $(window).on('resize scroll', function(){
                 rect = $('.wrapper')[0].getBoundingClientRect();
             })
-        })
-        const titles = document.querySelectorAll('.productPage-detail__title');
-        const contents = document.querySelectorAll('.productPage-detail__content');
-        const imgGsaps = document.querySelectorAll('.productPage-imgs_img');
-        if($(window).width() > 1025){
-            
-            intro_tl
-            .to(".productPage__title h2", {
-                scrollTrigger: {
-                    start: 100,
-                    end: 300,
-                    scrub: 0.5,
-                },
-                y: -190,
-                scale: 0.6,
-                duration: 0.6,
-                ease: "expo.out"
-            })
-            .to(".productPage__title p", {
-                scrollTrigger: {
-                    start: 100,
-                    end: 300,
-                    scrub: 0.5
+            const titles = document.querySelectorAll('.productPage-detail__title');
+            const contents = document.querySelectorAll('.productPage-detail__content');
+            const imgGsaps = document.querySelectorAll('.productPage-imgs_img');
+            if($(window).width() > 1025){
+                
+                intro_tl
+                .to(".productPage__title h2", {
+                    scrollTrigger: {
+                        start: 100,
+                        end: 300,
+                        scrub: 0.5,
                     },
                     y: -190,
                     scale: 0.6,
                     duration: 0.6,
                     ease: "expo.out"
-            })
-            .to(".scroll-down", {
-                scrollTrigger: {
-                    start: 100,
-                    end: 300,
-                    scrub: 0.5
-                    },
-                opacity: 0,
-                duration: 0.6,
-                ease: "expo.out"
-            })
-            .from(".productPage-video__iframe", {
-                scrollTrigger: {
-                    start: 100,
-                    end: 500,
-                    scrub: 0.5,
-                },
-                y: 500,
-                duration: 1.5,
-                ease: "expo.out"
-            })
-            .from(".productPage-img", {
-                scrollTrigger: {
-                    start: 650,
-                    end: 1100,
-                    scrub: 0.5,
-                },
-                y: 200,
-                opacity: 0,
-                duration: 2,
-                ease: "expo.out"
-            })
-            .from(".productPage-info", {
-                scrollTrigger: {
-                    start: 650,
-                    end: 1100,
-                    scrub: 0.5,
-                },
-                opacity: 0,
-                duration: 1,
-                ease: "expo.out"
-            })
-            .from(".productPage-trailer__text", {
-                scrollTrigger: {
-                    start:650,
-                    end: 1000,
-                    scrub: 0.5,
-                },
-                x: 500,
-                duration: 2,
-                ease: "expo.out"
-            })
-            titles.forEach((title, i) => {
-                intro_tl.from(title, {
-                    duration: 1,
-                    opacity: 0,
-                    x: 100,
-                    ease: 'ease-in',
+                })
+                .to(".productPage__title p", {
                     scrollTrigger: {
-                        trigger: title,
-                        start: 'top 80%',
-                        end: 'bottom 70%',
+                        start: 100,
+                        end: 300,
+                        scrub: 0.5
+                        },
+                        y: -190,
+                        scale: 0.6,
+                        duration: 0.6,
+                        ease: "expo.out"
+                })
+                .to(".scroll-down", {
+                    scrollTrigger: {
+                        start: 100,
+                        end: 300,
+                        scrub: 0.5
+                        },
+                    opacity: 0,
+                    duration: 0.6,
+                    ease: "expo.out"
+                })
+                .from(".productPage-video__iframe", {
+                    scrollTrigger: {
+                        start: 100,
+                        end: 500,
                         scrub: 0.5,
                     },
-                });
-            });
-            contents.forEach((content, i) => {
-                intro_tl.from(content, {
+                    y: 500,
                     duration: 1.5,
+                    ease: "expo.out"
+                })
+                .from(".productPage-img", {
+                    scrollTrigger: {
+                        start: 650,
+                        end: 1100,
+                        scrub: 0.5,
+                    },
+                    y: 200,
                     opacity: 0,
-                    x: 100,
-                    ease: 'ease-in',
+                    duration: 2,
+                    ease: "expo.out"
+                })
+                .from(".productPage-info", {
                     scrollTrigger: {
-                        trigger: content,
-                        start: 'top 80%',
-                        end: 'bottom 70%',
+                        start: 650,
+                        end: 1100,
                         scrub: 0.5,
                     },
-                });
-            });
-            imgGsaps.forEach((imgGsap, i) => {
-                intro_tl.from(imgGsap, {
-                    duration: 1,
-                    y: 100,
-                    opacity: 0.5,
-                    ease: 'ease-in',
-                    scrollTrigger: {
-                        trigger: imgGsap,
-                        start: 'top 80%',
-                        end: 'bottom 60%',
-                        scrub: 0.5,
-                    },
-                });
-            });
-        }else{
-            intro_tl
-            .to(".productPage__title", {
-                scrollTrigger: {
-                    start: 50,
-                    end: 200,
-                    scrub: 0.5,
-                },
-                y: -190,
-                scale: 0.6,
-                duration: 0.6,
-                ease: "expo.out"
-            })
-            titles.forEach((title, i) => {
-                intro_tl.from(title, {
-                    duration: 1,
                     opacity: 0,
-                    x: 100,
-                    ease: 'ease-in',
-                    scrollTrigger: {
-                        trigger: title,
-                        start: 'top 85%',
-                        end: 'bottom 50%',
-                        scrub: 0.5,
-                    },
-                });
-            });
-            contents.forEach((content, i) => {
-                intro_tl.from(content, {
-                    duration: 1.5,
-                    opacity: 0,
-                    x: 100,
-                    ease: 'ease-in',
-                    scrollTrigger: {
-                        trigger: content,
-                        start: 'top 85%',
-                        end: 'bottom 50%',
-                        scrub: 0.5,
-                    },
-                });
-            });
-            imgGsaps.forEach((imgGsap, i) => {
-                intro_tl.from(imgGsap, {
                     duration: 1,
-                    y: 100,
-                    opacity: 0.5,
-                    ease: 'ease-in',
+                    ease: "expo.out"
+                })
+                .from(".productPage-trailer__text", {
                     scrollTrigger: {
-                        trigger: imgGsap,
+                        start:650,
+                        end: 1000,
+                        scrub: 0.5,
+                    },
+                    x: 500,
+                    duration: 2,
+                    ease: "expo.out"
+                })
+                titles.forEach((title, i) => {
+                    intro_tl.from(title, {
+                        duration: 1,
+                        opacity: 0,
+                        x: 100,
+                        ease: 'ease-in',
+                        scrollTrigger: {
+                            trigger: title,
+                            start: 'top 80%',
+                            end: 'bottom 70%',
+                            scrub: 0.5,
+                        },
+                    });
+                });
+                contents.forEach((content, i) => {
+                    intro_tl.from(content, {
+                        duration: 1.5,
+                        opacity: 0,
+                        x: 100,
+                        ease: 'ease-in',
+                        scrollTrigger: {
+                            trigger: content,
+                            start: 'top 80%',
+                            end: 'bottom 70%',
+                            scrub: 0.5,
+                        },
+                    });
+                });
+                imgGsaps.forEach((imgGsap, i) => {
+                    intro_tl.from(imgGsap, {
+                        duration: 1,
+                        y: 100,
+                        opacity: 0.5,
+                        ease: 'ease-in',
+                        scrollTrigger: {
+                            trigger: imgGsap,
+                            start: 'top 80%',
+                            end: 'bottom 60%',
+                            scrub: 0.5,
+                        },
+                    });
+                });
+            }else{
+                intro_tl
+                .to(".productPage__title", {
+                    scrollTrigger: {
+                        start: 50,
+                        end: 200,
+                        scrub: 0.5,
+                    },
+                    y: -190,
+                    scale: 0.6,
+                    duration: 0.6,
+                    ease: "expo.out"
+                })
+                titles.forEach((title, i) => {
+                    intro_tl.from(title, {
+                        duration: 1,
+                        opacity: 0,
+                        x: 100,
+                        ease: 'ease-in',
+                        scrollTrigger: {
+                            trigger: title,
+                            start: 'top 85%',
+                            end: 'bottom 50%',
+                            scrub: 0.5,
+                        },
+                    });
+                });
+                contents.forEach((content, i) => {
+                    intro_tl.from(content, {
+                        duration: 1.5,
+                        opacity: 0,
+                        x: 100,
+                        ease: 'ease-in',
+                        scrollTrigger: {
+                            trigger: content,
+                            start: 'top 85%',
+                            end: 'bottom 50%',
+                            scrub: 0.5,
+                        },
+                    });
+                });
+                imgGsaps.forEach((imgGsap, i) => {
+                    intro_tl.from(imgGsap, {
+                        duration: 1,
+                        y: 100,
+                        opacity: 0.5,
+                        ease: 'ease-in',
+                        scrollTrigger: {
+                            trigger: imgGsap,
+                            start: 'top 90%',
+                            end: 'bottom 70%',
+                            scrub: 0.5,
+                        },
+                    });
+                });
+                intro_tl.from(".productPage-img", {
+                    scrollTrigger: {
+                        start: 300,
+                        end: 500,
+                        scrub: 0.5,
+                    },
+                    y: 200,
+                    opacity: 0,
+                    duration: 2,
+                    ease: "expo.out"
+                })
+                .from(".productPage-trailer__text", {
+                    scrollTrigger: {
+                        start:300,
+                        end: 400,
+                        scrub: 0.5,
+                    },
+                    x: 300,
+                    duration: 1,
+                    ease: "expo.out"
+                })
+                gsap.from(".productPage-button", {
+                    scrollTrigger: {
+                        trigger: '.productPage-button',
                         start: 'top 90%',
                         end: 'bottom 70%',
                         scrub: 0.5,
                     },
-                });
-            });
-            intro_tl.from(".productPage-img", {
-                scrollTrigger: {
-                    start: 300,
-                    end: 500,
-                    scrub: 0.5,
-                },
-                y: 200,
-                opacity: 0,
-                duration: 2,
-                ease: "expo.out"
-            })
-            .from(".productPage-trailer__text", {
-                scrollTrigger: {
-                    start:300,
-                    end: 400,
-                    scrub: 0.5,
-                },
-                x: 300,
-                duration: 1,
-                ease: "expo.out"
-            })
-            gsap.from(".productPage-button", {
-                scrollTrigger: {
-                    trigger: '.productPage-button',
-                    start: 'top 90%',
-                    end: 'bottom 70%',
-                    scrub: 0.5,
-                },
-                scale: 0,
-                duration: 1,
-                ease: "expo.out"
-            })
-        }
+                    scale: 0,
+                    duration: 1,
+                    ease: "expo.out"
+                })
+            }
+        })
         TweenMax.to(productPage,2,{opacity:1})
         // var i = 0, timeOut = 0;
         // $('.hihi').on('mousedown touchstart', function() {
@@ -320,69 +304,72 @@ function Product(props) {
     //       setInterval(() => setCurrent(current === (lengthImg?lengthImg:0) - 1 ? 0 : current + 1), 7000);
     //     return () => clearInterval(timer);
     // }, [current]);
+    useEffect(() => {
+        
+    }, [id])
     return (
         <section className="productPage section" id="productPage" ref={el => productPage = el}>
-            <div className="container">
-                <div className="productPage__title text-center text-uppercase">
-                    <h2 className=" hover-cursor">{(getProduct[0]?getProduct[0]:[]).name}</h2>
-                    <p className="hover-cursor">{(getProduct[0]?getProduct[0]:[]).year}</p>
-                    <div className="scroll-down">
-                        <div className="scroll-down-bar"></div>
-                    </div>
-                </div>
-                    <iframe 
-                        className="productPage-video__iframe"
-                        width="100%"
-                        title="YouTube video player" 
-                        frameBorder="0"
-                        allow="autoplay; picture-in-picture" 
-                        allowFullScreen
-                        src="https://www.youtube.com/embed/hW4z1dYE7No">
-                    </iframe>
-                <div className="productPage-view">
-                    <div className="productPage-info">
-                        <div className="productPage-decription hover-cursor">
-                            <div className="productPage-decription__title">
-                                <h3>DESCRIPTION</h3>
-                            </div>
-                            <div className="productPage-decription__content">
-                                <h4>
-                                    {(getProduct[0]?getProduct[0]:[]).decription} .
-                                </h4>
-                            </div>
+            {(getProduct?getProduct:[]).map((product,index)=>(
+                <div className="container" key={index}>
+                    <div className="productPage__title text-center text-uppercase">
+                        <h2 className=" hover-cursor">{(getProduct[0]?getProduct[0]:[]).name}</h2>
+                        <p className="hover-cursor">{(getProduct[0]?getProduct[0]:[]).year}</p>
+                        <div className="scroll-down">
+                            <div className="scroll-down-bar"></div>
                         </div>
-                        <div className="productPage-more d-flex align-items-center">
-                            <div className="productPage-details">
-                                <div className="productPage-detail hover-cursor">
-                                    <div className="productPage-detail__title text-uppercase text-ogg">REPONSIBILITY</div>
-                                    <div className="productPage-detail__content">{(getProduct[0]?getProduct[0]:[]).reponsibility} .</div>
+                    </div>
+                        <iframe 
+                            className="productPage-video__iframe"
+                            width="100%"
+                            title="YouTube video player" 
+                            frameBorder="0"
+                            allow="autoplay; picture-in-picture" 
+                            allowFullScreen
+                            src="https://www.youtube.com/embed/hW4z1dYE7No">
+                        </iframe>
+                    <div className="productPage-view">
+                        <div className="productPage-info">
+                            <div className="productPage-decription hover-cursor">
+                                <div className="productPage-decription__title">
+                                    <h3>DESCRIPTION</h3>
                                 </div>
-                                <div className="productPage-detail hover-cursor">
-                                    <div className="productPage-detail__title text-uppercase text-ogg">technologies</div>
-                                    <div className="productPage-detail__content">{(getProduct[0]?getProduct[0]:[]).technologies} .</div>
+                                <div className="productPage-decription__content">
+                                    <h4>
+                                        {(getProduct[0]?getProduct[0]:[]).decription} .
+                                    </h4>
                                 </div>
                             </div>
-                            <div className="productPage-details">
-                                <div className="productPage-detail hover-cursor">
-                                    <div className="productPage-detail__title text-uppercase text-ogg">TEAM SIZE</div>
-                                    <div className="productPage-detail__content">{(getProduct[0]?getProduct[0]:[]).teamSize} .</div>
+                            <div className="productPage-more d-flex align-items-center">
+                                <div className="productPage-details">
+                                    <div className="productPage-detail hover-cursor">
+                                        <div className="productPage-detail__title text-uppercase text-ogg">REPONSIBILITY</div>
+                                        <div className="productPage-detail__content">{(getProduct[0]?getProduct[0]:[]).reponsibility} .</div>
+                                    </div>
+                                    <div className="productPage-detail hover-cursor">
+                                        <div className="productPage-detail__title text-uppercase text-ogg">technologies</div>
+                                        <div className="productPage-detail__content">{(getProduct[0]?getProduct[0]:[]).technologies} .</div>
+                                    </div>
                                 </div>
-                                <div className="productPage-detail hover-cursor">
-                                    <div className="productPage-detail__title text-uppercase text-ogg">site</div>
-                                    <div className="productPage-detail__content">
-                                        <a href={(getProduct[0]?getProduct[0]:[]).link} target="_blank">
-                                            View website  
-                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                            </svg>
-                                        </a>
+                                <div className="productPage-details">
+                                    <div className="productPage-detail hover-cursor">
+                                        <div className="productPage-detail__title text-uppercase text-ogg">TEAM SIZE</div>
+                                        <div className="productPage-detail__content">{(getProduct[0]?getProduct[0]:[]).teamSize} .</div>
+                                    </div>
+                                    <div className="productPage-detail hover-cursor">
+                                        <div className="productPage-detail__title text-uppercase text-ogg">site</div>
+                                        <div className="productPage-detail__content">
+                                            <a href={(getProduct[0]?getProduct[0]:[]).link} target="_blank">
+                                                View website  
+                                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                                </svg>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    {(getProduct?getProduct:[]).map((product,index)=>(
-                        <div className="productPage-trailer hover-cursor" key={index}>
+                        <div className="productPage-trailer hover-cursor">
                             {(product.imgProduct?product.imgProduct:[]).map((img,index)=>(
                                 <div 
                                     className={
@@ -397,35 +384,33 @@ function Product(props) {
                             ))}
                             <div className="productPage-img">
                                 {(product.imgProduct?product.imgProduct:[]).map((img,index)=>(
-                                    <Lazyload placeholder={<LoadGif/>}>
-                                        <img className={index === current ? 'active' : ''} src={img.src} alt={img.name} key={index} />
+                                    <Lazyload placeholder={<LoadGif/>} width={100} height={100} offset={[-200, 0]} debounce={500} key={index}>
+                                        <img className={index === current ? 'active' : ''} src={img.src} alt={img.name}/>
                                     </Lazyload>
                                 ))}
                             </div>
                         </div>
-                    ))}
-                </div>
-                {(getProduct?getProduct:[]).map((product,index)=>(
-                    <div className="productPage-imgs" key={index}>
+                    </div>
+                    <div className="productPage-imgs">
                         {(product.imgView?product.imgView:[]).map((img,index)=>(
                             <div className="productPage-imgs_img" key={index}>
                                 <div className="productPage-imgs__name text-uppercase">{img.name}</div>
-                                <Lazyload placeholder={<LoadGif/>}>
+                                <Lazyload placeholder={<LoadGif/>} width={100} height={100} offset={[-200, 0]} debounce={500}>
                                     <img className="hover-cursor" src={img.src} alt={img.name} />
                                 </Lazyload>
                             </div>
                         ))}
                     </div>
-                ))}
-                <div className="productPage-button">
-                        <div className="productPage-button__text text-center text-uppercase hover-img">
-                            <a href="">
-                                <p>NEXT</p>
-                                <i>skill park</i>
-                            </a>
-                        </div>
+                    <div className="productPage-button">
+                            <div className="productPage-button__text text-center text-uppercase hover-img">
+                                <a href="">
+                                    <p>NEXT</p>
+                                    <i>skill park</i>
+                                </a>
+                            </div>
+                    </div>
                 </div>
-            </div>
+            ))}
         </section>
     );
 }

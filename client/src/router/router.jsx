@@ -18,7 +18,8 @@ function Router(props) {
 
                 <Route path="/" component={Home} exact />
                 <Route path="/about" component={AboutMe} />
-                <Route path="/product/:id" component={Product} />
+                <Route exact  path="/product/:id" component ={()=><Product/>} />
+                <Redirect exact from="/product/:id/reload" to="/product/:id" />
                 {/* <Route component={NotFound} /> */}
             </Switch>
         </>

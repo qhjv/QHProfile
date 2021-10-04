@@ -86,7 +86,7 @@ function Menu(props) {
                     {(images?images:[]).map((image, index) => (
                         <Link 
                             key={index} 
-                            to = {`/product/${changeURL(image.name)}`}
+                            to = {`/product/${changeURL(image.name)}/reload`}
                             onClick={handleClickLinkMenu}
                         >
                             <div className={(index===0 ? "menuProduct menuProduct-first" : "menuProduct")}>
