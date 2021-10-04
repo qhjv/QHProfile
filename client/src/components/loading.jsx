@@ -27,7 +27,7 @@ function Loading(props) {
     useEffect(() => {
         $('html,body').animate({
             scrollTop: 0
-        }, );
+        },);
         $('.overlay').removeClass('hidden')
         setTimeout(() => {
             $('.loadRouter').addClass('animationLoadRouter')
