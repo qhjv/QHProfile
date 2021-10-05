@@ -61,6 +61,7 @@
                 top:3vw;
                 width:55%;
                 mix-blend-mode: difference;
+                color:#ffffff;
                 .productPage-decription{
                     &__title{
                         h3{
@@ -71,7 +72,7 @@
                         margin-top: 1.17vw;
                         text-align: justify;
                         h4{
-                            color:$color-light;
+                            color:#eaeaea;
                             font-size:0.9375vw;
                             line-height:1.56vw;
                         }
@@ -89,7 +90,7 @@
                             }
                             &__content{
                                 margin-top: 0.156vw;
-                                color:$color-light;
+                                color:#eaeaea;
                                 font-size:0.9375vw;
                                 white-space: nowrap;
                                 overflow: hidden;
