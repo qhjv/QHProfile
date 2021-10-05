@@ -6,8 +6,6 @@ import {TweenMax, gsap} from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 //lazyload
 import Lazyload from 'react-lazyload';
-//Image
-import imgLogin from '../../asset/image/products/booking-movie/qhmovie-logout.png'
 //other
 import {useSelector } from 'react-redux';
 import { Link, useRouteMatch ,useHistory} from 'react-router-dom';
@@ -50,6 +48,9 @@ function Product(props) {
                         $('.follower').css("background-image",`url(${(productStore[(product.id<productStore.length?product.id:0)]).img})`)
                     },
                     mouseleave: function() {
+                        $('.follower').css("background-image",`none`)
+                    },
+                    click: function() {
                         $('.follower').css("background-image",`none`)
                     },
                 })
@@ -319,7 +320,7 @@ function Product(props) {
                             frameBorder="0"
                             allow="autoplay; picture-in-picture" 
                             allowFullScreen
-                            src="https://www.youtube.com/embed/hW4z1dYE7No">
+                            src={(getProduct[0]?getProduct[0]:[]).trailer}>
                         </iframe>
                     <div className="productPage-view">
                         <div className="productPage-info">

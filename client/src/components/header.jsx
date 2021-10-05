@@ -27,10 +27,12 @@ function Header(props) {
                 if(logo === true){
                     $(".arrowLight").addClass('arrowDark');
                     $(".header-logo__img img").attr("src",`${logolight}`);
+                    $(".productPage-info").addClass("no-mix")
                     logo = false
                 }else if(logo === false){
                     $(".arrowLight").removeClass('arrowDark');
                     $(".header-logo__img img").attr("src",`${logodark}`);
+                    $(".productPage-info").removeClass("no-mix")
                     logo = true
                 }
                 $('.header-logo__before').removeClass('light-click');

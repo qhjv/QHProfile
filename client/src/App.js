@@ -50,7 +50,7 @@ function App() {
           setMobile(false)
           luxy.init({
             wrapper: "#luxy",
-            wrapperSpeed: .01
+            wrapperSpeed: .02
           });
           Scrollbar.init(document.querySelector('.my-scrollbar'), {
             damping:0.02
