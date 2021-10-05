@@ -25,9 +25,7 @@ function Loading(props) {
     // const action = loading(true)
     // dispatch(action)
     useEffect(() => {
-        $('html,body').animate({
-            scrollTop: 0
-        },);
+        $(window).scrollTop(0)
         $('.overlay').removeClass('hidden')
         setTimeout(() => {
             $('.loadRouter').addClass('animationLoadRouter')

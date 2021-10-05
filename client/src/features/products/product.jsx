@@ -6,11 +6,9 @@ import {TweenMax, gsap} from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 //lazyload
 import Lazyload from 'react-lazyload';
-//Image
-import imgLogin from '../../asset/image/products/booking-movie/qhmovie-logout.png'
 //other
 import {useSelector } from 'react-redux';
-import { Link, useRouteMatch } from 'react-router-dom';
+import { Link, useRouteMatch ,useHistory} from 'react-router-dom';
 import LoadGif from '../loadGif/loadGif';
 import { changeURL } from '../../constants/changeUrl';
 
@@ -21,17 +19,20 @@ function Product(props) {
 
     let productPage = useRef(null)
     let intro_tl = gsap.timeline();
-    const [current, setCurrent] = useState(0);
+    const history = useHistory();
     
+    const [current, setCurrent] = useState(0);
     const [getProduct,setGetProduct] = useState([])
     const [nextProduct,setNextProduct] = useState()
     const [lengthImg,setLengthImg] = useState()
     const productStore = useSelector(state=>state.product)
     const newProduct =[]
+
     const {
         params: { id }
     } = useRouteMatch()
     console.log((nextProduct?nextProduct:[]).img)
+
     useEffect(() => {
         //lọc id product
         productStore.filter((product,index) =>{
@@ -47,6 +48,9 @@ function Product(props) {
                         $('.follower').css("background-image",`url(${(productStore[(product.id<productStore.length?product.id:0)]).img})`)
                     },
                     mouseleave: function() {
+                        $('.follower').css("background-image",`none`)
+                    },
+                    click: function() {
                         $('.follower').css("background-image",`none`)
                     },
                 })
@@ -316,7 +320,7 @@ function Product(props) {
                             frameBorder="0"
                             allow="autoplay; picture-in-picture" 
                             allowFullScreen
-                            src="https://www.youtube.com/embed/hW4z1dYE7No">
+                            src={(getProduct[0]?getProduct[0]:[]).trailer}>
                         </iframe>
                     <div className="productPage-view">
                         <div className="productPage-info">
