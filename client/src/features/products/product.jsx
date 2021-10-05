@@ -31,7 +31,6 @@ function Product(props) {
     const {
         params: { id }
     } = useRouteMatch()
-    console.log((nextProduct?nextProduct:[]).img)
 
     useEffect(() => {
         //lọc id product
