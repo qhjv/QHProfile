@@ -6,7 +6,7 @@ import imgQHMovieSignin2 from '../asset/image/products/booking-movie/qhmovie-sig
 import imgQHMovieRegister from '../asset/image/products/booking-movie/register.png'
 import imgQHMovieList from '../asset/image/products/booking-movie/qhmovie-listmovie.png'
 import imgQHMovieTopPage from '../asset/image/products/booking-movie/qhmovie.png'
-import imgQHMovieChooseTheater from '../asset/image/products/booking-movie/qhmovie-listmovie.png'
+import imgQHMovieChooseTheater from '../asset/image/products/booking-movie/chooseTheater.png'
 import imgQHMovieInfo from '../asset/image/products/booking-movie/infomovie.png'
 import imgQHMovieRoom from '../asset/image/products/booking-movie/bookroom.png'
 import imgQHMovieHistory from '../asset/image/products/booking-movie/historyTicket.png'
@@ -22,15 +22,26 @@ import imgSkillParkFreelancePage from '../asset/image/products/skill-park/freela
 import imgSkillParkJobBoard from '../asset/image/products/skill-park/jobBoard.png'
 import imgSkillParkEntryforminput from '../asset/image/products/skill-park/entryforminput.png'
 
+//Image admin candidates
+
+import imgAdminCandidates from '../asset/image/products/admin-candidates/background.jpg'
+import imgAdminCandidatesAddPeople from '../asset/image/products/admin-candidates/addPeople.png'
+import imgAdminCandidatesChangePeople from '../asset/image/products/admin-candidates/changePeople.png'
+import imgAdminCandidatesDate from '../asset/image/products/admin-candidates/date.png'
+import imgAdminCandidatesSignIn from '../asset/image/products/admin-candidates/signin.png'
+import imgAdminCandidatesDashBoard from '../asset/image/products/admin-candidates/dashboard.png'
+import imgAdminCandidatesPage from '../asset/image/products/admin-candidates/peoplePage.png'
+import imgAdminCandidatesViewPeople from '../asset/image/products/admin-candidates/viewPeople.png'
+
 
 export const products = [
     {   
         id:1,
         name:"skill park",
-        trailer:"http://hfgedigjhfdkjgh.vn/",
+        trailer:"https://www.youtube.com/embed/_8ldAdQd9WU",
         decription:"Skill park was released by Wakasa company on September 1, 2021, it is a website to search for freelance jobs according to your experience, you can add your experience and skills to your profile to find a job. suitable . You can also see the experience of the seniors, the attractive reward system, or you can post a job search, ...",
-        reponsibility:"Front-end Developer",
-        technologies:"Vuejs, php, laravel, blade, scss, jquery, bootstrap",
+        reponsibility:"Front-end Developer Leader",
+        technologies:"Vuejs, php, laravel, blade, mysql, scss, jquery, bootstrap",
         year:"2021",
         teamSize:"4 member",
         img:`${imgSkillPark}`,
@@ -84,9 +95,9 @@ export const products = [
     {   
         id:2,
         name:"QH movie",
-        trailer:"http://hfgedigjhfdkjgh.vn/",
+        trailer:"https://www.youtube.com/embed/_8ldAdQd9WU",
         decription:"QH Movie is a website to book movie tickets according to the list of cinemas, theater addresses and specific times. You can view movie information , seats , prices and payment options on the page . With a beautiful, easy and simple interface, you will have a pleasant experience",
-        reponsibility:"Front-end Developer , Designer",
+        reponsibility:"Developer , UI Designer",
         technologies:"Reactjs, redux, axios, jquery, bootstrap, css ...",
         year:"2020",
         teamSize:"1 member",
@@ -144,6 +155,57 @@ export const products = [
                 id:5,
                 src:`${imgQHMovieHistory}`,
                 name:"booking history"
+            },
+        ],
+    },
+    {   
+        id:3,
+        name:"Admin candidates",
+        trailer:"https://www.youtube.com/embed/_8ldAdQd9WU",
+        decription:"Admin candidates is a website that manages candidates applying for different job positions. This website helps recruiters easily manage candidates, easily search by name, job position, add new, edit and delete candidates, filter candidates by favorite, by date submit applications , ... recruiters can also track the aggregated list of the number of candidates compared to the number of each position being recruited . We will develop more features of messaging with candidates , contacting or adding more details about candidates , cv , salary offer in the future",
+        reponsibility:"Developer",
+        technologies:"Reactjs, redux, firebase, material, jquery, bootstrap, css ...",
+        year:"2020",
+        teamSize:"1 member",
+        img:`${imgAdminCandidates}`,
+        link:"http://hfgedigjhfdkjgh.vn/",
+        imgProduct : [
+            {
+                id:1,
+                src:`${imgAdminCandidatesAddPeople}`,
+                name:"Add"
+            },
+            {
+                id:2,
+                src:`${imgAdminCandidatesChangePeople}`,
+                name:"Update"
+            },
+            {
+                id:3,
+                src:`${imgAdminCandidatesDate}`,
+                name:"Date"
+            },
+        ],
+        imgView: [
+            {
+                id:1,
+                src:`${imgAdminCandidatesSignIn}`,
+                name:"SignIn"
+            },
+            {
+                id:2,
+                src:`${imgAdminCandidatesDashBoard}`,
+                name:"Dash Board"
+            },
+            {
+                id:3,
+                src:`${imgAdminCandidatesPage}`,
+                name:"Candidates"
+            },
+            {
+                id:4,
+                src:`${imgAdminCandidatesViewPeople}`,
+                name:"recruitment statistics"
             },
         ],
     },
