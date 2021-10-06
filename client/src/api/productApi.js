@@ -44,9 +44,9 @@ import imgNhaGoCafePage from '../asset/image/products/nhago-Cafe/page.png'
 //Image QH gara
 
 import imgQHGara from '../asset/image/products/qh-gara/background.jpg'
-// import imgQHGaraLoading from '../asset/image/products/qh-gara/loading.gif'
-// import imgQHGaraDesign from '../asset/image/products/qh-gara/design.png'
-// import imgQHGaraMenu from '../asset/image/products/qh-gara/menu.png'
+import imgQHGaraDesign from '../asset/image/products/qh-gara/design.png'
+import imgQHGaraLoading from '../asset/image/products/qh-gara/loading.png'
+import imgQHGaraPrice from '../asset/image/products/qh-gara/price.png'
 import imgQHGaraPage from '../asset/image/products/qh-gara/page.png'
 
 export const products = [
@@ -230,7 +230,7 @@ export const products = [
         trailer:"https://www.youtube.com/embed/_8ldAdQd9WU",
         decription:"The landing page introduces a cafe with a nice view, quiet, suitable for you to work, relax after a hard day, you can follow the menu of drinks and ready-to-eat food, make reservations according to the number of people, time , ...",
         reponsibility:"Developer, Designer",
-        technologies:"Javascript, gsap, jquery, bootstrap, css ...",
+        technologies:"Nodejs, javascript, gsap, jquery, bootstrap, css ...",
         year:"2020",
         teamSize:"1 member",
         img:`${imgNhaGoCafe}`,
@@ -264,9 +264,9 @@ export const products = [
         id:5,
         name:"QH Gara",
         trailer:"https://www.youtube.com/embed/_8ldAdQd9WU",
-        decription:"The landing page introduces a cafe with a nice view, quiet, suitable for you to work, relax after a hard day, you can follow the menu of drinks and ready-to-eat food, make reservations according to the number of people, time , ...",
+        decription:"This website will help you to know the information about QH Gara, an extremely prestigious and quality garage. You can view the working process , repair price list , reviews , contact . You can also book an appointment for car repair right on the website",
         reponsibility:"Developer , Designer",
-        technologies:"Javascript, gsap, jquery, bootstrap, css ...",
+        technologies:"Tailwind css, nodejs, rectjs, gsap, jquery, scss ...",
         year:"2020",
         teamSize:"1 member",
         img:`${imgQHGara}`,
@@ -274,8 +274,18 @@ export const products = [
         imgProduct : [
             {
                 id:1,
-                src:`${imgQHGaraPage}`,
+                src:`${imgQHGaraDesign}`,
+                name:"Design"
+            },
+            {
+                id:2,
+                src:`${imgQHGaraLoading}`,
                 name:"Loading"
+            },
+            {
+                id:3,
+                src:`${imgQHGaraPrice}`,
+                name:"Price"
             },
         ],
         imgView: [
