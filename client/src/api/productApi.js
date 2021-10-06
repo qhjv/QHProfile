@@ -33,6 +33,21 @@ import imgAdminCandidatesDashBoard from '../asset/image/products/admin-candidate
 import imgAdminCandidatesPage from '../asset/image/products/admin-candidates/peoplePage.png'
 import imgAdminCandidatesViewPeople from '../asset/image/products/admin-candidates/viewPeople.png'
 
+//Image nhago cafe
+
+import imgNhaGoCafe from '../asset/image/products/nhago-Cafe/background.jpg'
+import imgNhaGoCafeLoading from '../asset/image/products/nhago-Cafe/loading.gif'
+import imgNhaGoCafeDesign from '../asset/image/products/nhago-Cafe/design.png'
+import imgNhaGoCafeMenu from '../asset/image/products/nhago-Cafe/menu.png'
+import imgNhaGoCafePage from '../asset/image/products/nhago-Cafe/page.png'
+
+//Image QH gara
+
+import imgQHGara from '../asset/image/products/qh-gara/background.jpg'
+// import imgQHGaraLoading from '../asset/image/products/qh-gara/loading.gif'
+// import imgQHGaraDesign from '../asset/image/products/qh-gara/design.png'
+// import imgQHGaraMenu from '../asset/image/products/qh-gara/menu.png'
+import imgQHGaraPage from '../asset/image/products/qh-gara/page.png'
 
 export const products = [
     {   
@@ -206,6 +221,68 @@ export const products = [
                 id:4,
                 src:`${imgAdminCandidatesViewPeople}`,
                 name:"recruitment statistics"
+            },
+        ],
+    },
+    {   
+        id:4,
+        name:"Nha go coffee",
+        trailer:"https://www.youtube.com/embed/_8ldAdQd9WU",
+        decription:"The landing page introduces a cafe with a nice view, quiet, suitable for you to work, relax after a hard day, you can follow the menu of drinks and ready-to-eat food, make reservations according to the number of people, time , ...",
+        reponsibility:"Developer, Designer",
+        technologies:"Javascript, gsap, jquery, bootstrap, css ...",
+        year:"2020",
+        teamSize:"1 member",
+        img:`${imgNhaGoCafe}`,
+        link:"http://hfgedigjhfdkjgh.vn/",
+        imgProduct : [
+            {
+                id:1,
+                src:`${imgNhaGoCafeLoading}`,
+                name:"Loading"
+            },
+            {
+                id:2,
+                src:`${imgNhaGoCafeDesign}`,
+                name:"Design"
+            },
+            {
+                id:3,
+                src:`${imgNhaGoCafeMenu}`,
+                name:"Menu"
+            },
+        ],
+        imgView: [
+            {
+                id:1,
+                src:`${imgNhaGoCafePage}`,
+                name:"Nha go coffee"
+            },
+        ],
+    },
+    {   
+        id:5,
+        name:"QH Gara",
+        trailer:"https://www.youtube.com/embed/_8ldAdQd9WU",
+        decription:"The landing page introduces a cafe with a nice view, quiet, suitable for you to work, relax after a hard day, you can follow the menu of drinks and ready-to-eat food, make reservations according to the number of people, time , ...",
+        reponsibility:"Developer , Designer",
+        technologies:"Javascript, gsap, jquery, bootstrap, css ...",
+        year:"2020",
+        teamSize:"1 member",
+        img:`${imgQHGara}`,
+        link:"http://hfgedigjhfdkjgh.vn/",
+        imgProduct : [
+            {
+                id:1,
+                src:`${imgQHGaraPage}`,
+                name:"Loading"
+            },
+        ],
+        imgView: [
+            {
+                id:1,
+                src:`${imgQHGaraPage}`,
+                name:"Nha go coffee"
             },
         ],
     },
