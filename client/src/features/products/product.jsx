@@ -296,9 +296,11 @@ function Product(props) {
     }, [id])
    
     useEffect(() => {
-        const timer =
-          setInterval(() => setCurrent(current === (lengthImg?lengthImg:0) - 1 ? 0 : current + 1), 7000);
-        return () => clearInterval(timer);
+        if(lengthImg>1){
+            const timer =
+              setInterval(() => setCurrent(current === (lengthImg?lengthImg:0) - 1 ? 0 : current + 1), 7000);
+            return () => clearInterval(timer);
+        }
     }, [current]);
     
     return (

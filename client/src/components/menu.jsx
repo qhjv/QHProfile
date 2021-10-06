@@ -10,22 +10,6 @@ import { changeURL } from '../constants/changeUrl';
 import Lazyload from 'react-lazyload';
 import LoadGif from '../features/loadGif/loadGif';
 
-Menu.propTypes = {
-    
-};
-const images = [
-    {
-        id:1,
-        src:"https://images.unsplash.com/photo-1594312180721-3b5217cfc65f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
-        name:"Skill Park"
-    },
-    {
-        id:2,
-        src:"https://images.unsplash.com/photo-1594312180721-3b5217cfc65f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
-        name:"QH movie"
-    },
-];
-
 function Menu(props) {
     const productStore = useSelector(state=>state.product)
     const [getProduct,setGetProduct] = useState([])
@@ -54,7 +38,7 @@ function Menu(props) {
         $('.spanFast').removeClass('no-trans');
         $('.spanSlow').removeClass('no-trans');
     }
-    
+    console.log(getProduct)
     return (
         <div className="menu">
             <div className="menu__close d-flex justify-content-center align-items-center hover-cursor hover-text"
@@ -71,9 +55,9 @@ function Menu(props) {
                             onClick={handleClickLinkMenu}
                         >
                             <div className={(index===0 ? "menuProduct menuProduct-first" : "menuProduct")}>
-                                <Lazyload className="menuProduct__img hover-product" placeholder={<LoadGif/>} height="100%" weight="100%">
+                                <div className="menuProduct__img hover-product">
                                     <img src={product.img?product.img:loadImg} alt={product.name}/>
-                                </Lazyload>
+                                </div>
                                 <div className="menuProduct__name">
                                     <h2 className="hover-text hover-cursor">{product.name}</h2>
                                 </div>
