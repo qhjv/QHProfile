@@ -44,10 +44,35 @@ import imgNhaGoCafePage from '../asset/image/products/nhago-Cafe/page.png'
 //Image QH gara
 
 import imgQHGara from '../asset/image/products/qh-gara/background.jpg'
-// import imgQHGaraLoading from '../asset/image/products/qh-gara/loading.gif'
-// import imgQHGaraDesign from '../asset/image/products/qh-gara/design.png'
-// import imgQHGaraMenu from '../asset/image/products/qh-gara/menu.png'
+import imgQHGaraDesign from '../asset/image/products/qh-gara/design.png'
+import imgQHGaraLoading from '../asset/image/products/qh-gara/loading.png'
+import imgQHGaraPrice from '../asset/image/products/qh-gara/price.png'
 import imgQHGaraPage from '../asset/image/products/qh-gara/page.png'
+
+//Image Employee Management
+
+import imgEmployee from '../asset/image/products/employee-management/background.jpg'
+import imgEmployeesigninEmploye from '../asset/image/products/employee-management/signinEmploye.png'
+import imgEmployeesigninManage from '../asset/image/products/employee-management/signinManage.png'
+import imgEmployeeHome from '../asset/image/products/employee-management/home.png'
+import imgEmployeeviewEmployee from '../asset/image/products/employee-management/viewEmployee.png'
+import imgEmployeetopEmployee from '../asset/image/products/employee-management/topEmployee.png'
+import imgEmployeeaddEmployee from '../asset/image/products/employee-management/addEmployee.png'
+import imgEmployeeaddProduct from '../asset/image/products/employee-management/addProduct.png'
+import imgEmployeeviewProduct from '../asset/image/products/employee-management/viewProduct.png'
+import imgEmployeeWage from '../asset/image/products/employee-management/wage.png'
+import imgEmployeeLeave from '../asset/image/products/employee-management/leave.png'
+import imgEmployeeviewProfile from '../asset/image/products/employee-management/viewProfile.png'
+import imgEmployeeEmployeePage from '../asset/image/products/employee-management/employeePage.png'
+import imgEmployeeempViewProduct from '../asset/image/products/employee-management/empViewProduct.png'
+import imgEmployeeempAddLeave from '../asset/image/products/employee-management/empAddLeave.png'
+
+//Image profile
+
+import imgProfile from '../asset/image/products/profile-first/background.jpg'
+import imgProfileDesign from '../asset/image/products/profile-first/design.png'
+import imgProfileExperience from '../asset/image/products/profile-first/experience.png'
+import imgProfilePage from '../asset/image/products/profile-first/page.png'
 
 export const products = [
     {   
@@ -230,7 +255,7 @@ export const products = [
         trailer:"https://www.youtube.com/embed/_8ldAdQd9WU",
         decription:"The landing page introduces a cafe with a nice view, quiet, suitable for you to work, relax after a hard day, you can follow the menu of drinks and ready-to-eat food, make reservations according to the number of people, time , ...",
         reponsibility:"Developer, Designer",
-        technologies:"Javascript, gsap, jquery, bootstrap, css ...",
+        technologies:"Nodejs, javascript, gsap, jquery, bootstrap, css ...",
         year:"2020",
         teamSize:"1 member",
         img:`${imgNhaGoCafe}`,
@@ -264,9 +289,9 @@ export const products = [
         id:5,
         name:"QH Gara",
         trailer:"https://www.youtube.com/embed/_8ldAdQd9WU",
-        decription:"The landing page introduces a cafe with a nice view, quiet, suitable for you to work, relax after a hard day, you can follow the menu of drinks and ready-to-eat food, make reservations according to the number of people, time , ...",
+        decription:"This website will help you to know the information about QH Gara, an extremely prestigious and quality garage. You can view the working process , repair price list , reviews , contact . You can also book an appointment for car repair right on the website",
         reponsibility:"Developer , Designer",
-        technologies:"Javascript, gsap, jquery, bootstrap, css ...",
+        technologies:"Tailwind css, nodejs, mongoDB, rectjs, gsap, jquery, scss ...",
         year:"2020",
         teamSize:"1 member",
         img:`${imgQHGara}`,
@@ -274,15 +299,142 @@ export const products = [
         imgProduct : [
             {
                 id:1,
-                src:`${imgQHGaraPage}`,
+                src:`${imgQHGaraDesign}`,
+                name:"Design"
+            },
+            {
+                id:2,
+                src:`${imgQHGaraLoading}`,
                 name:"Loading"
+            },
+            {
+                id:3,
+                src:`${imgQHGaraPrice}`,
+                name:"Price"
             },
         ],
         imgView: [
             {
                 id:1,
                 src:`${imgQHGaraPage}`,
-                name:"Nha go coffee"
+                name:"QHGara Page"
+            },
+        ],
+    },
+    {   
+        id:6,
+        name:"Employee Management",
+        trailer:"https://www.youtube.com/embed/_8ldAdQd9WU",
+        decription:"Website for employees and managers. Managers can add, edit and delete employees, create projects for employees and track projects, track salaries and increase salaries for employees, accept leave applications. Employees can view profile , track their rankings , projects , and leave applications",
+        reponsibility:"Developer , Designer",
+        technologies:"PHP, mysql, lavarel, javascript, css ...",
+        year:"2020",
+        teamSize:"1 member",
+        img:`${imgEmployee}`,
+        link:"http://hfgedigjhfdkjgh.vn/",
+        imgProduct : [
+            {
+                id:1,
+                src:`${imgEmployeeHome}`,
+                name:"Home"
+            },
+            {
+                id:2,
+                src:`${imgEmployeesigninEmploye}`,
+                name:"Signin"
+            },
+            {
+                id:3,
+                src:`${imgEmployeesigninManage}`,
+                name:"Signin"
+            },
+        ],
+        imgView: [
+            {
+                id:1,
+                src:`${imgEmployeetopEmployee}`,
+                name:"Management Home"
+            },
+            {
+                id:2,
+                src:`${imgEmployeeaddEmployee}`,
+                name:"Add Employee"
+            },
+            {
+                id:3,
+                src:`${imgEmployeeviewEmployee}`,
+                name:"View Employee"
+            },
+            {
+                id:4,
+                src:`${imgEmployeeaddProduct}`,
+                name:"add product"
+            },
+            {
+                id:5,
+                src:`${imgEmployeeviewProduct}`,
+                name:"Follow product"
+            },
+            {
+                id:6,
+                src:`${imgEmployeeWage}`,
+                name:"wage employee"
+            },
+            {
+                id:7,
+                src:`${imgEmployeeLeave}`,
+                name:"leave applications"
+            },
+            {
+                id:8,
+                src:`${imgEmployeeEmployeePage}`,
+                name:"Employee Home"
+            },
+            {
+                id:9,
+                src:`${imgEmployeeviewProfile}`,
+                name:"profile"
+            },
+            {
+                id:10,
+                src:`${imgEmployeeempViewProduct}`,
+                name:"View product"
+            },
+            {
+                id:11,
+                src:`${imgEmployeeempAddLeave}`,
+                name:"add and follow leave applications"
+            },
+        ],
+    },
+    {   
+        id:7,
+        name:"My profile",
+        trailer:"https://www.youtube.com/embed/_8ldAdQd9WU",
+        decription:"This is my first website , it introduces me , information , education and experience so that i can apply for an internship . Pretty simple isn't it, that's my first step towards becoming a web developer",
+        reponsibility:"Developer , Designer",
+        technologies:"Javascript, css ",
+        year:"2020",
+        teamSize:"1 member",
+        img:`${imgProfile}`,
+        link:"http://hfgedigjhfdkjgh.vn/",
+        imgProduct : [
+            {
+                id:1,
+                src:`${imgProfileDesign}`,
+                name:"Design"
+            },
+            {
+                id:2,
+                src:`${imgProfileExperience}`,
+                name:"experience"
+            },
+        ],
+        imgView: [
+            {
+                id:1,
+                src:`${imgProfilePage}`,
+                name:"My profile"
             },
         ],
     },
