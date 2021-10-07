@@ -777,7 +777,7 @@ h1, h2, h3 {
 
 /*==================== HOME ====================*/
 .home {
-  padding: 15vw 0 17vw 0;
+  padding: 35vh 0 35vh 0;
   width: 100vw;
   transition: 0.5s;
   opacity: 0; }
@@ -1177,7 +1177,7 @@ h1, h2, h3 {
         z-index: -1; }
       .productPage .container .productPage-imgs .productPage-imgs_img {
         position: relative;
-        margin-top: 3vw; }
+        margin-top: 5vw; }
         .productPage .container .productPage-imgs .productPage-imgs_img:first-child {
           margin-top: 10vw; }
         .productPage .container .productPage-imgs .productPage-imgs_img .productPage-imgs__name {

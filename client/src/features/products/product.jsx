@@ -44,7 +44,10 @@ function Product(props) {
             setTimeout(() => {
                 $('.hover-img').on({
                     mouseenter: function() {
-                        $('.follower').css("background-image",`url(${(productStore[(product.id<productStore.length?product.id:0)]).img})`)
+                        $('.follower').css(
+                            "background-image",
+                            `url(${(productStore[(product.id<productStore.length?product.id:0)]).img})`
+                        )
                     },
                     mouseleave: function() {
                         $('.follower').css("background-image",`none`)
@@ -312,15 +315,17 @@ function Product(props) {
                             <div className="scroll-down-bar"></div>
                         </div>
                     </div>
+                    <Lazyload placeholder={<LoadGif/>} width={100} className="productPage-video__iframe">
                         <iframe 
-                            className="productPage-video__iframe"
                             width="100%"
+                            height="100%"
                             title="YouTube video player" 
                             frameBorder="0"
                             allow="autoplay; picture-in-picture" 
                             allowFullScreen
                             src={(getProduct[0]?getProduct[0]:[]).trailer}>
                         </iframe>
+                    </Lazyload>
                     <div className="productPage-view">
                         <div className="productPage-info">
                             <div className="productPage-decription hover-cursor">
@@ -365,7 +370,7 @@ function Product(props) {
                         </div>
                         <div className="productPage-trailer hover-cursor">
                             {(product.imgProduct?product.imgProduct:[]).map((img,index)=>(
-                                <div 
+                                <Lazyload 
                                     className={
                                         index === current ? 
                                         'productPage-trailer__text text-uppercase active' 
@@ -374,7 +379,7 @@ function Product(props) {
                                     key={index}
                                 >
                                     {img.name}<span>{img.name}</span>
-                                </div>
+                                </Lazyload>
                             ))}
                             <div className="productPage-img">
                                 {(product.imgProduct?product.imgProduct:[]).map((img,index)=>(
