@@ -1111,14 +1111,16 @@ h1, h2, h3 {
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis; }
-                .productPage .container .productPage-view .productPage-info .productPage-more .productPage-details .productPage-detail__content a svg {
-                  width: 1.328vw;
-                  margin-left: 0.78vw;
-                  transition: 0.5s; }
-                .productPage .container .productPage-view .productPage-info .productPage-more .productPage-details .productPage-detail__content a:hover {
-                  text-decoration: underline !important; }
-                  .productPage .container .productPage-view .productPage-info .productPage-more .productPage-details .productPage-detail__content a:hover svg {
-                    margin-left: 1.5625vw; }
+                .productPage .container .productPage-view .productPage-info .productPage-more .productPage-details .productPage-detail__content a {
+                  color: #eaeaea !important; }
+                  .productPage .container .productPage-view .productPage-info .productPage-more .productPage-details .productPage-detail__content a svg {
+                    width: 1.328vw;
+                    margin-left: 0.78vw;
+                    transition: 0.5s; }
+                  .productPage .container .productPage-view .productPage-info .productPage-more .productPage-details .productPage-detail__content a:hover {
+                    text-decoration: underline !important; }
+                    .productPage .container .productPage-view .productPage-info .productPage-more .productPage-details .productPage-detail__content a:hover svg {
+                      margin-left: 1.5625vw; }
       .productPage .container .productPage-view .productPage-trailer + .productPage-trailer {
         margin-top: 7.8125vw; }
       .productPage .container .productPage-view .productPage-trailer {
