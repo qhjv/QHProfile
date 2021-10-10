@@ -12,7 +12,6 @@ AboutMe.propTypes = {
 function AboutMe(props) {
 
     let about = useRef(null)
-    console.log("hihi")
     
     useEffect(() => {
         const boxes = document.querySelectorAll('.about-div');
