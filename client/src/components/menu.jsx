@@ -38,7 +38,6 @@ function Menu(props) {
         $('.spanFast').removeClass('no-trans');
         $('.spanSlow').removeClass('no-trans');
     }
-    console.log(getProduct)
     return (
         <div className="menu">
             <div className="menu__close d-flex justify-content-center align-items-center hover-cursor hover-text"
