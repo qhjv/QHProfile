@@ -1,0 +1,71 @@
+
+
+/*-------------------------- 
+      Global Styles
+---------------------------*/
+body {
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px!important;
+    color: $color-body;
+    overflow-x: hidden;
+    width: 100%;
+    height: 100%;
+    // pointer-events: none;
+}
+.fullPage{
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+    height: 100%;
+}
+/*-------------------------
+     RESET Default Styles
+ --------------------------*/
+* {
+    outline: none;
+}
+
+button {
+    border: none;
+    padding: 0;
+}
+
+button,
+button:focus,
+.form-control,
+.form-control:focus {
+    outline: none;
+}
+
+textarea {
+    resize: none
+}
+
+select {
+    background-color: transparent;
+}
+a{
+    color:$color-white!important;
+    text-decoration: none!important;
+}
+a:hover{
+    text-decoration: none!important;
+    cursor: inherit;
+}
+
+@media (min-width: 1400px){
+    
+}
+//table and mobile
+@media (max-width: 1200px){
+    
+}
+//tablet
+@media (min-width: 768px) and (max-width: 1200px) {
+    
+}
+//mobile
+@media (max-width: 768px){
+    
+}

@@ -1,0 +1,53 @@
+.product{
+    &__name{
+        font-weight: 700;
+        font-size: 17px;
+        margin-bottom:5px
+    }
+    &__img{
+        width:100%;
+        z-index: 0;
+    }
+    &__more{
+        position:relative;
+        cursor:pointer;
+        color: #999;
+        z-index:2;
+        &:hover{
+            color: #000;
+            .updateDelete{
+                display:block
+            }
+        }
+        .updateDelete{
+            position:absolute;
+            top:22px;
+            right:0;
+            background:#fff;
+            border-radius: 5px;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            display:none;
+            &::before{
+                position:absolute;
+                content:"";
+                width:100%;
+                height:20px;
+                top:-17px
+            }
+        }
+    }
+    .button-logout{
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        left: 50%;
+        width: 80%;
+        transform: translateX(-50%);
+    }
+}
+.css-twia2z-MuiPaper-root-MuiDialog-paper{
+    max-width:100%!important
+}
+.dialog-child{
+    padding:20px
+}

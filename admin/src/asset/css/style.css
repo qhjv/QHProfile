@@ -1,0 +1,134 @@
+/*-------------------------- 
+      Global Styles
+---------------------------*/
+body {
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px !important;
+  color: #ffffff;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%; }
+
+.fullPage {
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  height: 100%; }
+
+/*-------------------------
+     RESET Default Styles
+ --------------------------*/
+* {
+  outline: none; }
+
+button {
+  border: none;
+  padding: 0; }
+
+button,
+button:focus,
+.form-control,
+.form-control:focus {
+  outline: none; }
+
+textarea {
+  resize: none; }
+
+select {
+  background-color: transparent; }
+
+a {
+  color: var(--color-white) !important;
+  text-decoration: none !important; }
+
+a:hover {
+  text-decoration: none !important;
+  cursor: inherit; }
+
+/*----------------------------
+      Helper Classes
+----------------------------*/
+/*-------------------------
+   Background & Colors
+--------------------------*/
+/* Colors */
+/*--------------------
+   Buttons
+---------------------*/
+.btn {
+  text-transform: capitalize;
+  position: relative;
+  z-index: 1; }
+  .btn:focus, .btn.active, .btn:active {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: none; }
+
+/* Font Size */
+.font--80 {
+  font-size: 8rem; }
+
+.font--20 {
+  font-size: 20px; }
+
+/* Font Weight */
+/*--------------------
+pageLogin
+----------------------*/
+.MuiSvgIcon-root {
+  width: 20px !important; }
+
+.css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+  top: -2px !important; }
+
+label {
+  background-color: #fff; }
+
+.product__name {
+  font-weight: 700;
+  font-size: 17px;
+  margin-bottom: 5px; }
+
+.product__img {
+  width: 100%;
+  z-index: 0; }
+
+.product__more {
+  position: relative;
+  cursor: pointer;
+  color: #999;
+  z-index: 2; }
+  .product__more:hover {
+    color: #000; }
+    .product__more:hover .updateDelete {
+      display: block; }
+  .product__more .updateDelete {
+    position: absolute;
+    top: 22px;
+    right: 0;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    display: none; }
+    .product__more .updateDelete::before {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 20px;
+      top: -17px; }
+
+.product .button-logout {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  left: 50%;
+  width: 80%;
+  transform: translateX(-50%); }
+
+.css-twia2z-MuiPaper-root-MuiDialog-paper {
+  max-width: 100% !important; }
+
+.dialog-child {
+  padding: 20px; }
