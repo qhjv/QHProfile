@@ -3,7 +3,9 @@ import { getProduct,createProduct,updateProduct } from '../controllers/product.j
 const router = express.Router();
 
 router.get('/', getProduct );
-router.get('/', createProduct );
-router.get('/update', updateProduct );
+
+router.post('/', createProduct );
+
+router.post('/update', updateProduct );
 
 export default router;

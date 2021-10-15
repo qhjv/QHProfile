@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import MuiDrawer from '@mui/material/Drawer';
@@ -21,6 +21,7 @@ import { mainListItems, secondaryListItems } from './components/listItems';
 import MenuItem from '@mui/material/MenuItem';
 import MenuDialog from './components/dialog';
 import Button from '@mui/material/Button';
+import productApi from '../../api/productApi';
 const drawerWidth = 240;
 
 const AppBar = styled(MuiAppBar, {
@@ -73,6 +74,7 @@ function DashboardContent(props) {
     const [open, setOpen] = useState(true);
     const [openDialog, setOpenDialog] = useState(false);
     const [formMode, setFormMode] = useState(true);
+    const [product, setProduct] = useState([])
 
     const toggleDrawer = () => {
         setOpen(!open);
@@ -88,10 +90,24 @@ function DashboardContent(props) {
         setFormMode(false)
         setOpenDialog(true)
     }
-    const handleLogout = () => {
-        localStorage.removeItem('adminUser');
-        props.setUserState();
-    }
+
+    useEffect(() => {
+        (async () => {
+            
+            try {
+                // setLoading(true)
+                const productList = await productApi.getAllProduct();
+                setProduct(productList)
+                // const action = getMovie(moviesList)
+                // dispatch(action)
+                // setLoading(false)
+                console.log(productList)
+            } catch (error) {
+                console.log("failed:",error)
+            }
+        })();
+    }, [])
+
     return (
         <ThemeProvider theme={mdTheme}>
         <Box sx={{ display: 'flex' }} className="product">
@@ -147,7 +163,7 @@ function DashboardContent(props) {
                 <List>{mainListItems}</List>
                 <Divider />
                 <List>{secondaryListItems}</List>
-                <Button variant="contained" className="button-logout" onClick={handleLogout}>Logout</Button>
+                <Button variant="contained" className="button-logout" onClick={props.handleLogout}>Logout</Button>
             </Drawer>
             <Box
                 component="main"
@@ -179,7 +195,7 @@ function DashboardContent(props) {
                                     bgcolor: 'background.paper',
                                     m: 1,
                                     p: 1,
-                                    height: '10rem',
+                                    height: '220px',
                                     overflow:'hidden',
                                     position:'relative'
                                 }}
@@ -228,5 +244,9 @@ function DashboardContent(props) {
 }
 
 export default function Dashboard(props) {
-  return <DashboardContent/>;
+    const logout = () => {
+        localStorage.removeItem('adminUser');
+        props.setUserState();
+    }
+    return <DashboardContent handleLogout={logout}/>;
 }

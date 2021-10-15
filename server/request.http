@@ -1,7 +1,13 @@
-POST http://localhost:5000/api/admin
+POST http://localhost:5000/api/product
 Content-Type: application/json
 
 {
-    "username":"",
-    "password":"123"
+    "name":"skillpark",
+    "trailer":"youtubecom",
+    "decription":"youtubecom",
+    "reponsibility":"youtubecom",
+    "technologies":"youtubecom",
+    "year":"123",
+    "teamSize":"1",
+    "link":"youtubecom"
 }
