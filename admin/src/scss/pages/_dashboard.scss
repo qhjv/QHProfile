@@ -9,6 +9,11 @@
         height:85%;
         z-index: 0;
     }
+    .paperProduct{
+        flex-wrap:wrap;
+        &__grid{
+        }
+    }
     &__more{
         position:relative;
         cursor:pointer;

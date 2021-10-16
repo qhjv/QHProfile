@@ -31,6 +31,7 @@ const schema = new mongoose.Schema({
     link: {
         type: String,
     },
+    img:String,
 },{ timestamps: true })
 
 export const ProductModel = mongoose.model('Product', schema);

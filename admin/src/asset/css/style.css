@@ -96,6 +96,9 @@ label {
   height: 85%;
   z-index: 0; }
 
+.product .paperProduct {
+  flex-wrap: wrap; }
+
 .product__more {
   position: relative;
   cursor: pointer;

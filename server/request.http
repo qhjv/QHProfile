@@ -1,13 +1,2 @@
-POST http://localhost:5000/api/product
-Content-Type: application/json
+DELETE  http://localhost:5000/api/product/61695c3ddfbc15aa52d24e9d
 
-{
-    "name":"skillpark",
-    "trailer":"youtubecom",
-    "decription":"youtubecom",
-    "reponsibility":"youtubecom",
-    "technologies":"youtubecom",
-    "year":"123",
-    "teamSize":"1",
-    "link":"youtubecom"
-}
