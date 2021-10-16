@@ -78,6 +78,18 @@ function DashboardContent(props) {
     const [openDialog, setOpenDialog] = useState(false);
     const [formMode, setFormMode] = useState(true);
     const [product, setProduct] = useState([])
+    const [thisProduct,setThisProduct] = React.useState({
+        name:"",
+        trailer:"",
+        decription:"",
+        reponsibility:"",
+        technologies:"",
+        year:"",
+        teamSize:"",
+        link:"",
+        img:"",
+        _id:""
+    })
 
     const getProduct = async()=>{
         (async () => {
@@ -98,13 +110,26 @@ function DashboardContent(props) {
         setOpen(!open);
     };
     const handleAdd=()=>{
+        setThisProduct()
         setOpenDialog(true)
         setFormMode(true)
     }
     const handleClose = () => {
         setOpenDialog(false);
     }
-    const handleEdit = ()=>{
+    const handleEdit = (pro)=>{
+        setThisProduct({ 
+            name:pro.name,
+            trailer:pro.trailer,
+            decription:pro.decription,
+            reponsibility:pro.reponsibility,
+            technologies:pro.technologies,
+            year:pro.year,
+            teamSize:pro.teamSize,
+            link:pro.link,
+            img:pro.img,
+            _id:pro._id
+        })
         setFormMode(false)
         setOpenDialog(true)
     }
@@ -126,6 +151,40 @@ function DashboardContent(props) {
         }
     }
     
+    const callbackFunction = async (childData) => {
+        try {
+            if(formMode){
+                await productApi.createProduct(childData);
+                getProduct()
+                setOpenDialog(false);
+                toast.success("successfully add", {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+            }else{
+                await productApi.updateProduct(childData);
+                getProduct()
+                setOpenDialog(false);
+                toast.success("successfully add", {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+            }
+        } catch (error) {
+            console.log("failed:",error)
+        }
+    }
+
     useEffect(() => {
         getProduct()
     }, [])
@@ -229,7 +288,7 @@ function DashboardContent(props) {
                                         <div className="product__more">
                                             <i className="fas fa-ellipsis-v"/>
                                             <div className="updateDelete">
-                                                <MenuItem onClick={()=>handleEdit()}>Edit</MenuItem>
+                                                <MenuItem onClick={()=>handleEdit(pro)}>Edit</MenuItem>
                                                 <MenuItem onClick={()=>handleDelete(pro._id)} >Delete</MenuItem>
                                             </div>
                                         </div>
@@ -247,21 +306,8 @@ function DashboardContent(props) {
                 open={openDialog}
                 close={handleClose}
                 formmode={formMode}
-                //   fullname={fullname}
-                //   position={position}
-                //   avatar={avatar}
-                //   favorite={favorite}
-                //   calendar={calendar}
-                //   time={time}
-                //   changeFullname={handleFullName}
-                //   changePosition={handlePosition}
-                //   changeFavorite={handleFavorite}
-                //   changeTime={handleTime}
-                //   changeAvatar={handleAvatar}
-                //   changeCalendar={handleCalendar}
-                //   chooseAvatar={handleChooseAvatar}
-                //   addCandidate={addCandidateHandle}
-                //   updateImage={handleUploadImage}
+                newProduct={callbackFunction}
+                productThis={thisProduct}
             />
         </Box>
         </ThemeProvider>

@@ -5,7 +5,7 @@ export const getProduct = async (req, res)=>{
         const product = await ProductModel.find();
         res.status(200).json(product);
     } catch (error) {
-        res.status(500).json({error:error});
+        res.status(500).json({ success: false, message: 'Internal server error' });
     }
 };
 
@@ -18,21 +18,22 @@ export const createProduct = async (req, res)=>{
 
         res.status(200).json(product);
     } catch (error) {
-        res.status(500).json({error:error});
+        res.status(500).json({ success: false, message: 'Internal server error' });
     }
 };
 
 export const updateProduct = async (req, res)=>{
     try {
         const updateProduct = req.body;
+		const product = await ProductModel.findOneAndUpdate(
+            { _id: updateProduct._id },
+            updateProduct,
+            { new: true }
+        );
 
-        const product = await ProductModel.findOneandUpdate({
-            _id : updateProduct._id
-        },updateProduct,{new:true});
-        
         res.status(200).json(product);
     } catch (error) {
-        res.status(500).json({error:error});
+        res.status(500).json({ success: false, message: 'Internal server error' });
     }
 };
 
@@ -49,6 +50,6 @@ export const deleteProduct = async (req, res)=>{
 
 		res.json({ success: true, post: deletedProduct })
     } catch (error) {
-        res.status(500).json({error:error});
+        res.status(500).json({ success: false, message: 'Internal server error' });
     }
 };

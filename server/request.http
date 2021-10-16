@@ -1,2 +1,15 @@
-DELETE  http://localhost:5000/api/product/61695c3ddfbc15aa52d24e9d
+POST http://localhost:5000/api/product/update
+Content-Type: application/json
 
+{
+    "_id":"616ac846ad115297b8c654eb",
+    "decription": "df wsdd ",
+    "img": "data:image/jpeg;base64,/9j/4gIcSUNDX1BST0ZJTEUAAQ",
+    "link": "fffff",
+    "name": "adas hihi",
+    "reponsibility": "fff",
+    "teamSize": "fff",
+    "technologies": "fff",
+    "trailer": "sdfcsdfc",
+    "year": "fff"
+}
