@@ -16,7 +16,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios'
-
+import {apiUrl} from '../../constant/index'
 Signin.propTypes = {
 
 };
@@ -29,7 +29,7 @@ function Signin(props) {
         
         try {
             setLoading(true)
-			const response = await axios.post("http://localhost:5000/api/admin",{
+			const response = await axios.post(`${apiUrl}/admin`,{
                 username: data.get('email'),
                 password: data.get('password'),
             })
@@ -38,11 +38,9 @@ function Signin(props) {
 				// 	type: 'SET_AUTH',
 				// 	payload: { isAuthenticated: true, user: response.data.user }
 				// })
-                console.log(data)
-                console.log(response.data.isActive)
                 localStorage.setItem(
 					'adminUser',
-					response.data.isActive
+					JSON.stringify(response.data.isActive)
 				)
                 const storage = localStorage.getItem('adminUser');
                 const loggedInUser = storage !== null ? JSON.parse(storage) : null;

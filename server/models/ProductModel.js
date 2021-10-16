@@ -7,7 +7,6 @@ const schema = new mongoose.Schema({
     },
     trailer: {
         type: String,
-        required: true,
     },
     decription: {
         type: String,
@@ -22,8 +21,8 @@ const schema = new mongoose.Schema({
         required: true,
     },
     year: {
-        type: Number,
-        // default: 0,
+        type: String,
+        required: true,
     },
     teamSize: {
         type: String,
@@ -31,8 +30,8 @@ const schema = new mongoose.Schema({
     },
     link: {
         type: String,
-        required: true,
     },
+    img:String,
 },{ timestamps: true })
 
 export const ProductModel = mongoose.model('Product', schema);

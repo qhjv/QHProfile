@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import MuiDrawer from '@mui/material/Drawer';
@@ -21,6 +21,10 @@ import { mainListItems, secondaryListItems } from './components/listItems';
 import MenuItem from '@mui/material/MenuItem';
 import MenuDialog from './components/dialog';
 import Button from '@mui/material/Button';
+import productApi from '../../api/productApi';
+import imgNotFound from "../../asset/image/image-not-found.jpg"
+import { ToastContainer, toast } from 'react-toastify';
+
 const drawerWidth = 240;
 
 const AppBar = styled(MuiAppBar, {
@@ -73,7 +77,23 @@ function DashboardContent(props) {
     const [open, setOpen] = useState(true);
     const [openDialog, setOpenDialog] = useState(false);
     const [formMode, setFormMode] = useState(true);
+    const [product, setProduct] = useState([])
 
+    const getProduct = async()=>{
+        (async () => {
+            try {
+                // setLoading(true)
+                const productList = await productApi.getAllProduct();
+                setProduct(productList)
+                // const action = getMovie(moviesList)
+                // dispatch(action)
+                // setLoading(false)
+                console.log(productList)
+            } catch (error) {
+                console.log("failed:",error)
+            }
+        })();
+    }
     const toggleDrawer = () => {
         setOpen(!open);
     };
@@ -88,13 +108,32 @@ function DashboardContent(props) {
         setFormMode(false)
         setOpenDialog(true)
     }
-    const handleLogout = () => {
-        localStorage.removeItem('adminUser');
-        props.setUserState();
+    const handleDelete = async (id) =>{
+        try {
+            await productApi.deleteProduct(id);
+            getProduct()
+            toast.success("successfully deleted", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        } catch (error) {
+            console.log("failed:",error)
+        }
     }
+    
+    useEffect(() => {
+        getProduct()
+    }, [])
+
     return (
         <ThemeProvider theme={mdTheme}>
         <Box sx={{ display: 'flex' }} className="product">
+            <ToastContainer />
             <CssBaseline />
             <AppBar position="absolute" open={open}>
             <Toolbar
@@ -147,7 +186,7 @@ function DashboardContent(props) {
                 <List>{mainListItems}</List>
                 <Divider />
                 <List>{secondaryListItems}</List>
-                <Button variant="contained" className="button-logout" onClick={handleLogout}>Logout</Button>
+                <Button variant="contained" className="button-logout" onClick={props.handleLogout}>Logout</Button>
             </Drawer>
             <Box
                 component="main"
@@ -169,34 +208,36 @@ function DashboardContent(props) {
                         sx={{
                             p: 2,
                             display: 'flex',
-                            height: "100vh",
                         }}
+                        className="paperProduct"
                     >
-                        <Grid item xs={3}>
-                            <Box
-                                sx={{
-                                    boxShadow: 3,
-                                    bgcolor: 'background.paper',
-                                    m: 1,
-                                    p: 1,
-                                    height: '10rem',
-                                    overflow:'hidden',
-                                    position:'relative'
-                                }}
-                            >
-                                <div className="d-flex align-items-center justify-content-between">
-                                    <p className="product__name">Skill park</p>
-                                    <div className="product__more">
-                                        <i className="fas fa-ellipsis-v"/>
-                                        <div className="updateDelete">
-                                            <MenuItem onClick={()=>handleEdit()}>Edit</MenuItem>
-                                            <MenuItem>Delete</MenuItem>
+                        {(product ? product : []).map((pro,index)=>(
+                            <Grid item xs={3} key={index} className="paperProduct__grid">
+                                <Box
+                                    sx={{
+                                        boxShadow: 3,
+                                        bgcolor: 'background.paper',
+                                        m: 1,
+                                        p: 1,
+                                        height: '220px',
+                                        overflow:'hidden',
+                                        position:'relative'
+                                    }}
+                                >
+                                    <div className="d-flex align-items-center justify-content-between">
+                                        <p className="product__name">{pro.name}</p>
+                                        <div className="product__more">
+                                            <i className="fas fa-ellipsis-v"/>
+                                            <div className="updateDelete">
+                                                <MenuItem onClick={()=>handleEdit()}>Edit</MenuItem>
+                                                <MenuItem onClick={()=>handleDelete(pro._id)} >Delete</MenuItem>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <img className="product__img" src="http://nhagodep.com/upload/21/6/10/nha-go-dep-2.jpg" alt=""></img>
-                            </Box>
-                        </Grid> 
+                                    <img className="product__img" src={(pro.img?pro.img:imgNotFound)} alt={pro.name}></img>
+                                </Box>
+                            </Grid> 
+                        ))}
                     </Paper>
                 </Grid>
                 </Grid>
@@ -228,5 +269,9 @@ function DashboardContent(props) {
 }
 
 export default function Dashboard(props) {
-  return <DashboardContent/>;
+    const logout = () => {
+        localStorage.removeItem('adminUser');
+        props.setUserState();
+    }
+    return <DashboardContent handleLogout={logout}/>;
 }

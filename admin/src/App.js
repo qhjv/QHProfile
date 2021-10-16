@@ -10,7 +10,8 @@ function App() {
   const [user, setUser] = useState('');
     const userState=()=>{
         const data= localStorage.getItem('adminUser');
-        setUser(data)
+        const us = data !== null ? JSON.parse(data):null
+        setUser(us)
       }
     useEffect(() => {
         userState()

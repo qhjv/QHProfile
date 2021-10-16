@@ -1,7 +1,2 @@
-POST http://localhost:5000/api/admin
-Content-Type: application/json
+DELETE  http://localhost:5000/api/product/61695c3ddfbc15aa52d24e9d
 
-{
-    "username":"",
-    "password":"123"
-}
