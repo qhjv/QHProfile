@@ -134,5 +134,29 @@ label {
 .css-twia2z-MuiPaper-root-MuiDialog-paper {
   max-width: 100% !important; }
 
+label {
+  font-size: 20px;
+  font-weight: 500; }
+
 .dialog-child {
-  padding: 20px; }
+  padding: 20px;
+  flex-direction: column !important; }
+  .dialog-child .nameImgDemo {
+    width: 200px !important; }
+  .dialog-child .btn-box {
+    display: flex; }
+    .dialog-child .btn-box button {
+      width: 50px;
+      height: 30px;
+      background: none;
+      font-size: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+    .dialog-child .btn-box button.addImg {
+      border: 1px solid #1976d2;
+      color: #1976d2; }
+    .dialog-child .btn-box button.remoteImg {
+      border: 1px solid #dc3545;
+      color: #dc3545;
+      margin-right: 10px; }

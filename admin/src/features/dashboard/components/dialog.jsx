@@ -1,5 +1,5 @@
+import React,{useState,useEffect,useCallback} from 'react';
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle,TextareaAutosize, FormControl, FormControlLabel, FormLabel, Grid, Radio, RadioGroup } from '@mui/material';
-import React from 'react';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import FileBase64 from 'react-file-base64';
@@ -9,14 +9,48 @@ MenuDialog.propTypes = {
 };
 
 function MenuDialog(props) {
-    const [data,setData] = React.useState([])
-    React.useEffect(() => {
-        setData((props.productThis?props.productThis:""))
+    const [data,setData] = useState([])
+    const [imgProduct,setImgProduct] = useState([])
+    const [addFile, setAddFile] = useState([{src:"",name:""}])
+    
+    useEffect(() => {
+        setData((props.productThis?props.productThis:[]))
     }, [props.productThis])
-    const handleAddProduct = React.useCallback( (e) => {
+    useEffect(() => {
+        if(props.formmode){
+            setAddFile([{src:"",name:""}])
+        }else{
+            setAddFile(data.imgProduct?data.imgProduct:[])
+        }
+    }, [data])
+    const handleAddProduct = useCallback( (e) => {
         e.preventDefault();
-        props.newProduct(data);
-    }, [data]);
+        props.newProduct({data,addFile});
+    }, [data,addFile]);
+    // handle click event of the Remove button
+    const handleRemoveClick = index => {
+        const list = [...addFile];
+        list.splice(index, 1);
+        setAddFile(list);
+    };
+    
+    // handle click event of the Add button
+    const handleAddClick = () => {
+        setAddFile([...addFile, { src:""}]);
+    };
+    const handleInputChange = (e, index) => {
+        const { name, value } = e.target;
+        const list = [...addFile];
+        list[index][name] = value;
+        setAddFile(list);
+        console.log(addFile)
+      };
+      const handleChangeSrc = (base64, index) => {
+        const list = [...addFile];
+        list[index].src = base64;
+        setAddFile(list);
+        console.log(addFile)
+      };
     return (
         <Dialog
             fullWidth={true}
@@ -119,6 +153,39 @@ function MenuDialog(props) {
                                     onDone={({ base64 }) => setData({ ...data, img: base64 })}
                                 />
                             </div>
+                        </Grid>
+                        <Grid container xs={6} className="dialog-child">
+                            <label>Image Demo</label>
+                            {addFile.map((x, i) => (
+                                <div key={i} >
+                                    <TextField
+                                        className="nameImgDemo"
+                                        margin="normal"
+                                        width="200px!important"
+                                        required
+                                        fullWidth
+                                        id="name"
+                                        label="name"
+                                        name="name"
+                                        value={x.name}
+                                        onChange={e => handleInputChange(e, i)}
+                                    />
+                                    <div className="d-flex align-items-center">
+                                        <FileBase64
+                                            accept='image/*'
+                                            multiple={false}
+                                            type='file'
+                                            name='imgProduct'
+                                            value={x.src}
+                                            onDone={({ base64 }) => handleChangeSrc(base64, i)}
+                                        />
+                                        <div className="btn-box">
+                                            {addFile.length !== 1 && <button className="mr10 remoteImg" onClick={() => handleRemoveClick(i)}>-</button>}
+                                            {addFile.length - 1 === i && <button className="addImg" onClick={handleAddClick}>+</button>}
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
                         </Grid>
                     </DialogContent>
                     <DialogActions>

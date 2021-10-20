@@ -22,6 +22,7 @@ import MenuItem from '@mui/material/MenuItem';
 import MenuDialog from './components/dialog';
 import Button from '@mui/material/Button';
 import productApi from '../../api/productApi';
+import imgDemoApi from '../../api/imgDemoApi';
 import imgNotFound from "../../asset/image/image-not-found.jpg"
 import { ToastContainer, toast } from 'react-toastify';
 
@@ -88,7 +89,7 @@ function DashboardContent(props) {
         teamSize:"",
         link:"",
         img:"",
-        _id:""
+        imgProduct:[]
     })
 
     const getProduct = async()=>{
@@ -102,7 +103,15 @@ function DashboardContent(props) {
                 // setLoading(false)
                 console.log(productList)
             } catch (error) {
-                console.log("failed:",error)
+                toast.error(`${error.response.data.message}`, {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
             }
         })();
     }
@@ -110,7 +119,18 @@ function DashboardContent(props) {
         setOpen(!open);
     };
     const handleAdd=()=>{
-        setThisProduct()
+        setThisProduct({
+            name:"",
+            trailer:"",
+            decription:"",
+            reponsibility:"",
+            technologies:"",
+            year:"",
+            teamSize:"",
+            link:"",
+            img:"",
+            imgProduct:[]
+        })
         setOpenDialog(true)
         setFormMode(true)
     }
@@ -118,17 +138,20 @@ function DashboardContent(props) {
         setOpenDialog(false);
     }
     const handleEdit = (pro)=>{
-        setThisProduct({ 
-            name:pro.name,
-            trailer:pro.trailer,
-            decription:pro.decription,
-            reponsibility:pro.reponsibility,
-            technologies:pro.technologies,
-            year:pro.year,
-            teamSize:pro.teamSize,
-            link:pro.link,
-            img:pro.img,
-            _id:pro._id
+        (pro.imgProduct).map((p,index)=>{
+            setThisProduct({ 
+                name:pro.name,
+                trailer:pro.trailer,
+                decription:pro.decription,
+                reponsibility:pro.reponsibility,
+                technologies:pro.technologies,
+                year:pro.year,
+                teamSize:pro.teamSize,
+                link:pro.link,
+                img:pro.img,
+                _id:pro._id,
+                imgProduct:pro.imgProduct
+            })
         })
         setFormMode(false)
         setOpenDialog(true)
@@ -147,17 +170,26 @@ function DashboardContent(props) {
                 progress: undefined,
             });
         } catch (error) {
-            console.log("failed:",error)
+            toast.error(`${error.response.data.message}`, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
         }
     }
-    
     const callbackFunction = async (childData) => {
+        console.log(childData.data)
         try {
             if(formMode){
-                await productApi.createProduct(childData);
+                await productApi.createProduct(childData.data);
+                await imgDemoApi.createImgDemo(childData.addFile,childData.data.name);
                 getProduct()
                 setOpenDialog(false);
-                toast.success("successfully add", {
+                toast.success("add successfully", {
                     position: "top-right",
                     autoClose: 5000,
                     hideProgressBar: false,
@@ -170,7 +202,7 @@ function DashboardContent(props) {
                 await productApi.updateProduct(childData);
                 getProduct()
                 setOpenDialog(false);
-                toast.success("successfully add", {
+                toast.success("update successfully", {
                     position: "top-right",
                     autoClose: 5000,
                     hideProgressBar: false,
@@ -182,6 +214,15 @@ function DashboardContent(props) {
             }
         } catch (error) {
             console.log("failed:",error)
+            toast.error(`${error.response.data.message}`, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
         }
     }
 

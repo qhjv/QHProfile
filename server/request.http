@@ -1,15 +1,16 @@
-POST http://localhost:5000/api/product/update
+POST http://localhost:5000/api/imgdemo/
 Content-Type: application/json
 
 {
-    "_id":"616ac846ad115297b8c654eb",
-    "decription": "df wsdd ",
-    "img": "data:image/jpeg;base64,/9j/4gIcSUNDX1BST0ZJTEUAAQ",
-    "link": "fffff",
-    "name": "adas hihi",
-    "reponsibility": "fff",
-    "teamSize": "fff",
-    "technologies": "fff",
-    "trailer": "sdfcsdfc",
-    "year": "fff"
+    "name":"vinhlv@yopmail.com",
+    "data":[
+        {
+            "src":"123",
+            "name":"123"
+        },
+        {
+            "src":"123",
+            "name":"123"
+        }
+    ]
 }
