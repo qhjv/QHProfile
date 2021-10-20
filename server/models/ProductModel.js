@@ -40,6 +40,14 @@ const schema = new mongoose.Schema({
                 type: String,
             }
         }
+    ],
+    imgView:[
+        {
+            src:String,
+            name: {
+                type: String,
+            }
+        }
     ]
 },{ timestamps: true })
 

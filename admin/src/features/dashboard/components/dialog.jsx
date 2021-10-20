@@ -10,8 +10,8 @@ MenuDialog.propTypes = {
 
 function MenuDialog(props) {
     const [data,setData] = useState([])
-    const [imgProduct,setImgProduct] = useState([])
     const [addFile, setAddFile] = useState([{src:"",name:""}])
+    const [addFileImg, setAddFileImg] = useState([{src:"",name:""}])
     
     useEffect(() => {
         setData((props.productThis?props.productThis:[]))
@@ -19,14 +19,16 @@ function MenuDialog(props) {
     useEffect(() => {
         if(props.formmode){
             setAddFile([{src:"",name:""}])
+            setAddFileImg([{src:"",name:""}])
         }else{
             setAddFile(data.imgProduct?data.imgProduct:[])
+            setAddFileImg(data.imgView?data.imgView:[])
         }
     }, [data])
     const handleAddProduct = useCallback( (e) => {
         e.preventDefault();
-        props.newProduct({data,addFile});
-    }, [data,addFile]);
+        props.newProduct({data,addFile,addFileImg});
+    }, [data,addFile,addFileImg]);
     // handle click event of the Remove button
     const handleRemoveClick = index => {
         const list = [...addFile];
@@ -49,8 +51,32 @@ function MenuDialog(props) {
         const list = [...addFile];
         list[index].src = base64;
         setAddFile(list);
-        console.log(addFile)
       };
+
+      //imgview
+      // handle click event of the Remove button
+    const handleRemoveClickImg = index => {
+        const list = [...addFileImg];
+        list.splice(index, 1);
+        setAddFileImg(list);
+    };
+    
+    // handle click event of the Add button
+    const handleAddClickImg = () => {
+        setAddFileImg([...addFileImg, { src:""}]);
+    };
+    const handleInputChangeImg = (e, index) => {
+        const { name, value } = e.target;
+        const list = [...addFileImg];
+        list[index][name] = value;
+        setAddFileImg(list);
+        console.log(addFileImg)
+    };
+    const handleChangeSrcImg = (base64, index) => {
+        const list = [...addFileImg];
+        list[index].src = base64;
+        setAddFileImg(list);
+    };
     return (
         <Dialog
             fullWidth={true}
@@ -143,7 +169,7 @@ function MenuDialog(props) {
                                 onChange={(e) => setData({ ...data, link: e.target.value })}
                             />
                             <div className="d-flex flex-column">
-                                <label>Image</label>
+                                <label>Image </label>
                                 <FileBase64
                                     accept='image/*'
                                     multiple={false}
@@ -182,6 +208,37 @@ function MenuDialog(props) {
                                         <div className="btn-box">
                                             {addFile.length !== 1 && <button className="mr10 remoteImg" onClick={() => handleRemoveClick(i)}>-</button>}
                                             {addFile.length - 1 === i && <button className="addImg" onClick={handleAddClick}>+</button>}
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                             <label className="mt-5">Image View</label>
+                            {addFileImg.map((x, i) => (
+                                <div key={i} >
+                                    <TextField
+                                        className="nameImgDemo"
+                                        margin="normal"
+                                        width="200px!important"
+                                        required
+                                        fullWidth
+                                        id="name"
+                                        label="name"
+                                        name="name"
+                                        value={x.name}
+                                        onChange={e => handleInputChangeImg(e, i)}
+                                    />
+                                    <div className="d-flex align-items-center">
+                                        <FileBase64
+                                            accept='image/*'
+                                            multiple={false}
+                                            type='file'
+                                            name='imgProduct'
+                                            value={x.src}
+                                            onDone={({ base64 }) => handleChangeSrcImg(base64, i)}
+                                        />
+                                        <div className="btn-box">
+                                            {addFileImg.length !== 1 && <button className="mr10 remoteImg" onClick={() => handleRemoveClickImg(i)}>-</button>}
+                                            {addFileImg.length - 1 === i && <button className="addImg" onClick={handleAddClickImg}>+</button>}
                                         </div>
                                     </div>
                                 </div>

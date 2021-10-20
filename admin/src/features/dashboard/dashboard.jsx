@@ -25,6 +25,7 @@ import productApi from '../../api/productApi';
 import imgDemoApi from '../../api/imgDemoApi';
 import imgNotFound from "../../asset/image/image-not-found.jpg"
 import { ToastContainer, toast } from 'react-toastify';
+import imgViewApi from '../../api/imgViewApi';
 
 const drawerWidth = 240;
 
@@ -129,7 +130,8 @@ function DashboardContent(props) {
             teamSize:"",
             link:"",
             img:"",
-            imgProduct:[]
+            imgProduct:[],
+            imgView:[]
         })
         setOpenDialog(true)
         setFormMode(true)
@@ -150,7 +152,8 @@ function DashboardContent(props) {
                 link:pro.link,
                 img:pro.img,
                 _id:pro._id,
-                imgProduct:pro.imgProduct
+                imgProduct:pro.imgProduct,
+                imgView:pro.imgView
             })
         })
         setFormMode(false)
@@ -182,11 +185,11 @@ function DashboardContent(props) {
         }
     }
     const callbackFunction = async (childData) => {
-        console.log(childData.data)
         try {
             if(formMode){
                 await productApi.createProduct(childData.data);
                 await imgDemoApi.createImgDemo(childData.addFile,childData.data.name);
+                await imgViewApi.createImgView(childData.addFileImg,childData.data.name);
                 getProduct()
                 setOpenDialog(false);
                 toast.success("add successfully", {
@@ -200,6 +203,8 @@ function DashboardContent(props) {
                 });
             }else{
                 await productApi.updateProduct(childData);
+                await imgDemoApi.updateImgDemo(childData.addFile,childData.data.name);
+                await imgViewApi.updateImgView(childData.addFileImg,childData.data.name);
                 getProduct()
                 setOpenDialog(false);
                 toast.success("update successfully", {
@@ -272,10 +277,10 @@ function DashboardContent(props) {
             <Drawer variant="permanent" open={open}>
                 <Toolbar
                     sx={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'flex-end',
-                    px: [1],
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'flex-end',
+                        px: [1],
                     }}
                 >
                     <IconButton onClick={toggleDrawer}>
@@ -303,7 +308,7 @@ function DashboardContent(props) {
             <Toolbar />
             <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
                 <Grid container spacing={3}>
-                <Grid item xs={12}>
+                <Grid item={true} xs={12}>
                     <Paper
                         sx={{
                             p: 2,
@@ -312,7 +317,7 @@ function DashboardContent(props) {
                         className="paperProduct"
                     >
                         {(product ? product : []).map((pro,index)=>(
-                            <Grid item xs={3} key={index} className="paperProduct__grid">
+                            <Grid item={true} xs={3} key={index} className="paperProduct__grid">
                                 <Box
                                     sx={{
                                         boxShadow: 3,

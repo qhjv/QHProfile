@@ -2,16 +2,16 @@ import axiosClient from "./axiosClient";
 
 
 
-const imgDemoApi = {
-    createImgDemo(data,name){
-        const url = '/imgdemo';
+const imgViewApi = {
+    createImgView(data,name){
+        const url = '/imgview';
         return axiosClient.post(url ,{ data:data,name:name } )
     },
-    updateImgDemo(data,name){
-        const url = '/imgdemo/update';
+    updateImgView(data,name){
+        const url = '/imgview/update';
         return axiosClient.post(url , { data:data,name:name })
     },
     
 }
 
-export default imgDemoApi
+export default imgViewApi
