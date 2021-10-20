@@ -1,16 +1,16 @@
-POST http://localhost:5000/api/imgdemo/
+POST http://localhost:5000/api/imgview/update
 Content-Type: application/json
 
 {
-    "name":"vinhlv@yopmail.com",
+    "name":"skill park 4",
     "data":[
         {
-            "src":"123",
-            "name":"123"
+            "src":"1",
+            "name":"hihi"
         },
         {
-            "src":"123",
-            "name":"123"
+            "src":"hihi",
+            "name":"hihi"
         }
     ]
 }
