@@ -12,7 +12,14 @@ export const getProduct = async (req, res)=>{
 export const createProduct = async (req, res)=>{
     try {
         const newProduct = req.body;
+        const setName = req.body.name;
+        const name = await ProductModel.findOne({ setName })
 
+		// if (name){
+		// 	return res
+		// 		.status(400)
+		// 		.json({ success: false, message: 'Name already exists' })
+        // }
         const product = new ProductModel(newProduct);
         await product.save();
 

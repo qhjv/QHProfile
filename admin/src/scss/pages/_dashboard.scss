@@ -1,59 +1,88 @@
-.product{
-    &__name{
-        font-weight: 700;
-        font-size: 17px;
-        margin-bottom:5px
+.product {
+  &__name {
+    font-weight: 700;
+    font-size: 17px;
+    margin-bottom: 5px;
+  }
+  &__img {
+    width: 100%;
+    height: 85%;
+    z-index: 0;
+  }
+  .paperProduct {
+    flex-wrap: wrap;
+    &__grid {
     }
-    &__img{
-        width:100%;
-        height:85%;
-        z-index: 0;
+  }
+  &__more {
+    position: relative;
+    cursor: pointer;
+    color: #999;
+    z-index: 2;
+    &:hover {
+      color: #000;
+      .updateDelete {
+        display: block;
+      }
     }
-    .paperProduct{
-        flex-wrap:wrap;
-        &__grid{
-        }
-    }
-    &__more{
-        position:relative;
-        cursor:pointer;
-        color: #999;
-        z-index:2;
-        &:hover{
-            color: #000;
-            .updateDelete{
-                display:block
-            }
-        }
-        .updateDelete{
-            position:absolute;
-            top:22px;
-            right:0;
-            background:#fff;
-            border-radius: 5px;
-            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-            display:none;
-            &::before{
-                position:absolute;
-                content:"";
-                width:100%;
-                height:20px;
-                top:-17px
-            }
-        }
-    }
-    .button-logout{
+    .updateDelete {
+      position: absolute;
+      top: 22px;
+      right: 0;
+      background: #fff;
+      border-radius: 5px;
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+      display: none;
+      &::before {
         position: absolute;
-        bottom: 20px;
-        left: 0;
-        left: 50%;
-        width: 80%;
-        transform: translateX(-50%);
+        content: "";
+        width: 100%;
+        height: 20px;
+        top: -17px;
+      }
     }
+  }
+  .button-logout {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    left: 50%;
+    width: 80%;
+    transform: translateX(-50%);
+  }
 }
-.css-twia2z-MuiPaper-root-MuiDialog-paper{
-    max-width:100%!important
+.css-twia2z-MuiPaper-root-MuiDialog-paper {
+    max-width: 100% !important;
 }
-.dialog-child{
-    padding:20px
+label{
+    font-size: 20px;
+    font-weight: 500;
+}
+.dialog-child {
+    padding: 20px;
+    flex-direction: column!important;
+    .nameImgDemo {
+        width: 200px !important;
+    }
+    .btn-box{
+        display: flex;
+        button{
+            width: 50px;
+            height: 30px;
+            background: none;
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        button.addImg {
+            border: 1px solid #1976d2;
+            color: #1976d2;
+        }
+        button.remoteImg {
+            border: 1px solid #dc3545;
+            color: #dc3545;
+            margin-right: 10px;
+        }
+    }
 }

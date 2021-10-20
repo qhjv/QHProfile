@@ -4,6 +4,7 @@ const schema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
+        unique: true
     },
     trailer: {
         type: String,
@@ -32,6 +33,14 @@ const schema = new mongoose.Schema({
         type: String,
     },
     img:String,
+    imgProduct:[
+        {
+            src:String,
+            name: {
+                type: String,
+            }
+        }
+    ]
 },{ timestamps: true })
 
 export const ProductModel = mongoose.model('Product', schema);
