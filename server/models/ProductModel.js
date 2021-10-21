@@ -1,4 +1,12 @@
 import mongoose from 'mongoose';
+import AutoIncrementFactory from 'mongoose-sequence';
+import dotenv from 'dotenv'
+
+dotenv.config();
+const URI = process.env.DATABASE_URL;
+const connection = await mongoose.createConnection(URI);
+
+const AutoIncrement = AutoIncrementFactory(connection);
 
 const schema = new mongoose.Schema({
     name: {
@@ -50,5 +58,7 @@ const schema = new mongoose.Schema({
         }
     ]
 },{ timestamps: true })
+
+schema.plugin(AutoIncrement, {inc_field: 'id'});
 
 export const ProductModel = mongoose.model('Product', schema);

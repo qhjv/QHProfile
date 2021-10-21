@@ -1,3 +1,5 @@
+import axiosClient from "./axiosClient";
+
 //Image qh movie
 import imgQHMovie from '../asset/image/products/booking-movie/background.jpg'
 import imgQHMovieDesign from '../asset/image/products/booking-movie/design.png'
@@ -145,54 +147,44 @@ export const products = [
         link:"http://hfgedigjhfdkjgh.vn/",
         imgProduct : [
             {
-                id:1,
                 src:`${imgQHMovieDesign}`,
                 name:"Design"
             },
             {
-                id:2,
                 src:`${imgQHMovieSignin1}`,
                 name:"Signin"
             },
             {
-                id:3,
                 src:`${imgQHMovieSignin2}`,
                 name:"Signin"
             },
             {
-                id:4,
                 src:`${imgQHMovieRegister}`,
                 name:"register"
             },
             {
-                id:5,
                 src:`${imgQHMovieList}`,
                 name:"movie"
             },
         ],
         imgView: [
             {
-                id:1,
                 src:`${imgQHMovieTopPage}`,
                 name:"top page"
             },
             {
-                id:2,
                 src:`${imgQHMovieChooseTheater}`,
                 name:"choose theater"
             },
             {
-                id:3,
                 src:`${imgQHMovieInfo}`,
                 name:"Movie information"
             },
             {
-                id:4,
                 src:`${imgQHMovieRoom}`,
                 name:"seat reservation room"
             },
             {
-                id:5,
                 src:`${imgQHMovieHistory}`,
                 name:"booking history"
             },
@@ -439,3 +431,11 @@ export const products = [
         ],
     },
 ]
+const productApi = {
+    getAllProduct(params){
+        const url = '/product';
+        return axiosClient.get(url , { params: params } )
+    },
+}
+
+export default productApi

@@ -4,12 +4,12 @@ const product = createSlice({
     name:'product',
     initialState:"",
     reducers:{
-        productApi:(state,action)=>{
+        setProductApi:(state,action)=>{
             state=action.payload
             return state
     },
     }
 })
 const { reducer,actions } =product
-export const { productApi } = actions
+export const { setProductApi } = actions
 export default reducer;

@@ -94,7 +94,9 @@ label {
 .product__img {
   width: 100%;
   height: 85%;
-  z-index: 0; }
+  z-index: 0;
+  object-fit: cover;
+  image-rendering: -webkit-optimize-contrast; }
 
 .product .paperProduct {
   flex-wrap: wrap; }
@@ -143,6 +145,8 @@ label {
   flex-direction: column !important; }
   .dialog-child .nameImgDemo {
     width: 200px !important; }
+  .dialog-child .textarea {
+    padding: 10px; }
   .dialog-child .btn-box {
     display: flex; }
     .dialog-child .btn-box button {

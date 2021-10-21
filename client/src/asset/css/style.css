@@ -398,7 +398,7 @@ h1, h2, h3 {
       top: 8vw;
       right: 15vw;
       pointer-events: visible;
-      opacity: 0.3;
+      opacity: 0.15;
       transition: 0.2s; }
       .more__div .brand .icon-circle {
         width: 4vw;

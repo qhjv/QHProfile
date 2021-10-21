@@ -14,7 +14,9 @@ export const createProduct = async (req, res)=>{
         const newProduct = req.body;
         const setName = req.body.name;
         const name = await ProductModel.findOne({ setName })
-
+        // ProductModel.counterReset('id', function(err) {
+        //     // Now the counter is 0
+        // });
 		// if (name){
 		// 	return res
 		// 		.status(400)
