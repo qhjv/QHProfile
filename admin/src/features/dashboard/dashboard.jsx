@@ -202,7 +202,7 @@ function DashboardContent(props) {
                     progress: undefined,
                 });
             }else{
-                await productApi.updateProduct(childData);
+                await productApi.updateProduct(childData.data);
                 await imgDemoApi.updateImgDemo(childData.addFile,childData.data.name);
                 await imgViewApi.updateImgView(childData.addFileImg,childData.data.name);
                 getProduct()
