@@ -14,13 +14,14 @@ import Preloader from './components/preloader/preloader';
 import { useDispatch, useSelector } from 'react-redux';
 import Router from './router/router';
 import More from './components/more';
-import {products} from './api/productApi'
-import { productApi } from './features/products/productSlice';
+import { setProductApi } from './features/products/productSlice';
+import productApi from './api/productApi';
 
 function App() {
   const loaded = useSelector(state=>state.loaded)
   const [mobile,setMobile] = useState(false)
   const dispatch = useDispatch()
+
   const handleClickBlur = () => {
     $(".header-logo").removeClass("transform-left");
     $(".footer-socials").removeClass("transform-left");
@@ -31,10 +32,21 @@ function App() {
     $('.spanSlow').removeClass('no-trans')
     $("body").removeClass('overflow-hidden');
   }
+
+  const getProductApi = async()=>{
+    (async () => {
+        try {
+            const productList = await productApi.getAllProduct();
+            const action = setProductApi(productList)
+            dispatch(action)
+            console.log(productList)
+        } catch (error) {
+            console.log(error)
+        }
+    })();
+  }
   useEffect(() => {
-      //push store redux
-      const action = productApi(products)
-      dispatch(action)
+    getProductApi()
   }, [])
       
   if(loaded === true){

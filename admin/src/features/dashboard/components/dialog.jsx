@@ -45,7 +45,6 @@ function MenuDialog(props) {
         const list = [...addFile];
         list[index][name] = value;
         setAddFile(list);
-        console.log(addFile)
       };
       const handleChangeSrc = (base64, index) => {
         const list = [...addFile];
@@ -70,7 +69,6 @@ function MenuDialog(props) {
         const list = [...addFileImg];
         list[index][name] = value;
         setAddFileImg(list);
-        console.log(addFileImg)
     };
     const handleChangeSrcImg = (base64, index) => {
         const list = [...addFileImg];
@@ -108,7 +106,8 @@ function MenuDialog(props) {
                                 value={data.trailer}
                                 onChange={(e) => setData({ ...data, trailer: e.target.value })}
                             />
-                            <TextField
+                            <TextareaAutosize
+                                className="textarea"
                                 margin="normal"
                                 required
                                 fullWidth
@@ -116,6 +115,7 @@ function MenuDialog(props) {
                                 label="decription"
                                 name="decription"
                                 value={data.decription}
+                                placeholder="decription"
                                 onChange={(e) => setData({ ...data, decription: e.target.value })}
                             />
                             <TextField

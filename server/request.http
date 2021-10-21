@@ -1,16 +1,7 @@
-POST http://localhost:5000/api/imgview/update
+POST http://localhost:5000/api/admin/
 Content-Type: application/json
 
 {
-    "name":"skill park 4",
-    "data":[
-        {
-            "src":"1",
-            "name":"hihi"
-        },
-        {
-            "src":"hihi",
-            "name":"hihi"
-        }
-    ]
+    "username": "admin",
+    "password": "123456"
 }

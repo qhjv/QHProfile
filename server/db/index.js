@@ -1,9 +1,11 @@
 import mongoose from 'mongoose';
+import dotenv from 'dotenv'
 
+dotenv.config();
+const URI = process.env.DATABASE_URL;
 export async function connect () {
-
     try {
-        await mongoose.connect('mongodb://127.0.0.1:27017/qhjv_portpolio', {
+        await mongoose.connect(URI, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
             // useFindAndModify: false,
