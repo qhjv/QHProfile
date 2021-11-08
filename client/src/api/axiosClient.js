@@ -2,7 +2,7 @@ import axios from 'axios';
 import {apiUrl} from '../constants/index'
 
 const axiosClient = axios.create({
-  baseURL: "https://qhjv-portfolio.herokuapp.com/api",
+  baseURL: `${apiUrl}`,
   headers: {
     'Content-Type': 'application/json',
   },
