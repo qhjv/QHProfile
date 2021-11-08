@@ -15,7 +15,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import Router from './router/router';
 import More from './components/more';
 import { setProductApi } from './features/products/productSlice';
-import productApi from './api/productApi';
+// import productApi from './api/productApi';
+import {products} from './api/productApi';
 
 function App() {
   const loaded = useSelector(state=>state.loaded)
@@ -32,14 +33,12 @@ function App() {
     $('.spanSlow').removeClass('no-trans')
     $("body").removeClass('overflow-hidden');
   }
-
   const getProductApi = async()=>{
     (async () => {
         try {
-            const productList = await productApi.getAllProduct();
-            const action = setProductApi(productList)
+            // const productList = await productApi.getAllProduct();
+            const action = setProductApi(products)
             dispatch(action)
-            console.log(productList)
         } catch (error) {
             console.log(error)
         }
@@ -47,6 +46,8 @@ function App() {
   }
   useEffect(() => {
     getProductApi()
+    // const action = setProductApi(products)
+    // dispatch(action)
   }, [])
       
   if(loaded === true){
