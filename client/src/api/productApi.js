@@ -41,14 +41,6 @@ import imgNhaGoCafeDesign from '../asset/image/products/nhago-Cafe/design.png'
 import imgNhaGoCafeMenu from '../asset/image/products/nhago-Cafe/menu.png'
 import imgNhaGoCafePage from '../asset/image/products/nhago-Cafe/page.png'
 
-//Image QH gara
-
-import imgQHGara from '../asset/image/products/qh-gara/background.jpg'
-import imgQHGaraDesign from '../asset/image/products/qh-gara/design.png'
-import imgQHGaraLoading from '../asset/image/products/qh-gara/loading.png'
-import imgQHGaraPrice from '../asset/image/products/qh-gara/price.png'
-import imgQHGaraPage from '../asset/image/products/qh-gara/page.png'
-
 //Image Employee Management
 
 import imgEmployee from '../asset/image/products/employee-management/background.jpg'
@@ -67,6 +59,12 @@ import imgEmployeeEmployeePage from '../asset/image/products/employee-management
 import imgEmployeeempViewProduct from '../asset/image/products/employee-management/empViewProduct.png'
 import imgEmployeeempAddLeave from '../asset/image/products/employee-management/empAddLeave.png'
 
+//Image Ipod Demo
+
+import imgIpod from '../asset/image/products/ipod-demo/background.jpg'
+import imgIpodMusic from '../asset/image/products/ipod-demo/music.png'
+import imgIpodPage from '../asset/image/products/ipod-demo/page.png'
+
 //Image profile
 
 import imgProfile from '../asset/image/products/profile-first/background.jpg'
@@ -78,14 +76,14 @@ export const products = [
     {   
         id:1,
         name:"skill park",
-        trailer:"https://www.youtube.com/embed/_8ldAdQd9WU",
+        trailer:"https://www.youtube.com/embed/123",
         decription:"Skill park was released by Wakasa company on September 1, 2021, it is a website to search for freelance jobs according to your experience, you can add your experience and skills to your profile to find a job. suitable . You can also see the experience of the seniors, the attractive reward system, or you can post a job search, ...",
         reponsibility:"Front-end Developer Leader",
         technologies:"Vuejs, php, laravel, blade, mysql, scss, jquery, bootstrap",
         year:"2021",
         teamSize:"4 member",
         img:`${imgSkillPark}`,
-        link:"http://hfgedigjhfdkjgh.vn/",
+        link:"https://skillpark.wakasa.jp/",
         imgProduct : [
 
             {
@@ -135,7 +133,7 @@ export const products = [
     {   
         id:2,
         name:"QH movie",
-        trailer:"https://www.youtube.com/embed/_8ldAdQd9WU",
+        trailer:"https://www.youtube.com/embed/sr0aDh-ssWo",
         decription:"QH Movie is a website to book movie tickets according to the list of cinemas, theater addresses and specific times. You can view movie information , seats , prices and payment options on the page . With a beautiful, easy and simple interface, you will have a pleasant experience",
         reponsibility:"Developer , UI Designer",
         technologies:"Reactjs, redux, axios, jquery, bootstrap, css ...",
@@ -191,14 +189,14 @@ export const products = [
     {   
         id:3,
         name:"Admin candidates",
-        trailer:"https://www.youtube.com/embed/_8ldAdQd9WU",
+        trailer:"https://www.youtube.com/embed/02yj1QnhTgI",
         decription:"Admin candidates is a website that manages candidates applying for different job positions. This website helps recruiters easily manage candidates, easily search by name, job position, add new, edit and delete candidates, filter candidates by favorite, by date submit applications , ... recruiters can also track the aggregated list of the number of candidates compared to the number of each position being recruited . We will develop more features of messaging with candidates , contacting or adding more details about candidates , cv , salary offer in the future",
         reponsibility:"Developer",
         technologies:"Reactjs, redux, firebase, material, jquery, bootstrap, css ...",
         year:"2020",
         teamSize:"1 member",
         img:`${imgAdminCandidates}`,
-        link:"http://hfgedigjhfdkjgh.vn/",
+        link:"https://admin-reactjs.vercel.app/",
         imgProduct : [
             {
                 id:1,
@@ -242,14 +240,14 @@ export const products = [
     {   
         id:4,
         name:"Nha go coffee",
-        trailer:"https://www.youtube.com/embed/_8ldAdQd9WU",
+        trailer:"https://www.youtube.com/embed/YKa3F5WRr7M",
         decription:"The landing page introduces a cafe with a nice view, quiet, suitable for you to work, relax after a hard day, you can follow the menu of drinks and ready-to-eat food, make reservations according to the number of people, time , ...",
         reponsibility:"Developer, Designer",
         technologies:"Nodejs, javascript, gsap, jquery, bootstrap, css ...",
         year:"2020",
         teamSize:"1 member",
         img:`${imgNhaGoCafe}`,
-        link:"http://hfgedigjhfdkjgh.vn/",
+        link:"https://qhjv.github.io/cafeOnepage/",
         imgProduct : [
             {
                 id:1,
@@ -277,44 +275,8 @@ export const products = [
     },
     {   
         id:5,
-        name:"QH Gara",
-        trailer:"https://www.youtube.com/embed/_8ldAdQd9WU",
-        decription:"This website will help you to know the information about QH Gara, an extremely prestigious and quality garage. You can view the working process , repair price list , reviews , contact . You can also book an appointment for car repair right on the website",
-        reponsibility:"Developer , Designer",
-        technologies:"Tailwind css, nodejs, mongoDB, rectjs, gsap, jquery, scss ...",
-        year:"2020",
-        teamSize:"1 member",
-        img:`${imgQHGara}`,
-        link:"http://hfgedigjhfdkjgh.vn/",
-        imgProduct : [
-            {
-                id:1,
-                src:`${imgQHGaraDesign}`,
-                name:"Design"
-            },
-            {
-                id:2,
-                src:`${imgQHGaraLoading}`,
-                name:"Loading"
-            },
-            {
-                id:3,
-                src:`${imgQHGaraPrice}`,
-                name:"Price"
-            },
-        ],
-        imgView: [
-            {
-                id:1,
-                src:`${imgQHGaraPage}`,
-                name:"QHGara Page"
-            },
-        ],
-    },
-    {   
-        id:6,
         name:"Employee Management",
-        trailer:"https://www.youtube.com/embed/_8ldAdQd9WU",
+        trailer:"https://www.youtube.com/embed/nQ7I1SpXu9s",
         decription:"Website for employees and managers. Managers can add, edit and delete employees, create projects for employees and track projects, track salaries and increase salaries for employees, accept leave applications. Employees can view profile , track their rankings , projects , and leave applications",
         reponsibility:"Developer , Designer",
         technologies:"PHP, mysql, lavarel, javascript, css ...",
@@ -398,16 +360,47 @@ export const products = [
         ],
     },
     {   
+        id:6,
+        name:"Ipod demo",
+        trailer:"https://www.youtube.com/embed/UcUB2v05jPU",
+        decription:"This is my first website for practicing theory lessons. and i chose to make a music player , designed to look like the ipod classic . It helps me improve my javascript skills and it's also fun, quite interesting, isn't it?",
+        reponsibility:"Developer",
+        technologies:"Javascript, css ",
+        year:"2020",
+        teamSize:"1 member",
+        img:`${imgIpod}`,
+        link:"https://qhjv.github.io/ipodDemo/",
+        imgProduct : [
+            {
+                id:1,
+                src:`${imgIpodMusic}`,
+                name:"Music"
+            },
+            {
+                id:1,
+                src:`${imgIpodPage}`,
+                name:"Design"
+            },
+        ],
+        imgView: [
+            {
+                id:1,
+                src:`${imgIpodPage}`,
+                name:"Ipod demo"
+            },
+        ],
+    },
+    {   
         id:7,
         name:"My profile",
-        trailer:"https://www.youtube.com/embed/_8ldAdQd9WU",
+        trailer:"https://www.youtube.com/embed/QBiF7fHvSR8",
         decription:"This is my first website , it introduces me , information , education and experience so that i can apply for an internship . Pretty simple isn't it, that's my first step towards becoming a web developer",
         reponsibility:"Developer , Designer",
         technologies:"Javascript, css ",
         year:"2020",
         teamSize:"1 member",
         img:`${imgProfile}`,
-        link:"http://hfgedigjhfdkjgh.vn/",
+        link:"https://qhjv.github.io/quanghuy/",
         imgProduct : [
             {
                 id:1,
