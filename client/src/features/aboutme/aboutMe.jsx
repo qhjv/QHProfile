@@ -136,7 +136,7 @@ function AboutMe(props) {
                             I always want to learn more from experience and use my creativity to create good products. And I want to be a professional Web developer.
                             <br></br>Thank you for reading .</p></h3>
                     </div>
-                    <a rel="noopener noreferrer" href="#top">
+                    <a href={cvPDF}>
                         <div className="about-info__button hover-cursor">
                             <i className="fas fa-download"></i>
                             Download CV
