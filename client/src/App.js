@@ -75,11 +75,11 @@ function App() {
       <div className="App">
           <Noise></Noise>
           <Cursor></Cursor>
-//           {mobile===true?(
-//             <></>
-//             ):(
-//             <More></More>
-//           )}
+          /*{mobile===true?(
+            <></>
+            ):(
+            <More></More>
+          )}*/
           <Header></Header>
           <Menu></Menu>
           <Loading></Loading>
