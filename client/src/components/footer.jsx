@@ -34,7 +34,7 @@ function Footer(props) {
                             </a>
                         </div>
                         <div className="footer-socials__github" ref={el => link3 = el}>
-                            <a className="hover-cursor" href="#top" target="_blank">
+                            <a className="hover-cursor" href="https://github.com/qhjv" target="_blank">
                                 <i className="fab fa-github-square"></i>
                             </a>
                         </div>
