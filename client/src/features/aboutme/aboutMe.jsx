@@ -220,7 +220,7 @@ function AboutMe(props) {
                         </div>
                         <div className="experience d-flex">
                             <div className="experience__line"></div>
-                            <div className="experience__date hover-cursor">08/2021 - present</div>
+                            <div className="experience__date hover-cursor">07/2021 - 10/2021</div>
                             <div className="experience__span hover-cursor"></div>
                             <div className="experience-company">
                                 <div className="experience-company__name">
