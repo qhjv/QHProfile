@@ -150,10 +150,10 @@ function AboutMe(props) {
                     </div>
                     <div className="about-content about-skill">
                         <h3><p>Front-end : HTML / CSS / SCSS / JAVASCRIPT .</p></h3>
-                        <h3><p>Framework/Library : BOOTSTRAP / TAILWIND CSS / JQUERY / REACT JS .</p></h3>
+                        <h3><p>Framework/Library : BOOTSTRAP / TAILWIND CSS / JQUERY / REACT JS / VUE JS .</p></h3>
                         <h3><p>UI Design : ADOBE XD / FIGMA / PHOTOSHOP / IIIUSTRATOR .</p></h3>
                         {/* <h3><p>Database : MY SQL / MONGODB .</p></h3> */}
-                        <h3><p>Other : NODE JS / MY SQL / MONGODB / GIT / LINUX / NETWORKING / ... .</p></h3>
+                        <h3><p>Other : NODE JS / PHP / MY SQL / MONGODB / GIT / LINUX / NETWORKING / ... .</p></h3>
                     </div>
 
                 </div>
