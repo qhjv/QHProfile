@@ -136,7 +136,7 @@ function AboutMe(props) {
                             I always want to learn more from experience and use my creativity to create good products. And I want to be a professional Web developer.
                             <br></br>Thank you for reading .</p></h3>
                     </div>
-                    <a href={cvPDF} target="_blank">
+                    <a href="#" target="_blank">
                         <div className="about-info__button hover-cursor">
                             <i className="fas fa-download"></i>
                             Download CV
@@ -150,11 +150,6 @@ function AboutMe(props) {
                     </div>
                     <div className="about-content about-skill">
                         <h3><p>FULLSTACK DEVELOP.</p></h3>
-//                         <h3><p>Front-end : HTML / CSS / SCSS / JAVASCRIPT .</p></h3>
-//                         <h3><p>Framework/Library : BOOTSTRAP / TAILWIND CSS / JQUERY / NUXT JS / REACT JS / VUE JS .</p></h3>
-//                         <h3><p>UI Design : ADOBE XD / FIGMA / PHOTOSHOP / IIIUSTRATOR .</p></h3>
-//                         {/* <h3><p>Database : MY SQL / MONGODB .</p></h3> */}
-//                         <h3><p>Other : NODE JS / PHP / MY SQL / MONGODB / GIT / LINUX / NETWORKING / ... .</p></h3>
                     </div>
 
                 </div>
@@ -193,7 +188,6 @@ function AboutMe(props) {
                             <div className="experience__span hover-cursor"></div>
                             <div className="experience-company">
                                 <div className="experience-company__name">
-//                                     <h3 className="hover-cursor">DEHA Software</h3>
                                     <h3 className="hover-cursor">XXXX XXXXXXXX</h3>
                                 </div>
                                 <div className="experience-company__detail">
