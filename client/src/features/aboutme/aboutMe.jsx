@@ -149,11 +149,12 @@ function AboutMe(props) {
                         <h2 className="hover-cursor">SKILLS</h2>
                     </div>
                     <div className="about-content about-skill">
-                        <h3><p>Front-end : HTML / CSS / SCSS / JAVASCRIPT .</p></h3>
-                        <h3><p>Framework/Library : BOOTSTRAP / TAILWIND CSS / JQUERY / NUXT JS / REACT JS / VUE JS .</p></h3>
-                        <h3><p>UI Design : ADOBE XD / FIGMA / PHOTOSHOP / IIIUSTRATOR .</p></h3>
-                        {/* <h3><p>Database : MY SQL / MONGODB .</p></h3> */}
-                        <h3><p>Other : NODE JS / PHP / MY SQL / MONGODB / GIT / LINUX / NETWORKING / ... .</p></h3>
+                        <h3><p>FULLSTACK DEVELOP.</p></h3>
+//                         <h3><p>Front-end : HTML / CSS / SCSS / JAVASCRIPT .</p></h3>
+//                         <h3><p>Framework/Library : BOOTSTRAP / TAILWIND CSS / JQUERY / NUXT JS / REACT JS / VUE JS .</p></h3>
+//                         <h3><p>UI Design : ADOBE XD / FIGMA / PHOTOSHOP / IIIUSTRATOR .</p></h3>
+//                         {/* <h3><p>Database : MY SQL / MONGODB .</p></h3> */}
+//                         <h3><p>Other : NODE JS / PHP / MY SQL / MONGODB / GIT / LINUX / NETWORKING / ... .</p></h3>
                     </div>
 
                 </div>
@@ -192,7 +193,8 @@ function AboutMe(props) {
                             <div className="experience__span hover-cursor"></div>
                             <div className="experience-company">
                                 <div className="experience-company__name">
-                                    <h3 className="hover-cursor">DEHA Software</h3>
+//                                     <h3 className="hover-cursor">DEHA Software</h3>
+                                    <h3 className="hover-cursor">XXXX XXXXXXXX</h3>
                                 </div>
                                 <div className="experience-company__detail">
                                     <p>Position : Full-stack Developer Intern.</p>
@@ -208,7 +210,7 @@ function AboutMe(props) {
                             <div className="experience__span hover-cursor"></div>
                             <div className="experience-company">
                                 <div className="experience-company__name">
-                                    <h3 className="hover-cursor">FPT Software</h3>
+                                    <h3 className="hover-cursor">XXX XXXXXXXX</h3>
                                 </div>
                                 <div className="experience-company__detail">
                                     <p>Position: Front-end Developer Intern.</p>
@@ -224,10 +226,25 @@ function AboutMe(props) {
                             <div className="experience__span hover-cursor"></div>
                             <div className="experience-company">
                                 <div className="experience-company__name">
-                                    <h3 className="hover-cursor">NETKO Company</h3>
+                                    <h3 className="hover-cursor">XXXXX XXXXXXX</h3>
                                 </div>
                                 <div className="experience-company__detail">
                                     <p>Position: Full-stack Developer</p>
+                                    <p>Experience : Being involved in a professional working environment, 
+                                        it helps me to learn a lot of knowledge and experience for programming.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="experience d-flex">
+                            <div className="experience__line"></div>
+                            <div className="experience__date hover-cursor">10/2021 - present</div>
+                            <div className="experience__span hover-cursor"></div>
+                            <div className="experience-company">
+                                <div className="experience-company__name">
+                                    <h3 className="hover-cursor">XXXX</h3>
+                                </div>
+                                <div className="experience-company__detail">
+                                    <p>Position: Web Engineer</p>
                                     <p>Experience : Participated in many large scale projects. Since then, I have 
                                         gained more experience and knowledge to apply in my future work in the 
                                         field of web programming</p>
