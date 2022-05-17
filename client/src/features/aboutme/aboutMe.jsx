@@ -137,13 +137,12 @@ function AboutMe(props) {
                             <br></br>Thank you for reading .</p></h3>
                     </div>
                      /*<a href="#" target="_blank">*/
-                       <a href="#">
+                    <a href="#">
                         <div className="about-info__button hover-cursor">
                             <i className="fas fa-download"></i>
                             Download CV
                         </div>
                     </a>
-
                 </div>
                 <div className="about-div about-skills">
                     <div className="title-about about-skills__title">
