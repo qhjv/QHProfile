@@ -136,7 +136,8 @@ function AboutMe(props) {
                             I always want to learn more from experience and use my creativity to create good products. And I want to be a professional Web developer.
                             <br></br>Thank you for reading .</p></h3>
                     </div>
-                    <a href="#" target="_blank">
+                     /*<a href="#" target="_blank">*/
+                       <a href="#">
                         <div className="about-info__button hover-cursor">
                             <i className="fas fa-download"></i>
                             Download CV
@@ -150,11 +151,11 @@ function AboutMe(props) {
                     </div>
                     <div className="about-content about-skill">
                         <h3><p>HTML / CSS .</p></h3>
-//                         <h3><p>Front-end : HTML / CSS / SCSS / JAVASCRIPT .</p></h3>
-//                         <h3><p>Framework/Library : VUE JS / REACT JS / NUXT JS / TAILWIND CSS / BOOTSTRAP / JQUERY .</p></h3>
-//                         <h3><p>UI Design : ADOBE XD / FIGMA / PHOTOSHOP / IIIUSTRATOR .</p></h3>
-//                         <h3><p>Database : MY SQL / MONGODB .</p></h3> 
-//                         <h3><p>Other : NODE JS / PHP / ANT DESIGN / MATERIAL UI / GIT / LINUX / NETWORKING / ... .</p></h3>
+                         /*<h3><p>Front-end : HTML / CSS / SCSS / JAVASCRIPT .</p></h3>
+                         <h3><p>Framework/Library : VUE JS / REACT JS / NUXT JS / TAILWIND CSS / BOOTSTRAP / JQUERY .</p></h3>
+                         <h3><p>UI Design : ADOBE XD / FIGMA / PHOTOSHOP / IIIUSTRATOR .</p></h3>
+                         <h3><p>Database : MY SQL / MONGODB .</p></h3> 
+                         <h3><p>Other : NODE JS / PHP / ANT DESIGN / MATERIAL UI / GIT / LINUX / NETWORKING / ... .</p></h3>*/
                     </div>
 
                 </div>
